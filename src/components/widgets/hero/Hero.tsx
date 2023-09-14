@@ -1,0 +1,95 @@
+import { Badge } from "@/components/ui/badge";
+import TitleSubtitle from "@/components/helpers/TitleSubtitle";
+import Link from "next/link";
+import React from "react";
+
+interface HeroProps {
+  title: string;
+  subtitle: string;
+  children: React.ReactNode;
+  badge?: string;
+  video?: string;
+}
+
+const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
+  return (
+    <div className="bg-gradient-to-b from-secondary-800 to-secondary-950">
+      <div className="bg-[url('/imgs/hero-illustration.svg')] bg-no-repeat bg-[center_top] bg-cover">
+        <div className="container">
+          <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4 ">
+            <div className="sm:py-24 lg:py-32 py-20">
+              {badge && (
+                <Badge
+                  className="bg-primary-800 text-white hover:text-white hover:bg-primary-800 px-2 py-1"
+                  data-aos="zoom-out"
+                >
+                  {badge}
+                </Badge>
+              )}
+
+              <h1
+                className="font-extrabold text-4xl md:text-5xl lg:text-6xl tracking-tight pt-5 text-primary-50 "
+                data-aos="zoom-out"
+              >
+                {title}
+              </h1>
+              <p
+                className="mt-6 mb-10 text-1xl max-w-3xl mx-auto text-primary-50/70 "
+                data-aos="zoom-out"
+                data-aos-delay="100"
+              >
+                {subtitle}
+              </p>
+
+              <div className="mt-6" data-aos="zoom-out" data-aos-delay="300">
+                {children}
+              </div>
+            </div>
+            {/* {video && (
+            <div
+              className="flex justify-center items-center pb-10"
+              data-aos="zoom-out"
+              data-aos-delay="100"
+            >
+              <iframe
+                className="rounded-lg overflow-hidden w-full h-96"
+                title="2"
+                // width='100%'
+                // height='300px'
+                src={video}
+                frameBorder={0}
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          )} */}
+          </div>
+        </div>
+
+        <div
+          className="flex justify-center pb-10"
+          data-aos="zoom-out"
+          data-aos-delay="400"
+        >
+          <Link href={"#features"}>
+            <div className="animate-bounce bg-primary-950 p-2 w-10 h-10 ring-2 ring-primary-100/50 shadow-lg rounded-full flex items-center justify-center">
+              <svg
+                className="w-6 h-6 text-primary-200"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </div>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
