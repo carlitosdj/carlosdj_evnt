@@ -28,6 +28,8 @@ const Subscribe = () => {
   let { list, ad } = params;
   if (!ad) ad = "default";
 
+  console.log("me", me)
+
   useEffect(() => {
     //document.title = "Participe";
     dispatch(loadComponentByDescriptionRequest(list.toString()));
@@ -47,8 +49,8 @@ const Subscribe = () => {
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;
 
-  if (me.me.id && me.me.email && me.me.profile?.whatsapp) {
-    router.push(`/sales/checkout/data/${list}/${me.me.email}`);
+  if (me.me.id && me.me.email && me.me.whatsapp) {
+    router.push(`/sale/checkout/data/${list}/${me.me.email}`);
     //window.location.href = page_checkout!
   }
 

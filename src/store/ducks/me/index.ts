@@ -38,7 +38,7 @@ const reducer: Reducer<MeState> = (state = INITIAL_STATE, action) => {
     case MeTypes.LOAD_USERBYEMAIL_SUCCESS:
       return {...state, loading: false, error: false, logged: false, me: action.payload.data}
     case MeTypes.LOAD_USERBYEMAIL_FAILURE:
-      return {...state, loading: false, error: true, me: {}}
+      return {...state, loading: false, error: action.payload, me: {}}
 
 
     //Create
@@ -47,7 +47,7 @@ const reducer: Reducer<MeState> = (state = INITIAL_STATE, action) => {
     case MeTypes.CREATE_USER_SUCCESS:
       return {...state, loading: false, error: false, me: action.payload.data}
     case MeTypes.CREATE_USER_FAILURE:
-      return {...state, loading: false, error: true, me: {}}
+      return {...state, loading: false, error: action.payload, me: {}}
 
     //Recovery
     case MeTypes.RECOVERY_USER_REQUEST:
@@ -63,7 +63,7 @@ const reducer: Reducer<MeState> = (state = INITIAL_STATE, action) => {
     case MeTypes.UPDATE_USER_SUCCESS:
       return {...state, message: 'changed', loading: false, error: false, me: { ...action.payload.data.data, newPassword:action.payload.newPassword }}
     case MeTypes.UPDATE_USER_FAILURE:
-      return {...state, loading: false, error: true}
+      return {...state, loading: false, error: action.payload}
 
     //Delete user
     case MeTypes.DELETE_USER_SUCCESS:

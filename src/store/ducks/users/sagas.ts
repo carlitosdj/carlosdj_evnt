@@ -74,7 +74,7 @@ export function* searchUser(payload: ReturnType<typeof searchUserRequest>) {
 export function* createUser(payload: ReturnType<typeof createUserRequest>) {
   try {
     put(createUserRequest(payload.payload))
-    const response: User = yield call(api.post, 'users', payload.payload)
+    const response: User = yield call(api.post, 'user', payload.payload)
     yield put(createUserSuccess(response))
   } catch (error) {
     yield put(createUserFailure())

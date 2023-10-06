@@ -1,14 +1,14 @@
 
 FROM node:18-alpine AS deps
 RUN apk add --no-cache libc6-compat
-WORKDIR /shadcn
+WORKDIR /modelo_mkt
 
 COPY package.json package-lock.json ./
 RUN  yarn install --production
 
 FROM node:18-alpine AS builder
-WORKDIR /shadcn
-COPY --from=deps /shadcn/node_modules ./node_modules
+WORKDIR /modelo_mkt
+COPY --from=deps /modelo_mkt/node_modules ./node_modules
 COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED 1
@@ -16,7 +16,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN yarn build
 
 FROM node:18-alpine AS runner
-WORKDIR /shadcn
+WORKDIR /modelo_mkt
 
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
@@ -24,9 +24,9 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=builder --chown=nextjs:nodejs /shadcn/.next ./.next
-COPY --from=builder /shadcn/node_modules ./node_modules
-COPY --from=builder /shadcn/package.json ./package.json
+COPY --from=builder --chown=nextjs:nodejs /modelo_mkt/.next ./.next
+COPY --from=builder /modelo_mkt/node_modules ./node_modules
+COPY --from=builder /modelo_mkt/package.json ./package.json
 
 USER nextjs
 

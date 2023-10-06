@@ -28,7 +28,7 @@ const ThankyouPage = () => {
     if (!component.data.id)
       dispatch(loadComponentByDescriptionRequest(list.toString()));
 
-    if (!lead.data.Id)
+    if (!lead.data.id)
       dispatch(
         loadLeadRequest(decodeURIComponent(email.toString()), list.toString())
       );
@@ -36,13 +36,16 @@ const ThankyouPage = () => {
 
   const lead = useSelector((state: ApplicationState) => state.lead);
   const component = useSelector((state: ApplicationState) => state.component);
-
+  console.log("lead", lead)
+  console.log("component", component)
+  
   let loadOrFailTest = loadOrFailLeads({ component, lead });
-
+  console.log("loadOrFailTest", loadOrFailTest)
   if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;
 
+  
   return (
     <div className="h-full bg-secondary-950">
       <Thankyou lead={lead} component={component} />

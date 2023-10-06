@@ -11,7 +11,7 @@ interface loadOrFailSalesProps {
 const loadOrFailSales = ({ component, me }: loadOrFailSalesProps) => {
 
   if (me) {
-    if (me.error) return "not found";
+    if (me.error) return "loading";
     if (me.loading) return "loading";
     if (!me.me.id) return "loading";
   }

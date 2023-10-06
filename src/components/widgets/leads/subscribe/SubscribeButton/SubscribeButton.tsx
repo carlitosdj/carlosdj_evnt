@@ -28,6 +28,7 @@ const SubscribeButton = ({
 }: SubscribeButtonProps) => {
   const [open, setOpen] = useState(false);
 
+  console.log("lead", lead)
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
@@ -59,9 +60,11 @@ const SubscribeButton = ({
         </DialogContent>
       </Dialog>
       {lead.loading && "Carregando..."}
-      {lead.error?.error && !lead.loading && (
+      {lead.error?.statusCode && !lead.loading && (
         <div className="flex items-center justify-center">
           <Alert variant={"destructive"} className="p-4 rounded-lg my-6 w-full">
+          {JSON.stringify(lead.error.error)}
+            {JSON.stringify(lead.error.message)}
             OPS! Esse e-mail já está cadastrado em nossa base de dados. <br />
             Acesse o grupo:
             <Button variant={"neon"} id={"btn"}>

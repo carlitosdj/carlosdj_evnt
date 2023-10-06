@@ -76,7 +76,8 @@ const SubscribeButton = ({ component, me, ad, list }: SubscribeButtonProps) => {
       {me.error && !me.loading && (
         <div className="flex items-center justify-center">
           <div className="neon-rose p-4 rounded-lg my-6 w-full">
-            Error
+            Error:
+            {JSON.stringify(me.error)}
             {/* {lead.error.error} */}
           </div>
         </div>

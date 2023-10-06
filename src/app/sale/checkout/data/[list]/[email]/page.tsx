@@ -1,33 +1,45 @@
 "use client";
-import axios from 'axios';
-import { notFound, useParams, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import * as z from 'zod';
+import axios from "axios";
+import { notFound, useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import * as z from "zod";
 
-import Loading from '@/app/sale/loading';
-import loadOrFailSales from '@/components/helpers/loadOrFailSales';
-import ModelField from '@/components/helpers/ModelField';
-import { Button } from '@/components/ui/button';
+import Loading from "@/app/sale/loading";
+import loadOrFailSales from "@/components/helpers/loadOrFailSales";
+import ModelField from "@/components/helpers/ModelField";
+import { Button } from "@/components/ui/button";
 import {
-    Form, FormControl, FormField, FormItem, FormLabel, FormMessage
-} from '@/components/ui/form';
-import { ScrollArea } from '@/components/ui/scroll-area';
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
-    Select, SelectContent, SelectItem, SelectTrigger, SelectValue
-} from '@/components/ui/select';
-import CartItems from '@/components/widgets/sales/subscribe/CartItems/CartItems';
-import Stepper from '@/components/widgets/stepper/Stepper';
-import { ApplicationState } from '@/store';
-import { loadCityRequest } from '@/store/ducks/city/actions';
-import { loadComponentByDescriptionRequest } from '@/store/ducks/component/actions';
-import { loadUserByEmailRequest, updateMeRequest } from '@/store/ducks/me/actions';
-import { loadStateRequest } from '@/store/ducks/state/actions';
-import { User } from '@/store/ducks/users/types';
-import { zodResolver } from '@hookform/resolvers/zod';
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import CartItems from "@/components/widgets/sales/subscribe/CartItems/CartItems";
+import Stepper from "@/components/widgets/stepper/Stepper";
+import { ApplicationState } from "@/store";
+import { loadCityRequest } from "@/store/ducks/city/actions";
+import { loadComponentByDescriptionRequest } from "@/store/ducks/component/actions";
+import {
+  loadUserByEmailRequest,
+  updateMeRequest,
+} from "@/store/ducks/me/actions";
+import { loadStateRequest } from "@/store/ducks/state/actions";
+import { User } from "@/store/ducks/users/types";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import formSchemaData from './formSchemaData';
+import formSchemaData from "./formSchemaData";
 
 interface Props {
   //children: ReactNode;
@@ -45,6 +57,11 @@ const Data = ({}: Props) => {
   const city = useSelector((state: ApplicationState) => state.city);
   const [nextStep, setNextStep] = useState<boolean>(false);
 
+  console.log("component", component);
+  console.log("me", me);
+  console.log("state", state);
+  console.log("city", city);
+
   useEffect(() => {
     dispatch(loadStateRequest());
     if (!component.data.id)
@@ -52,20 +69,20 @@ const Data = ({}: Props) => {
     if (!me.me.id) {
       dispatch(loadUserByEmailRequest(decodeURIComponent(email.toString())));
     } else {
-      form.setValue("name", me.me.profile?.name!);
+      form.setValue("name", me.me.name!);
       form.setValue("email", me.me.email!);
-      form.setValue("whatsapp", me.me.profile?.whatsapp!);
-      form.setValue("cpf", me.me.profile?.cpf!);
-      form.setValue("cep", me.me.profile?.postalCode!);
-      form.setValue("address", me.me.profile?.address!);
-      form.setValue("number", me.me.profile?.addressNumber!);
-      form.setValue("bairro", me.me.profile?.addressDistrict!);
-      form.setValue("estado", me.me.profile?.stateParent?.id?.toString()!);
-      form.setValue("cidade", me.me.profile?.cityParent?.name?.toString()!);
+      form.setValue("whatsapp", me.me.whatsapp!);
+      form.setValue("cpf", me.me.cpf!);
+      form.setValue("cep", me.me.postalCode!);
+      form.setValue("address", me.me.address!);
+      form.setValue("number", me.me.addressNumber!);
+      form.setValue("bairro", me.me.addressDistrict!);
+      form.setValue("estado", me.me.stateParent?.id?.toString()!);
+      form.setValue("cidade", me.me.cityParent?.name?.toString()!);
     }
 
-    if (me.me.profile?.stateParent?.id) {
-      dispatch(loadCityRequest(me.me.profile?.stateParent?.id.toString()!));
+    if (me.me.stateParent?.id) {
+      dispatch(loadCityRequest(me.me.stateParent?.id.toString()!));
     }
   }, [me.me]);
 
@@ -88,8 +105,6 @@ const Data = ({}: Props) => {
       });
     }
   };
-
-  
 
   const form = useForm<z.infer<typeof formSchemaData>>({
     //resolver: zodResolver(formSchema),
@@ -132,28 +147,19 @@ const Data = ({}: Props) => {
     var data = new Date();
     //var data = new Date()
     const userupdate: User = {
-      updated_at: data.getTime() / 1000,
-      ...me.me,
       id: me.me.id,
       newPassword: values.password,
       num_turma: 1,
-      flags: 10,
-      profile: {
-        ...me.me.profile,
-        cpf: values.cpf.replace(/\D/g, ""),
-        user_id: me.me.profile?.user_id,
-        address: values.address,
-        addressNumber: values.number,
-        addressDistrict: values.bairro,
-        addressCountry: "BR",
-        postalCode: values.cep?.replace(/\D/g, ""),
-        cityParent: {
-          id: selectedCity.id,
-        },
-        stateParent: {
-          id: selectedState.id,
-        },
-      },
+      flag: 10,
+      cpf: values.cpf.replace(/\D/g, ""),
+      address: values.address,
+      addressNumber: values.number,
+      addressDistrict: values.bairro,
+      //addressCountry: "BR",
+      postalCode: values.cep?.replace(/\D/g, ""),
+      city_id: selectedCity.id!,
+      state_id: selectedState.id!,
+      roles: "consumer",
     };
     console.log("User to update", userupdate);
 
@@ -164,12 +170,13 @@ const Data = ({}: Props) => {
 
   //if (component.loading || me.loading) return <div>Loading...</div>;
   let loadOrFailTest = loadOrFailSales({ component, me });
+  console.log("loadOrFailTest", loadOrFailTest);
   if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;
 
-  if (me.error || component.error) router.push(`/sales/subscribe/${list}`);
-  if (nextStep) router.push(`/sales/checkout/payment/${list}/${me.me.email}`);
+  if (me.error || component.error) router.push(`/sale/subscribe/${list}`);
+  if (nextStep) router.push(`/sale/checkout/payment/${list}/${me.me.email}`);
 
   return (
     <div className="bg-secondary-600">

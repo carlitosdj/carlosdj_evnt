@@ -104,9 +104,8 @@ const Thankyou = ({}: Props) => {
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className="col-span-2 pb-20">
-                <div className="font-extrabold text-6xl col-span-12">
-                  Bem vindo(a), {me.me.profile?.name}. Você faz parte do
-                  treinamento.
+                <div className="font-extrabold text-5xl col-span-12">
+                  Bem vindo(a), {me.me.name}. Vamos começar?
                 </div>
               </div>
               <div className="col-span-2">

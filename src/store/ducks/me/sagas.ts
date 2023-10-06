@@ -75,10 +75,10 @@ export function* loadUserByEmail(payload: ReturnType<typeof loadUserByEmailReque
   
   try {
     put(loadUserByEmailRequest(payload.payload))
-    const response: User = yield call(api.get, 'userbyemail/'+ payload.payload)
+    const response: User = yield call(api.get, 'user/email/'+ payload.payload)
     yield put(loadUserByEmailSuccess(response))
-  } catch (error) {
-    yield put(loadUserByEmailFailure())
+  } catch (error:any) {
+    yield put(loadUserByEmailFailure(error.response.data))
   }
 }
 
@@ -86,22 +86,22 @@ export function* loadUserByEmail(payload: ReturnType<typeof loadUserByEmailReque
 export function* createMe(payload: ReturnType<typeof createMeRequest>) {
   try {
     put(createMeRequest(payload.payload))
-    const response: User = yield call(api.post, 'users', payload.payload)
+    const response: User = yield call(api.post, 'user', payload.payload)
     yield put(createMeSuccess(response))
-  } catch (error) {
-    yield put(createMeFailure())
+  } catch (error: any) {
+    yield put(createMeFailure(error.response.data))
   }
 }
 
 //Update
 export function* updateMe(payload: ReturnType<typeof updateMeRequest>) {
   try {
-    const response: User = yield call(api.post, 'users', payload.payload)
+    const response: User = yield call(api.patch, 'user/'+payload.payload.id, payload.payload)
     // console.log("NEW PASSWORD", payload.payload.newPassword)
     //response.data.newPassword = payload.payload.newPassword //Pra pegar a senha na próxima pagina
     yield put(updateMeSuccess(response, payload.payload.newPassword))
-  } catch (error) {
-    yield put(updateMeFailure())
+  } catch (error: any) {
+    yield put(updateMeFailure(error.response.data))
   }
 }
 

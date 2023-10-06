@@ -1,17 +1,20 @@
 "use client";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 
-import AOS from 'aos';
-import { notFound, useParams, useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import AOS from "aos";
+import { notFound, useParams, useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import Loading from '@/app/lead/loading';
-import loadOrFailLeads from '@/components/helpers/loadOrFailLeads';
-import Confirm from '@/components/widgets/leads/confirm/Confirm';
-import { ApplicationState } from '@/store';
-import { loadComponentByDescriptionRequest } from '@/store/ducks/component/actions';
-import { confirmLeadRequest, loadLeadRequest } from '@/store/ducks/lead/actions';
+import Loading from "@/app/lead/loading";
+import loadOrFailLeads from "@/components/helpers/loadOrFailLeads";
+import Confirm from "@/components/widgets/leads/confirm/Confirm";
+import { ApplicationState } from "@/store";
+import { loadComponentByDescriptionRequest } from "@/store/ducks/component/actions";
+import {
+  confirmLeadRequest,
+  loadLeadRequest,
+} from "@/store/ducks/lead/actions";
 
 const ConfirmPage = () => {
   const dispatch = useDispatch();
@@ -29,8 +32,10 @@ const ConfirmPage = () => {
     if (!component.data.id)
       dispatch(loadComponentByDescriptionRequest(list.toString()));
 
-    if (!lead.data.Id)
-      dispatch(loadLeadRequest(decodeURIComponent(email.toString()), list.toString()));
+    if (!lead.data.id)
+      dispatch(
+        loadLeadRequest(decodeURIComponent(email.toString()), list.toString())
+      );
 
     dispatch(
       confirmLeadRequest(decodeURIComponent(email.toString()), list.toString()!)
@@ -39,9 +44,12 @@ const ConfirmPage = () => {
 
   const lead = useSelector((state: ApplicationState) => state.lead);
   const component = useSelector((state: ApplicationState) => state.component);
+  console.log("lead", lead);
+  console.log("component", component);
 
   let loadOrFailTest = loadOrFailLeads({ component, lead });
 
+  console.log("loadOrFailTest", loadOrFailTest);
   if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;

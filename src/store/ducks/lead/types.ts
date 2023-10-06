@@ -34,7 +34,7 @@ export enum LeadTypes {
  */
 // User Imported from Me
 export interface Lead {
-  Id?: number
+  id?: number
   name?: string
   email?: string
   whatsapp?: string
@@ -54,6 +54,8 @@ export interface Emailmessage {
 
 export interface Error {
   error?: string
+  message?: any,
+  statusCode?: number
 }
 /**
  * State type

@@ -27,6 +27,8 @@ const Subscribe = () => {
   let { list, ad } = params;
   if (!ad) ad = "default";
 
+  console.log("component", component)
+
   useEffect(() => {
     dispatch(loadComponentByDescriptionRequest(list.toString()));
 
@@ -39,12 +41,14 @@ const Subscribe = () => {
 
   let loadOrFailTest = loadOrFailLeads({ component });
 
+  //console.log('loadOrFailTest', loadOrFailTest)
+
   if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;
 
-  if (lead.data.Id) {
-    router.push(`/leads/thankyou/${list}/${lead.data.email}`);
+  if (lead.data.id) {
+    router.push(`/lead/thankyou/${list}/${lead.data.email}`);
   }
 
   return (
@@ -56,7 +60,8 @@ const Subscribe = () => {
             key: "descricao",
           })!
         }
-        subtitle="Aprenda o passo a passo para a atração de clientes em potencial para seu negócio. O evento acontece nos dias 08/09/2023 às 20h."
+        //title={"Como criar landing pages"}
+        subtitle="Aprenda o passo a passo para a atração de clientes em potencial para seu negócio. O evento acontece no dia 08/09/2023 às 20h."
         badge="Aprenda a atrair o público certo."
       >
         <SubscribeButton
@@ -74,22 +79,18 @@ const Subscribe = () => {
       >
         <div className="pt-28 grid grid-cols-1 md:grid-cols-3 gap-4 text-primary dark:text-primary-50 ">
           <ItemTitleSubtitle
-            title="Os fundamentos"
-            description="O que é uma Landing Page? Como levantar os requisitos iniciais de
-          uma landing page? Qual a diferença de Landing Page e Site
-          Institucional?"
+            title="Captação de Potenciais Clientes"
+            description="Como utilizar o potencial da Internet para captação de clientes para sua advocacia."
             delay="100"
           />
           <ItemTitleSubtitle
-            title="Frontend x Backend"
-            description="Quais os elementos de uma Landing Page? Como chamar a atenção para
-            o clique de conversão? Como desenvolver interfaces?"
+            title="Como anunciar online"
+            description="Como utilizar o Google para direcionar seus anúncios e convocar uma legião de clientes."
             delay="200"
           />
           <ItemTitleSubtitle
-            title="Estratégias"
-            description="Como armazenar os dados do usuário que interagiu na sua Landing
-            Page? Quais são as estratégias após o registro? Qual a jornada?"
+            title="Como fechar negócios"
+            description="Como transformar Potenciais Clientes em vendas para sua Advocacia."
             delay="300"
           />
         </div>

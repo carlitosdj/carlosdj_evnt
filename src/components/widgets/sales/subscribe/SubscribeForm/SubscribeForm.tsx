@@ -67,19 +67,14 @@ const SubscribeForm = ({
     //   }
     // }
 
-    var data = new Date();
+    //var data = new Date();
     const user: User = {
-      username: values.email,
       email: values.email,
-      password_hash: "not_authorized",
-      auth_key: "not_authorized",
-      registration_ip: "0",
-      created_at: data.getTime() / 1000,
-      // num_turma: component.component.extra.num_turma,
-      profile: {
-        name: values.name,
-        whatsapp: values.whatsapp,
-      },
+      // password_hash: "not_authorized",
+      // auth_key: "not_authorized",
+      // registration_ip: "0",
+      name: values.name,
+      whatsapp: values.whatsapp,
     };
     dispatch(createMeRequest(user));
     //}

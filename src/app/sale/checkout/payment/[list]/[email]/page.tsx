@@ -23,8 +23,8 @@ import {
 import CartItems from '@/components/widgets/sales/subscribe/CartItems/CartItems';
 import Stepper from '@/components/widgets/stepper/Stepper';
 import { ApplicationState } from '@/store';
-import { createCartRequest } from '@/store/ducks/carts/actions';
-import { Cart } from '@/store/ducks/carts/types';
+// import { createCartRequest } from '@/store/ducks/carts/actions';
+// import { Cart } from '@/store/ducks/carts/types';
 import { loadComponentByDescriptionRequest } from '@/store/ducks/component/actions';
 import { loadUserByEmailRequest } from '@/store/ducks/me/actions';
 import { createPagarMeOrderRequest } from '@/store/ducks/payment/actions';
@@ -43,7 +43,7 @@ const Payment = ({}: Props) => {
 
   const component = useSelector((state: ApplicationState) => state.component);
   const me = useSelector((state: ApplicationState) => state.me);
-  const cart = useSelector((state: ApplicationState) => state.carts);
+  //const cart = useSelector((state: ApplicationState) => state.carts);
   const payment = useSelector((state: ApplicationState) => state.payment);
   // const state = useSelector((state: ApplicationState) => state.state);
   // const city = useSelector((state: ApplicationState) => state.city);
@@ -58,15 +58,15 @@ const Payment = ({}: Props) => {
       dispatch(loadUserByEmailRequest(decodeURIComponent(email.toString())));
     } else {
       console.log("Tem user...", me.me);
-      form.setValue("name", me.me.profile?.name!);
+      form.setValue("name", me.me.name!);
       form.setValue("email", me.me.email!);
-      form.setValue("whatsapp", me.me.profile?.whatsapp!);
+      form.setValue("whatsapp", me.me.whatsapp!);
       form.setValue("paymentWay", "credit_card");
     }
   }, [me.me]);
 
-  console.log("cartRedux", cart);
-  console.log("paymentRedux", payment);
+  //console.log("cartRedux", cart);
+  //console.log("paymentRedux", payment);
 
   //////////
   let formSchemaTotal = z.object({
@@ -144,45 +144,45 @@ const Payment = ({}: Props) => {
 
     var data = new Date();
     //Post cart:
-    const cart: Cart = {
-      parentComponent: 106,
-      parentUser: me.me.id,
-      unityprice: 497, // AQUI (price)
-      quantity: 1,
-      discount: 0,
-      total: 497, //unityprice * quantity AQUI (price)
-      tax: 0,
-      created_at: data.getTime() / 1000,
-      status: 1,
-      description: "NameProduct",
-      numcartao: values.cardnumber?.replace(/\D/g, "") || "",
-      nomecartao: values.cardname || "",
-      expiryMonth: values.cardmonth || "",
-      expiryYear: values.cardyear || "",
-      codcartao: values.cardcvv || "",
-      parcelas: +values.installments! || 1,
-    };
-    console.log("save cart", cart);
-    dispatch(createCartRequest(cart));
+    // const cart: Cart = {
+    //   parentComponent: 106,
+    //   parentUser: me.me.id,
+    //   unityprice: 497, // AQUI (price)
+    //   quantity: 1,
+    //   discount: 0,
+    //   total: 497, //unityprice * quantity AQUI (price)
+    //   tax: 0,
+    //   created_at: data.getTime() / 1000,
+    //   status: 1,
+    //   description: "NameProduct",
+    //   numcartao: values.cardnumber?.replace(/\D/g, "") || "",
+    //   nomecartao: values.cardname || "",
+    //   expiryMonth: values.cardmonth || "",
+    //   expiryYear: values.cardyear || "",
+    //   codcartao: values.cardcvv || "",
+    //   parcelas: +values.installments! || 1,
+    // };
+    // // console.log("save cart", cart);
+    // // dispatch(createCartRequest(cart));
 
     let payment = {
-      name: me.me.profile!.name,
+      name: me.me.name,
       email: me.me.email,
       // "phone": me.me.profile?.whatsapp,
-      mobilePhone: me.me.profile?.whatsapp!.replace(/\D/g, ""),
-      cpfCnpj: me.me.profile?.cpf!.replace(/\D/g, ""),
-      postalCode: me.me.profile?.postalCode!.replace(/\D/g, ""),
-      address: me.me.profile?.address,
+      mobilePhone: me.me.whatsapp!.replace(/\D/g, ""),
+      cpfCnpj: me.me.cpf!.replace(/\D/g, ""),
+      postalCode: me.me.postalCode!.replace(/\D/g, ""),
+      address: me.me.address,
       //addressNumber: number,
       //"complement": request.body.complement,
       // province: city,
-      city: me.me.profile?.cityParent?.name,
-      state: me.me.profile?.stateParent?.state,
+      city: me.me.cityParent?.name,
+      state: me.me.stateParent?.state,
       country: "BR",
       payment_method: values.paymentWay,
     };
     console.log("paymentXXX", payment);
-    dispatch(createPagarMeOrderRequest(payment, cart));
+    //dispatch(createPagarMeOrderRequest(payment, cart));
 
     setNextStep(true);
   };
@@ -195,17 +195,18 @@ const Payment = ({}: Props) => {
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;
 
-  if (me.error || component.error) router.push(`/sales/subscribe/${list}`);
-  if (nextStep && cart.data.id && payment.data.status === "paid") {
-    //Vai para o upsell
-    // navigate('/aproveite/' + me.me.profile?.name)
-    //De baixo:
-    router.push(`/sales/thankyou/${list}/${me.me.email}`);
-  }
-  if (nextStep && cart.data.id && payment.data.status === "pending") {
-    router.push(`/sales/checkout/pending/${list}/${me.me.email}`);
-  }
-  //if (nextStep) router.push(`/sales/checkout/payment/${list}/${me.me.email}`);
+  if (me.error || component.error) router.push(`/sale/subscribe/${list}`);
+
+  // if (nextStep && cart.data.id && payment.data.status === "paid") {
+  //   //Vai para o upsell
+  //   // navigate('/aproveite/' + me.me.profile?.name)
+  //   //De baixo:
+  //   router.push(`/sale/thankyou/${list}/${me.me.email}`);
+  // }
+  // if (nextStep && cart.data.id && payment.data.status === "pending") {
+  //   router.push(`/sale/checkout/pending/${list}/${me.me.email}`);
+  // }
+  if (nextStep) router.push(`/sale/thankyou/${list}/${me.me.email}`);
 
   return (
     <div className="bg-secondary-600">
@@ -398,7 +399,7 @@ const Payment = ({}: Props) => {
                       className="w-full col-span-6 mt-4"
                       onClick={() =>
                         router.push(
-                          `/sales/checkout/data/${list}/${me.me.email}`
+                          `/sale/checkout/data/${list}/${me.me.email}`
                         )
                       }
                     >

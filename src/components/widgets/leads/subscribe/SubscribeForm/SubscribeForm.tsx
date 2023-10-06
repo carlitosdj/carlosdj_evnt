@@ -1,15 +1,15 @@
-import { Dispatch, SetStateAction } from 'react';
-import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import * as z from 'zod';
+import { Dispatch, SetStateAction } from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import * as z from "zod";
 
-import ModelField from '@/components/helpers/ModelField';
-import { Button } from '@/components/ui/button';
-import { Form } from '@/components/ui/form';
-import { ComponentState } from '@/store/ducks/component/types';
-import { createLeadRequest } from '@/store/ducks/lead/actions';
-import { Emailmessage, Lead, LeadState } from '@/store/ducks/lead/types';
-import { zodResolver } from '@hookform/resolvers/zod';
+import ModelField from "@/components/helpers/ModelField";
+import { Button } from "@/components/ui/button";
+import { Form } from "@/components/ui/form";
+import { ComponentState } from "@/store/ducks/component/types";
+import { createLeadRequest } from "@/store/ducks/lead/actions";
+import { Emailmessage, Lead, LeadState } from "@/store/ducks/lead/types";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 interface SubscribeFormProps {
   component: ComponentState;
@@ -56,45 +56,45 @@ const SubscribeForm = ({
       list: list,
       whatsapp: "",
       confirm: 0,
-      created_at: (data.getTime() / 1000).toString(),
+      //created_at: (data.getTime() / 1000).toString(),
       origin: ad,
       naoperturbe: 0,
     };
     //console.log("COMPONENT", component);
     console.log("SALVAR LEAD", lead);
 
-    let message = component.data.extras?.filter(
-      (extra) => extra.key_extra === "email"
-    )[0].value_extra;
-    //Replacing {name} and {email}
-    message = message?.replace("{name}", values.name);
-    message = message?.replace("{email}", values.email);
-    message = message?.replace("{list}", list.toString());
+    // let message = component.data.extras?.filter(
+    //   (extra) => extra.key_extra === "email"
+    // )[0].value_extra;
+    // //Replacing {name} and {email}
+    // message = message?.replace("{name}", values.name);
+    // message = message?.replace("{email}", values.email);
+    // message = message?.replace("{list}", list.toString());
 
-    let emailmessage: Emailmessage = {
-      title: component.data.extras?.filter(
-        (extra) => extra.key_extra === "title_email"
-      )[0].value_extra,
-      message,
-    };
+    // let emailmessage: Emailmessage = {
+    //   title: component.data.extras?.filter(
+    //     (extra) => extra.key_extra === "title_email"
+    //   )[0].value_extra,
+    //   message,
+    // };
 
-    //Email 2 (D+1)
-    let messageTwo = component.data.extras?.filter(
-      (extra) => extra.key_extra === "email_d2"
-    )[0].value_extra;
-    //Replacing {name} and {email}
-    messageTwo = messageTwo?.replace("{name}", values.name);
-    messageTwo = messageTwo?.replace("{email}", values.email);
-    messageTwo = messageTwo?.replace("{list}", list.toString());
+    // //Email 2 (D+1)
+    // let messageTwo = component.data.extras?.filter(
+    //   (extra) => extra.key_extra === "email_d2"
+    // )[0].value_extra;
+    // //Replacing {name} and {email}
+    // messageTwo = messageTwo?.replace("{name}", values.name);
+    // messageTwo = messageTwo?.replace("{email}", values.email);
+    // messageTwo = messageTwo?.replace("{list}", list.toString());
 
-    let emailmessageTwo: Emailmessage = {
-      title: component.data.extras?.filter(
-        (extra) => extra.key_extra === "title_email_d2"
-      )[0].value_extra,
-      message: messageTwo,
-    };
+    // let emailmessageTwo: Emailmessage = {
+    //   title: component.data.extras?.filter(
+    //     (extra) => extra.key_extra === "title_email_d2"
+    //   )[0].value_extra,
+    //   message: messageTwo,
+    // };
 
-    dispatch(createLeadRequest(lead, emailmessage, emailmessageTwo));
+    dispatch(createLeadRequest(lead));
     setOpen(false);
   };
 
