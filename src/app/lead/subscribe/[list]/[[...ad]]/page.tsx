@@ -138,7 +138,7 @@ const Subscribe = () => {
               No mercado
             </div>
             <div className="text-1xl text-slate-900 dark:text-primary-50/75">
-              Construiu soluções como Salve Mais Um, Oficioso.
+              Construiu soluções como Salve Mais Um e Plataforma Esportiva.
             </div>
             <div className="font-bold text-2xl tracking-tight  pt-10">
               Por que decidiu ensinar?

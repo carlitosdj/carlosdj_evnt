@@ -18,6 +18,7 @@ import SubscribeButton from '@/components/widgets/sales/subscribe/SubscribeButto
 import { Session } from '@/components/widgets/session';
 import { ApplicationState } from '@/store';
 import { loadComponentByDescriptionRequest } from '@/store/ducks/component/actions';
+import getValueFromExtras from '@/components/helpers/getValueFromExtras';
 
 const Subscribe = () => {
   const me = useSelector((state: ApplicationState) => state.me);

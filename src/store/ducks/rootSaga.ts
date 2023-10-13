@@ -55,6 +55,10 @@ import { StateTypes } from "./state/types";
 import { CityTypes } from "./city/types";
 import { loadState } from "./state/sagas";
 import { loadCity } from "./city/sagas";
+import { WppcampTypes } from "./wppcamp/types";
+import { WppgroupTypes } from "./wppgroup/types";
+import { createWppcamp, deleteWppcamp, loadAllwppcamps, loadWppcamps, loadWppgroupavailable, updateWppcamp } from "./wppcamp/sagas";
+import { createWppgroup, deleteWppgroup, loadWppgroups, updateWppgroup } from "./wppgroup/sagas";
 
 export default function* rootSaga() {
   yield all([
@@ -98,6 +102,19 @@ export default function* rootSaga() {
     takeLatest(StateTypes.LOAD_STATES_REQUEST, loadState),
     takeLatest(CityTypes.LOAD_CITIES_REQUEST, loadCity),
 
+    //Wppcamp
+    takeLatest(WppcampTypes.LOAD_ALLCAMP_REQUEST, loadAllwppcamps),
+    takeLatest(WppcampTypes.LOAD_CAMP_REQUEST, loadWppcamps),
+    takeLatest(WppcampTypes.CREATE_CAMP_REQUEST, createWppcamp),
+    takeLatest(WppcampTypes.UPDATE_CAMP_REQUEST, updateWppcamp),
+    takeLatest(WppcampTypes.DELETE_CAMP_REQUEST, deleteWppcamp),
+    takeLatest(WppcampTypes.LOAD_WPPGROUPAVAILABLE_REQUEST, loadWppgroupavailable),
+
+    //Wppgroup
+    takeLatest(WppgroupTypes.LOAD_WPPGROUPS_REQUEST, loadWppgroups),
+    takeLatest(WppgroupTypes.CREATE_WPPGROUP_REQUEST, createWppgroup),
+    takeLatest(WppgroupTypes.UPDATE_WPPGROUP_REQUEST, updateWppgroup),
+    takeLatest(WppgroupTypes.DELETE_WPPGROUP_REQUEST, deleteWppgroup),
   ]);
   // console.log('mounting saga...')
 }
