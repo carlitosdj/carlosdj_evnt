@@ -46,10 +46,10 @@ const Confirm = ({ lead, component }: ThankyouProps) => {
           >
             Olá, {lead.data.name}. Sua inscrição está realizada com sucesso.
             Aguardo você no evento:
-            {
+            {' '+
               getValueFromExtras({
                 extras: component.data.extras!,
-                key: "nome",
+                key: "name",
               })!
             }{" "}
             {
@@ -67,7 +67,7 @@ const Confirm = ({ lead, component }: ThankyouProps) => {
             }
           </p>
 
-          <Button asChild variant={"neon"} id={"btn"}>
+          <Button variant={"neon"} id={"btn"} className="group py-8 lg:py-6">
             <Link
               href={
                 getValueFromExtras({
@@ -77,6 +77,9 @@ const Confirm = ({ lead, component }: ThankyouProps) => {
               }
             >
               Clique aqui para entrar no Grupo do WhatsApp
+              <span className="group-hover:pl-1 text-primary-300 group-hover:text-white transition-all font-thin">
+                {" ->"}
+              </span>
             </Link>
           </Button>
 

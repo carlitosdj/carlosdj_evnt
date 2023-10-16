@@ -1,17 +1,25 @@
 "use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import getValueFromExtras from '@/components/helpers/getValueFromExtras';
-import { Alert } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
+import getValueFromExtras from "@/components/helpers/getValueFromExtras";
+import { Alert } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
 import {
-    Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger
-} from '@/components/ui/dialog';
-import { ComponentState } from '@/store/ducks/component/types';
-import { LeadState } from '@/store/ducks/lead/types';
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { ComponentState } from "@/store/ducks/component/types";
+import { LeadState } from "@/store/ducks/lead/types";
 
-import SubscribeForm from '../SubscribeForm/SubscribeForm';
+import SubscribeForm from "../SubscribeForm/SubscribeForm";
+import Link from "next/link";
+import { Loader2 } from "lucide-react";
+import Loading from "@/app/lead/loading";
 
 interface SubscribeButtonProps {
   component: ComponentState;
@@ -28,7 +36,7 @@ const SubscribeButton = ({
 }: SubscribeButtonProps) => {
   const [open, setOpen] = useState(false);
 
-  console.log("lead", lead)
+  console.log("lead", lead);
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
@@ -40,6 +48,8 @@ const SubscribeButton = ({
           <span className="group-hover:pl-1 text-primary-300 group-hover:text-white transition-all font-thin">
             {" ->"}
           </span>
+          {/* <Loading/> */}
+          {lead.loading && <Loading />}
         </DialogTrigger>
         <DialogContent className="dark:bg-secondary-900 ">
           <DialogHeader>
@@ -59,19 +69,31 @@ const SubscribeButton = ({
           </DialogHeader>
         </DialogContent>
       </Dialog>
-      {lead.loading && "Carregando..."}
+
       {lead.error?.statusCode && !lead.loading && (
         <div className="flex items-center justify-center">
-          <Alert variant={"destructive"} className="p-4 rounded-lg my-6 w-full">
-          {JSON.stringify(lead.error.error)}
-            {JSON.stringify(lead.error.message)}
+          <Alert
+            variant={"destructive"}
+            className="p-4 rounded-lg my-6 w-full bg-secondary-100"
+          >
+            {/* {JSON.stringify(lead.error.error)} */}
+            {/* {JSON.stringify(lead.error.message)} */}
             OPS! Esse e-mail já está cadastrado em nossa base de dados. <br />
             Acesse o grupo:
-            <Button variant={"neon"} id={"btn"}>
-              Clique aqui para entrar no Grupo do WhatsApp
-              <span className="group-hover:pl-1 text-primary-300 group-hover:text-white transition-all font-thin">
-                {" ->"}
-              </span>
+            <Button variant={"neon"} id={"btn"} className="group py-8 lg:py-6">
+              <Link
+                href={
+                  getValueFromExtras({
+                    extras: component.data.extras!,
+                    key: "group_link",
+                  })!
+                }
+              >
+                Clique aqui para entrar no Grupo do WhatsApp
+                <span className="group-hover:pl-1 text-primary-300 group-hover:text-white transition-all font-thin">
+                  {" ->"}
+                </span>
+              </Link>
             </Button>
             {/* {lead.error.error} */}
           </Alert>

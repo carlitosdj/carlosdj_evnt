@@ -1,16 +1,22 @@
 "use client";
 
-import { useParams } from 'next/navigation';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useParams } from "next/navigation";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
-    Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger
-} from '@/components/ui/dialog';
-import { ComponentState } from '@/store/ducks/component/types';
-import { notDisturbLeadRequest } from '@/store/ducks/lead/actions';
-import { LeadState } from '@/store/ducks/lead/types';
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { ComponentState } from "@/store/ducks/component/types";
+import { notDisturbLeadRequest } from "@/store/ducks/lead/actions";
+import { LeadState } from "@/store/ducks/lead/types";
 
 interface UnsubscribeProps {
   lead: LeadState;
@@ -52,7 +58,7 @@ const Unsubscribe = ({ lead, component }: UnsubscribeProps) => {
             data-aos="zoom-out"
             data-aos-delay="100"
           >
-            Olá, {lead.data.name}. Você está prestes a descadastrar...
+            Olá {lead.data.name}, você está prestes a ser removido desta lista. Lamentamos qualquer equívoco e estamos constantemente buscando melhorias. Se desejar ser excluído da nossa lista, clique no botão abaixo.
           </p>
 
           <Dialog open={open} onOpenChange={setOpen}>
@@ -80,7 +86,7 @@ const Unsubscribe = ({ lead, component }: UnsubscribeProps) => {
                 mt-6"
               id={"btn"}
             >
-              Confirmar
+              Quero sair dessa lista de comunicação
               <span className="group-hover:pl-1 text-primary-300 group-hover:text-white transition-all font-thin">
                 {" ->"}
               </span>
@@ -91,7 +97,8 @@ const Unsubscribe = ({ lead, component }: UnsubscribeProps) => {
                   Atenção
                 </DialogTitle>
                 <DialogDescription className="text-start dark:text-white pb-4">
-                  Essa ação é irreversível
+                  Essa ação é irreversível e não há como desfazer essa
+                  alteração.
                 </DialogDescription>
                 <DialogFooter>
                   <Button

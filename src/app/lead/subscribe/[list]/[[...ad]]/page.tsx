@@ -1,22 +1,23 @@
 "use client";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 
-import AOS from 'aos';
-import { notFound, useParams, useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import AOS from "aos";
+import { notFound, useParams, useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import Loading from '@/app/lead/loading';
-import getValueFromExtras from '@/components/helpers/getValueFromExtras';
-import ItemTitleSubtitle from '@/components/helpers/ItemTitleSubtitle';
-import loadOrFailLeads from '@/components/helpers/loadOrFailLeads';
-import Footer from '@/components/widgets/footer/Footer';
-import Hero from '@/components/widgets/hero/Hero';
-import FeatureSection from '@/components/widgets/leads/subscribe/FeatureSection/FeatureSection';
-import SubscribeButton from '@/components/widgets/leads/subscribe/SubscribeButton/SubscribeButton';
-import { Session } from '@/components/widgets/session';
-import { ApplicationState } from '@/store';
-import { loadComponentByDescriptionRequest } from '@/store/ducks/component/actions';
+import Loading from "@/app/lead/loading";
+import getValueFromExtras from "@/components/helpers/getValueFromExtras";
+import ItemTitleSubtitle from "@/components/helpers/ItemTitleSubtitle";
+import loadOrFailLeads from "@/components/helpers/loadOrFailLeads";
+import Footer from "@/components/widgets/footer/Footer";
+import Hero from "@/components/widgets/hero/Hero";
+import FeatureSection from "@/components/widgets/leads/subscribe/FeatureSection/FeatureSection";
+import SubscribeButton from "@/components/widgets/leads/subscribe/SubscribeButton/SubscribeButton";
+import { Session } from "@/components/widgets/session";
+import { ApplicationState } from "@/store";
+import { loadComponentByDescriptionRequest } from "@/store/ducks/component/actions";
+import Head from "next/head";
 
 const Subscribe = () => {
   const lead = useSelector((state: ApplicationState) => state.lead);
@@ -27,7 +28,7 @@ const Subscribe = () => {
   let { list, ad } = params;
   if (!ad) ad = "default";
 
-  console.log("component", component)
+  console.log("component", component);
 
   useEffect(() => {
     dispatch(loadComponentByDescriptionRequest(list.toString()));
@@ -54,15 +55,25 @@ const Subscribe = () => {
   return (
     <div className="h-full">
       <Hero
+        badge={
+          getValueFromExtras({
+            extras: component.data.extras!,
+            key: "name",
+          })!
+        }
         title={
           getValueFromExtras({
             extras: component.data.extras!,
-            key: "descricao",
+            key: "headline",
           })!
         }
         //title={"Como criar landing pages"}
-        subtitle="Aprenda o passo a passo para a atração de clientes em potencial para seu negócio. O evento acontece no dia 08/09/2023 às 20h."
-        badge="Aprenda a atrair o público certo."
+        subtitle={
+          getValueFromExtras({
+            extras: component.data.extras!,
+            key: "description",
+          })!
+        }
       >
         <SubscribeButton
           ad={ad.toString()}

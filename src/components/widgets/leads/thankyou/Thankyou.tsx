@@ -1,14 +1,14 @@
 "use client";
 
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
-import getValueFromExtras from '@/components/helpers/getValueFromExtras';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
-import { ComponentState } from '@/store/ducks/component/types';
-import { Lead, LeadState } from '@/store/ducks/lead/types';
+import getValueFromExtras from "@/components/helpers/getValueFromExtras";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { ComponentState } from "@/store/ducks/component/types";
+import { Lead, LeadState } from "@/store/ducks/lead/types";
 
 interface ThankyouProps {
   lead: LeadState;
@@ -50,16 +50,19 @@ const Thankyou = ({ lead, component }: ThankyouProps) => {
             materiais durante o evento.
           </p>
 
-          <Button asChild variant={"neon"} id={"btn"}>
+          <Button variant={"neon"} id={"btn"} className="group py-8 lg:py-6">
             <Link
               href={
                 getValueFromExtras({
                   extras: component.data.extras!,
-                  key: "link_grupo",
+                  key: "group_link",
                 })!
               }
             >
               Clique aqui para entrar no Grupo do WhatsApp
+              <span className="group-hover:pl-1 text-primary-300 group-hover:text-white transition-all font-thin">
+                {" ->"}
+              </span>
             </Link>
           </Button>
 
