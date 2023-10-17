@@ -1,15 +1,27 @@
+import { LucideSeparatorHorizontal, SeparatorHorizontal, SeparatorHorizontalIcon, SeparatorVertical } from "lucide-react";
 import Link from "next/link";
 
 const Home = () => {
   return (
-    <div>
-      <Link href="/lead/subscribe/captacao">Ir para leads</Link>
+    <div className="p-4">
+      <div className="font-medium text-xl">MARKETING</div>
+      <Link href="/lead/subscribe/captacao" target="_blank">Cadastro de Leads</Link>
       <br />
-      <Link href="/class/imersao-carlitos/aula01">Ir para classes</Link>
+      <Link href="/class/imersao-carlitos/aula01" target="_blank">Semana Imersão</Link>
       <br />
-      <Link href="/sale/subscribe/vendas-carlitos">Ir para sales</Link>
+      <Link href="/sale/subscribe/vendas-carlitos" target="_blank">Página de vendas</Link>
       <br/>
-      <Link href="/viawhats/campanha-teste">Ir para Viawhats</Link>
+      <Link href="/viawhats/campanha-teste" target="_blank">VIAWhats</Link>
+      
+      <br/><br/>
+      <div className="font-medium text-xl">ADMINISTRAÇÃO</div>
+      <Link href="http://localhost:3014" target="_blank">Painel administrativo</Link>
+
+      <br/><br/>
+      <div className="font-medium text-xl">API</div>
+      <Link href="http://localhost:3000/swagger" target="_blank">Link api</Link>
+      <br/>
+      <Link href="http://localhost:3000/lead/crons" target="_blank">CronJOBS (Leads)</Link>
 
       {/* <br />
       <Link href="/tailwind">Ir para Tailwind</Link> */}

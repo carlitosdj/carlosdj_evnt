@@ -4,11 +4,13 @@ import { ApplicationState } from "@/store";
 import { loadComponentByDescriptionRequest } from "@/store/ducks/component/actions";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Item from "./item";
 import Loading from "../../loading";
 import loadOrFailClass from "@/components/helpers/loadOrFailClass";
+import Image from "next/image";
+
 
 interface Props {
   //children: ReactNode;
@@ -27,6 +29,7 @@ const Class = ({}: Props) => {
   let { list, id } = params;
   if (!id) id = "aula01";
 
+  const [progress, setProgress] = useState<number>(0);
   const component = useSelector((state: ApplicationState) => state.component);
 
   useEffect(() => {
@@ -47,7 +50,7 @@ const Class = ({}: Props) => {
   }, [list]);
 
   let loadOrFailTest = loadOrFailClass({ component });
-  if (loadOrFailTest === "loading") return <Loading />;
+  //if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;
 
@@ -91,6 +94,16 @@ const Class = ({}: Props) => {
     key: "data_cpl3",
   });
   let activecpl3 = true;
+
+  let cpl4 = getValueFromExtras({
+    extras: component.data.extras!,
+    key: "cpl4",
+  });
+  let data_cpl4 = getValueFromExtras({
+    extras: component.data.extras!,
+    key: "data_cpl4",
+  });
+  let activecpl4 = true;
 
   const renderSwitch = (id: string) => {
     switch (id) {
@@ -163,31 +176,28 @@ const Class = ({}: Props) => {
           );
         }
 
-      // case 'aula04':
-      //   if (activecpl4) {
-      //     return (
-      //       <div className='w-100 pt-4'>
-      //         <div className='embed-responsive embed-responsive-16by9'>
-      //           <div>
-      //             <iframe
-      //               title='aula4'
-      //               className='embed-responsive-item'
-      //               src={cpl4}
-      //               width={640}
-      //               height={564}
-      //               frameBorder={0}
-      //               allow='autoplay; fullscreen'
-      //               allowFullScreen
-      //             />
-      //           </div>
-      //         </div>
-      //       </div>
-      //     )
-      //   } else {
-      //     return (
-      //       <div className='text-danger fs-2 text-center pt-3'>Aula disponível em: {datecpl4}</div>
-      //     )
-      //   }
+      case "aula04":
+        if (activecpl4) {
+          return (
+            <iframe
+              title="aula3"
+              className="absolute inset-0 w-full h-full"
+              src={cpl4}
+              //width={800}
+              //height={564}
+              frameBorder={0}
+              allow="autoplay; fullscreen"
+              allowFullScreen
+            />
+          );
+        } else {
+          return (
+            <div className="text-danger fs-2 text-center pt-3">
+              {" "}
+              Aula disponível em: {data_cpl4}
+            </div>
+          );
+        }
 
       default:
         return <div>Aula não encontrada</div>;
@@ -195,83 +205,119 @@ const Class = ({}: Props) => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-secondary-800 to-secondary-950 ">
-      <div className="md:container ">
-        {/* Class {list} {id}
-      {getValueFromExtras({
-        extras: component.data.extras!,
-        key: "cpl1",
-      })} */}
+    <div className="bg-[url('/imgs/hero-illustration.svg')] bg-no-repeat bg-[center_top] bg-cover min-h-screen">
+      <div className="grid gap-4">
+        <div className="max-w-6xl mx-auto sm:py-14">
+          <div className="h-full">
+            <div className="">
+              <div className="pt-10 md:pt-0 flex justify-center items-center flex-col">
+                <picture>
+                  <img
+                    src={`https://violaofeeling.com.br/files/${getValueFromExtras(
+                      {
+                        extras: component.data.extras!,
+                        key: "img",
+                      }
+                    )!}`}
+                    alt="img"
+                    className="w-96"
+                    //style={{ height: 150 }}
+                    //className="mx-auto rounded-sm neon-primary"
+                  />
+                </picture>
 
-        <div className="h-20 flex justify-center items-center text-center text-white">
-          Logo
-          <br />
-          {datainicio} a {datafim}
-        </div>
-
-        <div className="grid grid-cols-6 gap-6 ">
-          <div className="justify-around gap-4 col-span-1 ">
-            <Link href={`/class/${list}/aula01`}>
-              <Item
-                name="Aula 1"
-                data={data_cpl1!}
-                selected={id.toString() === "aula01"}
-              />
-            </Link>
-            <Link href={`/class/${list}/aula02`}>
-              <Item
-                name="Aula 2"
-                data={data_cpl2!}
-                selected={id.toString() === "aula02"}
-              />
-            </Link>
-            <Link href={`/class/${list}/aula03`}>
-              <Item
-                name="Aula 3"
-                data={data_cpl3!}
-                selected={id.toString() === "aula03"}
-              />
-            </Link>
-          </div>
-
-          {loadOrFailTest === "loading" ? (
-            <Loading />
-          ) : (
-            <div className="align-items-center col-span-5">
-              {/* <h3 className='text-center pt-4'>Clique no botão play para assistir a aula:</h3> */}
-
-              <div
-                className="relative rounded-sm overflow-hidden"
-                style={{ paddingTop: "56.25%" }}
-              >
-                {renderSwitch(id.toString()!)}
+                <span className="font-extralight text-sm mt-1">
+                  {datainicio} a {datafim}
+                </span>
               </div>
+
+              <div className="px-2">
+                <div className="flex justify-around gap-2 py-6">
+                  <Link
+                    href={`/class/${list}/aula01`}
+                    //onClick={() => setProgress(25)}
+                  >
+                    <Item
+                      name="Aula 1"
+                      data={data_cpl1!}
+                      selected={id.toString() === "aula01"}
+                    />
+                  </Link>
+                  <Link
+                    href={`/class/${list}/aula02`}
+                    //onClick={() => setProgress(50)}
+                  >
+                    <Item
+                      name="Aula 2"
+                      data={data_cpl2!}
+                      selected={id.toString() === "aula02"}
+                    />
+                  </Link>
+                  <Link
+                    href={`/class/${list}/aula03`}
+                    //onClick={() => setProgress(75)}
+                  >
+                    <Item
+                      name="Aula 3"
+                      data={data_cpl3!}
+                      selected={id.toString() === "aula03"}
+                    />
+                  </Link>
+                  <Link
+                    href={`/class/${list}/aula04`}
+                    //onClick={() => setProgress(100)}
+                  >
+                    <Item
+                      name="Aula 4"
+                      data={data_cpl4!}
+                      selected={id.toString() === "aula04"}
+                    />
+                  </Link>
+                </div>
+
+                {loadOrFailTest === "loading" ? (
+                  <Loading />
+                ) : (
+                  <div className="">
+                    {/* <h3 className='text-center pt-4'>Clique no botão play para assistir a aula:</h3> */}
+
+                    <div
+                      className="relative rounded-sm overflow-hidden"
+                      style={{ paddingTop: "56.25%" }}
+                    >
+                      {renderSwitch(id.toString()!)}
+                    </div>
+                  </div>
+                )}
+              </div>
+              {loadOrFailTest === "loading" ? (
+                <Loading />
+              ) : (
+                <div className="px-2 text-center">
+                  <h1 className="pt-8 text-2xl font-bold">
+                    Gostou dessa aula?
+                  </h1>
+                  <h4 className="font-extralight text-sm">
+                    Deixe um comentário ou pergunta abaixo, vou fazer o máximo
+                    para responder você.
+                  </h4>
+                  <br />
+                  <div className="bg-white p-2 rounded-sm">
+                    <div
+                      className="fb-comments"
+                      data-href="https://labiopalatina.com.br/blog/imersao-abr22/aula01"
+                      data-width="100%"
+                      data-numposts="25"
+                      data-order-by="reverse_time"
+                    ></div>
+                  </div>
+                  <br />
+                  <br />
+                </div>
+              )}
             </div>
-          )}
-        </div>
-        {loadOrFailTest === "loading" ? (
-          <Loading />
-        ) : (
-          <div className="text-center">
-            <h4>Gostou dessa aula?</h4>
-            <h4>
-              Deixe um comentário ou pergunta abaixo, vou fazer o máximo para
-              responder você.
-            </h4>
-            <br />
-            <div className="bg-white p-2">
-              <div
-                className="fb-comments"
-                data-href="https://labiopalatina.com.br/blog/imersao-abr22/aula01"
-                data-width="100%"
-                data-numposts="25"
-                data-order-by="reverse_time"
-              ></div>
-            </div>
-            <br />
-            <br />
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

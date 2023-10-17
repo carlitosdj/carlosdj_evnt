@@ -49,8 +49,13 @@ const SubscribeButton = ({
             {" ->"}
           </span>
           {/* <Loading/> */}
-          {lead.loading && <Loading />}
+          {lead.loading && (
+            <div className="flex justify-center items-center">
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            </div>
+          )}
         </DialogTrigger>
+        
         <DialogContent className="dark:bg-secondary-900 ">
           <DialogHeader>
             <DialogTitle className="text-start dark:text-primary-600 text-2xl">

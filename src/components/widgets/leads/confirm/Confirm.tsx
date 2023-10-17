@@ -1,13 +1,13 @@
 "use client";
 
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
-import getValueFromExtras from '@/components/helpers/getValueFromExtras';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
-import { ComponentState } from '@/store/ducks/component/types';
-import { LeadState } from '@/store/ducks/lead/types';
+import getValueFromExtras from "@/components/helpers/getValueFromExtras";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { ComponentState } from "@/store/ducks/component/types";
+import { LeadState } from "@/store/ducks/lead/types";
 
 interface ThankyouProps {
   lead: LeadState;
@@ -26,12 +26,19 @@ const Confirm = ({ lead, component }: ThankyouProps) => {
         <div className="max-w-5xl mx-auto sm:py-24 lg:py-32 py-20">
           <Progress value={progress} className="neon-primary transition-all" />
           <h1
-            className="font-extrabold text-5xl sm:text-5xl lg:text-5xl tracking-tight pt-5 dark:text-white"
+            className="font-extrabold text-4xl sm:text-5xl lg:text-5xl tracking-tight pt-5 dark:text-white"
             data-aos="zoom-out"
           >
             Inscrição confirmada
           </h1>
-          <div className="py-2">{component.data.parent?.name}</div>
+          <div className="py-2">
+            {
+              getValueFromExtras({
+                extras: component.data.extras!,
+                key: "name",
+              })!
+            }
+          </div>
           <h2
             className="font-extrabold text-2xl sm:text-2xl lg:text-2xl tracking-tight pt-5 dark:text-white"
             data-aos="zoom-out"
@@ -46,12 +53,11 @@ const Confirm = ({ lead, component }: ThankyouProps) => {
           >
             Olá, {lead.data.name}. Sua inscrição está realizada com sucesso.
             Aguardo você no evento:
-            {' '+
+            {" " +
               getValueFromExtras({
                 extras: component.data.extras!,
                 key: "name",
-              })!
-            }{" "}
+              })!}{" "}
             {
               getValueFromExtras({
                 extras: component.data.extras!,
@@ -67,7 +73,7 @@ const Confirm = ({ lead, component }: ThankyouProps) => {
             }
           </p>
 
-          <Button variant={"neon"} id={"btn"} className="group py-8 lg:py-6">
+          <Button variant={"neon"} id={"btn"} className="group py-8 lg:py-6 mb-4">
             <Link
               href={
                 getValueFromExtras({
@@ -82,7 +88,7 @@ const Confirm = ({ lead, component }: ThankyouProps) => {
               </span>
             </Link>
           </Button>
-
+              
           <p
             className="mt-2 text-1xl max-w-3xl mx-auto text-slate-400"
             data-aos="zoom-out"

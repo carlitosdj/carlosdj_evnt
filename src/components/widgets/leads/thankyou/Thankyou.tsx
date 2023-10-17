@@ -18,7 +18,7 @@ interface ThankyouProps {
 const Thankyou = ({ lead, component }: ThankyouProps) => {
   const [progress, setProgress] = useState(0);
   useEffect(() => {
-    setProgress(60);
+    setProgress(75);
   }, [progress]);
 
   return (
@@ -27,12 +27,19 @@ const Thankyou = ({ lead, component }: ThankyouProps) => {
         <div className="max-w-5xl mx-auto sm:py-24 lg:py-32 py-20">
           <Progress value={progress} className="neon-primary transition-all" />
           <h1
-            className="font-extrabold text-5xl sm:text-5xl lg:text-5xl tracking-tight pt-5 dark:text-white"
+            className="font-extrabold text-4xl md:text-5xl lg:text-6xl tracking-tight pt-5 text-primary-50 "
             data-aos="zoom-out"
           >
             Faltam 2 passos
           </h1>
-          <div className="py-2">{component.data.parent?.name}</div>
+          <div className="py-2">
+            {
+              getValueFromExtras({
+                extras: component.data.extras!,
+                key: "name",
+              })!
+            }
+          </div>
           <h2
             className="font-extrabold text-2xl sm:text-2xl lg:text-2xl tracking-tight pt-5 dark:text-white"
             data-aos="zoom-out"
