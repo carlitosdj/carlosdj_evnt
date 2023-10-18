@@ -67,7 +67,7 @@ const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
         </div>
 
         <div
-          className="flex justify-center pb-10"
+          className="flex justify-center"
           data-aos="zoom-out"
           data-aos-delay="400"
         >

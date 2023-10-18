@@ -55,7 +55,7 @@ const SubscribeButton = ({
             </div>
           )}
         </DialogTrigger>
-        
+
         <DialogContent className="dark:bg-secondary-900 ">
           <DialogHeader>
             <DialogTitle className="text-start dark:text-primary-600 text-2xl">
@@ -83,8 +83,8 @@ const SubscribeButton = ({
           >
             {/* {JSON.stringify(lead.error.error)} */}
             {/* {JSON.stringify(lead.error.message)} */}
-            OPS! Esse e-mail já está cadastrado em nossa base de dados. <br />
-            Acesse o grupo:
+            ATENÇÃO! Você já está cadastrado em nossa base de dados, se ainda não está no grupo do WhatsApp, clique no link abaixo para ser redirecionado:<br />
+            
             <Button variant={"neon"} id={"btn"} className="group py-8 lg:py-6">
               <Link
                 href={

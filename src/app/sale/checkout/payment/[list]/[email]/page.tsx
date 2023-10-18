@@ -1,35 +1,46 @@
 "use client";
 
-import { AlertCircle } from 'lucide-react';
-import { notFound, useParams, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import * as z from 'zod';
+import { AlertCircle } from "lucide-react";
+import { notFound, useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import * as z from "zod";
 
-import Loading from '@/app/sale/loading';
-import loadOrFailSales from '@/components/helpers/loadOrFailSales';
-import ModelField from '@/components/helpers/ModelField';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
+import Loading from "@/app/sale/loading";
+import loadOrFailSales from "@/components/helpers/loadOrFailSales";
+import ModelField from "@/components/helpers/ModelField";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
 import {
-    Form, FormControl, FormField, FormItem, FormLabel, FormMessage
-} from '@/components/ui/form';
-import { Label } from '@/components/ui/label';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
-    Select, SelectContent, SelectItem, SelectTrigger, SelectValue
-} from '@/components/ui/select';
-import CartItems from '@/components/widgets/sales/subscribe/CartItems/CartItems';
-import Stepper from '@/components/widgets/stepper/Stepper';
-import { ApplicationState } from '@/store';
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import CartItems from "@/components/widgets/sales/subscribe/CartItems/CartItems";
+import Stepper from "@/components/widgets/stepper/Stepper";
+import { ApplicationState } from "@/store";
 // import { createCartRequest } from '@/store/ducks/carts/actions';
 // import { Cart } from '@/store/ducks/carts/types';
-import { loadComponentByDescriptionRequest } from '@/store/ducks/component/actions';
-import { loadUserByEmailRequest } from '@/store/ducks/me/actions';
-import { createPagarMeOrderRequest } from '@/store/ducks/payment/actions';
-import { loadStateRequest } from '@/store/ducks/state/actions';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { loadComponentByDescriptionRequest } from "@/store/ducks/component/actions";
+import { loadUserByEmailRequest } from "@/store/ducks/me/actions";
+import { createPagarMeOrderRequest } from "@/store/ducks/payment/actions";
+import { loadStateRequest } from "@/store/ducks/state/actions";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Cart } from "@/store/ducks/payment/types";
+import { User } from "@/store/ducks/users/types";
 
 interface Props {
   //children: ReactNode;
@@ -43,6 +54,8 @@ const Payment = ({}: Props) => {
 
   const component = useSelector((state: ApplicationState) => state.component);
   const me = useSelector((state: ApplicationState) => state.me);
+
+  console.log("ME", me);
   //const cart = useSelector((state: ApplicationState) => state.carts);
   const payment = useSelector((state: ApplicationState) => state.payment);
   // const state = useSelector((state: ApplicationState) => state.state);
@@ -66,7 +79,7 @@ const Payment = ({}: Props) => {
   }, [me.me]);
 
   //console.log("cartRedux", cart);
-  //console.log("paymentRedux", payment);
+  console.log("paymentRedux", payment);
 
   //////////
   let formSchemaTotal = z.object({
@@ -140,49 +153,46 @@ const Payment = ({}: Props) => {
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log("Validated Values", values);
-
+    // console.log("Validated Values", values);
     var data = new Date();
-    //Post cart:
-    // const cart: Cart = {
-    //   parentComponent: 106,
-    //   parentUser: me.me.id,
-    //   unityprice: 497, // AQUI (price)
-    //   quantity: 1,
-    //   discount: 0,
-    //   total: 497, //unityprice * quantity AQUI (price)
-    //   tax: 0,
-    //   created_at: data.getTime() / 1000,
-    //   status: 1,
-    //   description: "NameProduct",
-    //   numcartao: values.cardnumber?.replace(/\D/g, "") || "",
-    //   nomecartao: values.cardname || "",
-    //   expiryMonth: values.cardmonth || "",
-    //   expiryYear: values.cardyear || "",
-    //   codcartao: values.cardcvv || "",
-    //   parcelas: +values.installments! || 1,
-    // };
-    // // console.log("save cart", cart);
-    // // dispatch(createCartRequest(cart));
 
-    let payment = {
-      name: me.me.name,
-      email: me.me.email,
+    let cart: Cart = {
+      amount: "548800",
+      codcartao: values.cardcvv,
+      code: "CDE123",
+      description: "Lp Abc",
+      expiryMonth: values.cardmonth,
+      expiryYear: values.cardyear,
+      installments: values.installments,
+      nomecartao: values.cardname,
+      numcartao: values.cardnumber,
+      statement_descriptor: "Statement",
+    };
+
+    let user: any = {
+      name: me.me.name, //"name": "Carlos Defelicibus Junior",
+      email: me.me.email, //"email": "carlitosceo@gmail.com"
+      //mobilePhone: me.me.whatsapp!.replace(/\D/g, ""),
+      //cpfCnpj: me.me.cpf!.replace(/\D/g, ""),
+      postalCode: me.me.postalCode!.replace(/\D/g, ""), //"postalCode": "38400308",
+      address: me.me.address, // "address": "Av Brigadeiro Sampaio 46",
+      city: me.me.city?.name, //"city": "Uberlândia",
+      state: me.me.state?.state, // "state": "MG",
+      country: "BR", //"country": "BR",
       // "phone": me.me.profile?.whatsapp,
-      mobilePhone: me.me.whatsapp!.replace(/\D/g, ""),
-      cpfCnpj: me.me.cpf!.replace(/\D/g, ""),
-      postalCode: me.me.postalCode!.replace(/\D/g, ""),
-      address: me.me.address,
       //addressNumber: number,
       //"complement": request.body.complement,
       // province: city,
-      city: me.me.cityParent?.name,
-      state: me.me.stateParent?.state,
-      country: "BR",
-      payment_method: values.paymentWay,
+
+      //payment_method: values.paymentWay,
     };
-    console.log("paymentXXX", payment);
-    //dispatch(createPagarMeOrderRequest(payment, cart));
+
+
+    console.log("PaymentWAY", values.paymentWay);
+    console.log("Payment", user);
+    console.log("Cart", cart);
+
+    dispatch(createPagarMeOrderRequest(values.paymentWay, user, cart));
 
     setNextStep(true);
   };
@@ -197,16 +207,16 @@ const Payment = ({}: Props) => {
 
   if (me.error || component.error) router.push(`/sale/subscribe/${list}`);
 
-  // if (nextStep && cart.data.id && payment.data.status === "paid") {
-  //   //Vai para o upsell
-  //   // navigate('/aproveite/' + me.me.profile?.name)
-  //   //De baixo:
-  //   router.push(`/sale/thankyou/${list}/${me.me.email}`);
-  // }
-  // if (nextStep && cart.data.id && payment.data.status === "pending") {
-  //   router.push(`/sale/checkout/pending/${list}/${me.me.email}`);
-  // }
-  if (nextStep) router.push(`/sale/thankyou/${list}/${me.me.email}`);
+  if (nextStep && payment.data.status === "paid") {
+    //Vai para o upsell
+    // navigate('/aproveite/' + me.me.profile?.name)
+    //De baixo:
+    router.push(`/sale/thankyou/${list}/${me.me.email}`);
+  }
+  if (nextStep && payment.data.status === "pending") {
+    router.push(`/sale/checkout/pending/${list}/${me.me.email}`);
+  }
+  //if (nextStep) router.push(`/sale/thankyou/${list}/${me.me.email}`);
 
   return (
     <div className="bg-secondary-600">
@@ -378,7 +388,7 @@ const Payment = ({}: Props) => {
                         />
                       </div>
                     )}
-                    {payment.data.errors && (
+                    {payment.error?.message && (
                       <Alert
                         variant="destructive"
                         className="col-span-12 neon-red bg-primary-100"
@@ -386,11 +396,7 @@ const Payment = ({}: Props) => {
                         <AlertCircle className="h-4 w-4" />
                         <AlertTitle>Error</AlertTitle>
                         <AlertDescription>
-                          {JSON.stringify(
-                            Object.keys(payment.data.errors).map(
-                              (key) => payment.data.errors[key]
-                            )[0]
-                          )}
+                          {payment.error?.message}
                         </AlertDescription>
                       </Alert>
                     )}

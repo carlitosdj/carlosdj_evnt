@@ -4,13 +4,13 @@ import { ApplicationState } from "@/store";
 import { loadComponentByDescriptionRequest } from "@/store/ducks/component/actions";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Item from "./item";
 import Loading from "../../loading";
 import loadOrFailClass from "@/components/helpers/loadOrFailClass";
 import Image from "next/image";
-
+import Comments from "./comments";
 
 interface Props {
   //children: ReactNode;
@@ -29,25 +29,25 @@ const Class = ({}: Props) => {
   let { list, id } = params;
   if (!id) id = "aula01";
 
-  const [progress, setProgress] = useState<number>(0);
+  //const [progress, setProgress] = useState<number>(0);
   const component = useSelector((state: ApplicationState) => state.component);
 
   useEffect(() => {
     //document.title = 'Evento'
     dispatch(loadComponentByDescriptionRequest(list.toString()));
-
-    // try {
-    //   window.FB.XFBML.parse();
-    // } catch (error) {
-    //   console.log("XFBML error", error);
-    // }
-
-    // if (typeof window !== 'undefined') {
-    //   if (window.track != null) {
-    //     window.track('Blog')
-    //   }
-    // }
+    try {
+      window.FB.XFBML.parse();
+    } catch (error) {
+      console.log("XFBML error");
+    }
   }, [list]);
+
+  const memoizedComments = (url: string) =>
+    useMemo(() => {
+      return <Comments url={url} />;
+    }, []);
+
+  console.log("render", list);
 
   let loadOrFailTest = loadOrFailClass({ component });
   //if (loadOrFailTest === "loading") return <Loading />;
@@ -231,10 +231,11 @@ const Class = ({}: Props) => {
                 </span>
               </div>
 
-              <div className="px-2">
-                <div className="flex justify-around gap-2 py-6">
+              <div className="px-2 ">
+                <div className="flex justify-around gap-2 md:gap-6 py-6">
                   <Link
                     href={`/class/${list}/aula01`}
+                    shallow={false}
                     //onClick={() => setProgress(25)}
                   >
                     <Item
@@ -245,6 +246,8 @@ const Class = ({}: Props) => {
                   </Link>
                   <Link
                     href={`/class/${list}/aula02`}
+                    shallow={false}
+
                     //onClick={() => setProgress(50)}
                   >
                     <Item
@@ -255,6 +258,7 @@ const Class = ({}: Props) => {
                   </Link>
                   <Link
                     href={`/class/${list}/aula03`}
+                    shallow
                     //onClick={() => setProgress(75)}
                   >
                     <Item
@@ -265,6 +269,7 @@ const Class = ({}: Props) => {
                   </Link>
                   <Link
                     href={`/class/${list}/aula04`}
+                    shallow
                     //onClick={() => setProgress(100)}
                   >
                     <Item
@@ -274,47 +279,28 @@ const Class = ({}: Props) => {
                     />
                   </Link>
                 </div>
-
-                {loadOrFailTest === "loading" ? (
-                  <Loading />
-                ) : (
-                  <div className="">
-                    {/* <h3 className='text-center pt-4'>Clique no botão play para assistir a aula:</h3> */}
-
-                    <div
-                      className="relative rounded-sm overflow-hidden"
-                      style={{ paddingTop: "56.25%" }}
-                    >
-                      {renderSwitch(id.toString()!)}
-                    </div>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  <div className="col-span-2">
+                    {loadOrFailTest === "loading" ? (
+                      <Loading />
+                    ) : (
+                      <div>
+                        <div
+                          className="relative rounded-sm overflow-hidden"
+                          style={{ paddingTop: "56.25%" }}
+                        >
+                          {renderSwitch(id.toString()!)}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
-              {loadOrFailTest === "loading" ? (
-                <Loading />
-              ) : (
-                <div className="px-2 text-center">
-                  <h1 className="pt-8 text-2xl font-bold">
-                    Gostou dessa aula?
-                  </h1>
-                  <h4 className="font-extralight text-sm">
-                    Deixe um comentário ou pergunta abaixo, vou fazer o máximo
-                    para responder você.
-                  </h4>
-                  <br />
-                  <div className="bg-white p-2 rounded-sm">
-                    <div
-                      className="fb-comments"
-                      data-href="https://labiopalatina.com.br/blog/imersao-abr22/aula01"
-                      data-width="100%"
-                      data-numposts="25"
-                      data-order-by="reverse_time"
-                    ></div>
+                  <div className="col-span-2 lg:col-span-1">
+                    {memoizedComments(
+                      `https://labiopalatina.com.br/blog/imersao-abr22/${id.toString()}`
+                    )}
                   </div>
-                  <br />
-                  <br />
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>

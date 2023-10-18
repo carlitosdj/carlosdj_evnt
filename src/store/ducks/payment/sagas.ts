@@ -60,9 +60,9 @@ export function* createPaymentPixBoleto(payload: ReturnType<typeof createPayment
 export function* createPagarMeOrder(payload: ReturnType<typeof createPagarMeOrderRequest>) {
   try {
     put(
-      createPagarMeOrderRequest(payload.payload.user, payload.payload.cart)
+      createPagarMeOrderRequest(payload.payload.payment_method,payload.payload.user, payload.payload.cart)
     )
-    const response: Payment = yield call(api.post, 'order', payload.payload)
+    const response: Payment = yield call(api.post, 'payment/order', payload.payload)
     yield put(createPagarMeOrderSuccess(response))
   } catch (error: any) {
     yield put(createPagarMeOrderFailure(error.response.data))

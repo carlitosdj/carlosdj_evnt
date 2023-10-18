@@ -21,6 +21,14 @@ export default function RootLayout({
     // <html lang="en" className="scroll-smooth hover:scroll-auto">
     <html lang="en">
       <body className={inter.className}>
+        <div id="fb-root"></div>
+        <script
+          async
+          defer
+          crossOrigin="anonymous"
+          src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0&appId=2070160319877660"
+          nonce="bodCvZNS"
+        ></script>
         <ReduxProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             {/* <div className="fixed right-0">

@@ -1,17 +1,17 @@
 "use client";
-import { notFound, useParams, useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { notFound, useParams, useRouter } from "next/navigation";
+import { useEffect } from "react";
 // import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 // import * as z from 'zod';
 
-import Loading from '@/app/sale/loading';
-import loadOrFailSales from '@/components/helpers/loadOrFailSales';
-import Stepper from '@/components/widgets/stepper/Stepper';
-import { ApplicationState } from '@/store';
-import { loadComponentByDescriptionRequest } from '@/store/ducks/component/actions';
-import { loadUserByEmailRequest } from '@/store/ducks/me/actions';
-import { loadStateRequest } from '@/store/ducks/state/actions';
+import Loading from "@/app/sale/loading";
+import loadOrFailSales from "@/components/helpers/loadOrFailSales";
+import Stepper from "@/components/widgets/stepper/Stepper";
+import { ApplicationState } from "@/store";
+import { loadComponentByDescriptionRequest } from "@/store/ducks/component/actions";
+import { loadUserByEmailRequest } from "@/store/ducks/me/actions";
+import { loadStateRequest } from "@/store/ducks/state/actions";
 // import { zodResolver } from '@hookform/resolvers/zod';
 
 interface Props {
@@ -88,7 +88,7 @@ const Thankyou = ({}: Props) => {
   if (me.error || component.error) router.push(`/sales/subscribe/${list}`);
 
   //if (nextStep) router.push(`/sales/checkout/payment/${list}/${me.me.email}`);
-  
+
   return (
     <div className="bg-secondary-600">
       <div className="bg-gradient-to-b from-secondary-800 to-secondary-950">
@@ -103,44 +103,63 @@ const Thankyou = ({}: Props) => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="col-span-2 pb-20">
-                <div className="font-extrabold text-5xl col-span-12">
+              <div className="col-span-2 pb-10">
+                <div className="font-extrabold text-4xl col-span-12">
                   Bem vindo(a), {me.me.name}. Vamos começar?
                 </div>
               </div>
               <div className="col-span-2">
                 <div>
-                  É com muita alegria que damos as boas vindas. Que esse
-                  treinamento seja um divisor de águas na sua vida.
-                  <br />
-                  Vamos agora para as instruções iniciais.
-                  <br />
-                  1) Você receberá a cópia desse documento no seu e-mail.
-                  <br />
-                  2) Sua senha pode ser alterada na página inicial, ou qdo
-                  estiver logado, ou através do suporte.
-                  <br />
-                  3) Não repasse sua senha para ninguém. Logins simultâneos
-                  serão bloqueados.
-                  <br />
-                  4) Não poste nada além do tema na comunidade. Posts que saem
-                  do assunto serão censurados. Aqui é local para discutir sobre
-                  o assunto do treinamento.
-                  <br />
-                  5) Não faça auto-promoção na comunidade. Também serão
-                  censurados.
-                  <br />
-                  6) Faça perguntas. Não existe perguntas bobas. Bobeira é não
-                  perguntar.
-                  <br />
-                  7) Faça um treinamento maravilhoso, e lembre-se que 50% é com
-                  o professor, 50% é com você. Não existe fórmula mágica, não
-                  existe caminho fácil, mas é extremamente importante que você
-                  tenha um time com quem seguir.
-                  <br />
-                  Atenciosamente,
-                  <br />
-                  Equipe Defelicibus Soluções.
+                  <p>
+                    É com imensa alegria que estendemos as boas-vindas a você.
+                    Desejamos que este treinamento represente um marco
+                    significativo em sua jornada.
+                  </p>
+                  <br/>
+                  <p>Agora, vamos seguir com algumas instruções iniciais:</p>
+                  <br/>
+                  <p>
+                    1. Em breve, você receberá uma cópia deste documento em seu
+                    e-mail.
+                  </p>
+                  <br/>
+                  <p>
+                  2. Lembre-se de que é possível alterar sua senha na página
+                  inicial, quando estiver conectado ou contatando o suporte.
+                  </p>
+                  <br/>
+                  <p>3. Por
+                  favor, zele pela confidencialidade de sua senha e evite
+                  compartilhá-la com terceiros, uma vez que logins simultâneos
+                  serão automaticamente bloqueados.
+                  </p><br/>
+                  <p>4. Mantenha as discussões na
+                  comunidade estritamente relacionadas ao tema do treinamento.
+                  Qualquer post que fuja do assunto será sujeito a censura. 
+                  
+                  Este
+                  é um espaço destinado à reflexão sobre o conteúdo do
+                  treinamento. 
+                  </p>
+                  <br/>
+                  
+                  <p>5. Não promova a si mesmo ou seus interesses
+                  pessoais na comunidade, pois essas postagens também estarão
+                  sujeitas a censura. 
+                  </p>
+                  <br/>
+                  <p>6. Encorajamos você a fazer perguntas sempre
+                  que necessário. Lembre-se de que não existem perguntas sem
+                  valor. O verdadeiro erro está em não questionar. </p>
+                  <br/>
+                  <p>7. Por fim,
+                  empenhe-se ao máximo durante o treinamento e tenha em mente
+                  que o sucesso depende igualmente de seu esforço e do auxílio
+                  do instrutor. Não existe uma fórmula mágica ou atalhos fáceis,
+                  mas é crucial contar com um time de apoio para seguir adiante.</p>
+                  <br/>
+                  Atenciosamente, A Equipe Defelicibus Soluções.
+                  <br/><br/>
                 </div>
               </div>
             </div>

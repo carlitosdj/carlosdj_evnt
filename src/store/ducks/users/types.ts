@@ -65,6 +65,9 @@ export interface User {
   roles?: string;
   cityParent?: City;
   stateParent?: State;
+  city?: City;
+  state?: State;
+  country?: string;
 }
 
 /**

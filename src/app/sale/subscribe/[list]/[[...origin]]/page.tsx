@@ -58,7 +58,7 @@ const Subscribe = () => {
   return (
     <div className="">
       <Hero
-        title={"Como não deixar nenhum centavo de honorários para trás."}
+        title={"Da primeira venda aos 10 mil por mês no digital."}
         // title={
         //   getValueFromExtras({
         //     extras: component.data.extras!,
