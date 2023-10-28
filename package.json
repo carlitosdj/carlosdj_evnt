@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3002",
+    "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 9001",
     "lint": "next lint",
     "cypress": "cypress open"
   },
@@ -34,7 +34,7 @@
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.11",
     "lucide-react": "^0.263.0",
-    "next": "13.4.11",
+    "next": "latest",
     "next-themes": "^0.2.1",
     "postcss": "8.4.27",
     "react": "18.2.0",

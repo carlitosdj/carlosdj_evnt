@@ -16,7 +16,6 @@ const Comments = ({ url }: Props) => {
         <div
           className="fb-comments w-full"
           data-href={url}
-          data-width=""
           data-numposts="5"
           data-width="100%"
           data-order-by="reverse_time"

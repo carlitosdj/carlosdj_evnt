@@ -36,7 +36,7 @@ const ThankyouPage = () => {
 
   const lead = useSelector((state: ApplicationState) => state.lead);
   const component = useSelector((state: ApplicationState) => state.component);
-  console.log("lead", lead)
+  console.log("leadYY", lead)
   console.log("component", component)
   
   let loadOrFailTest = loadOrFailLeads({ component, lead });

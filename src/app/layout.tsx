@@ -6,6 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 import ReduxProvider from "@/store/provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import ModeToggle from "@/components/theme-toggle";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Comece aqui",
@@ -19,16 +20,19 @@ export default function RootLayout({
 }) {
   return (
     // <html lang="en" className="scroll-smooth hover:scroll-auto">
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <div id="fb-root"></div>
-        <script
-          async
-          defer
-          crossOrigin="anonymous"
-          src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0&appId=2070160319877660"
-          nonce="bodCvZNS"
-        ></script>
+        <Head>
+          <div id="fb-root"></div>
+          <script
+            async
+            defer
+            crossOrigin="anonymous"
+            src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0&appId=2070160319877660"
+            nonce="eXN6Y0cH"
+          ></script>
+        </Head>
         <ReduxProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             {/* <div className="fixed right-0">

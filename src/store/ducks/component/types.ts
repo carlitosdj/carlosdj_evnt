@@ -15,7 +15,7 @@ export enum ComponentTypes {
 // User Imported from Me
 export interface Component {
   id?: number;
-  component_id?: number;
+  componentId?: number;
   name?: string;
   description?: string;
   created_at?: string;

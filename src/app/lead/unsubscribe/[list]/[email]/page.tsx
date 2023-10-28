@@ -29,7 +29,7 @@ const UnsubscribePage = () => {
     if (!component.data.id)
       dispatch(loadComponentByDescriptionRequest(list.toString()));
 
-    if (!lead.data.Id)
+    if (!lead.data.id)
       dispatch(
         loadLeadRequest(decodeURIComponent(email.toString()), list.toString())
       );

@@ -17,7 +17,6 @@ import SubscribeButton from "@/components/widgets/leads/subscribe/SubscribeButto
 import { Session } from "@/components/widgets/session";
 import { ApplicationState } from "@/store";
 import { loadComponentByDescriptionRequest } from "@/store/ducks/component/actions";
-import Head from "next/head";
 
 const Subscribe = () => {
   const lead = useSelector((state: ApplicationState) => state.lead);
@@ -28,8 +27,6 @@ const Subscribe = () => {
   let { list, ad } = params;
   if (!ad) ad = "default";
 
-  console.log("component", component);
-
   useEffect(() => {
     dispatch(loadComponentByDescriptionRequest(list.toString()));
 
@@ -38,11 +35,13 @@ const Subscribe = () => {
       once: true,
       offset: 50,
     });
-  }, [list, dispatch]);
+  }, [list]);
 
   let loadOrFailTest = loadOrFailLeads({ component });
+  console.log("component", component);
+  console.log("lead", lead);
 
-  //console.log('loadOrFailTest', loadOrFailTest)
+  console.log('loadOrFailTest', loadOrFailTest)
 
   if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();

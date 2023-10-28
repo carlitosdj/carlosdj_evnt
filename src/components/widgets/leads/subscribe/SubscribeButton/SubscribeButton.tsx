@@ -36,7 +36,7 @@ const SubscribeButton = ({
 }: SubscribeButtonProps) => {
   const [open, setOpen] = useState(false);
 
-  console.log("lead", lead);
+  console.log("leadZZ", lead);
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>

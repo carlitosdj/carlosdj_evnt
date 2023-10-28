@@ -37,15 +37,15 @@ const Class = ({}: Props) => {
     dispatch(loadComponentByDescriptionRequest(list.toString()));
     try {
       window.FB.XFBML.parse();
-    } catch (error) {
-      console.log("XFBML error");
+    } catch (error:any) {
+      console.log("XFBML error", error.message);
     }
   }, [list]);
 
-  const memoizedComments = (url: string) =>
-    useMemo(() => {
-      return <Comments url={url} />;
-    }, []);
+  // const memoizedComments = (url: string) =>
+  //   useMemo(() => {
+  //     return <Comments url={url} />;
+  //   }, []);
 
   console.log("render", list);
 
@@ -295,9 +295,9 @@ const Class = ({}: Props) => {
                     )}
                   </div>
                   <div className="col-span-2 lg:col-span-1">
-                    {memoizedComments(
+                    {/* {memoizedComments(
                       `https://labiopalatina.com.br/blog/imersao-abr22/${id.toString()}`
-                    )}
+                    )} */}
                   </div>
                 </div>
               </div>

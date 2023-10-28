@@ -1,12 +1,12 @@
 
-FROM node:18-alpine AS deps
+FROM node:18-alpine3.16 AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /modelo_mkt
 
 COPY package.json package-lock.json ./
 RUN  yarn install --production
 
-FROM node:18-alpine AS builder
+FROM node:18-alpine3.16 AS builder
 WORKDIR /modelo_mkt
 COPY --from=deps /modelo_mkt/node_modules ./node_modules
 COPY . .
@@ -15,7 +15,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN yarn build
 
-FROM node:18-alpine AS runner
+FROM node:18-alpine3.16 AS runner
 WORKDIR /modelo_mkt
 
 ENV NODE_ENV production

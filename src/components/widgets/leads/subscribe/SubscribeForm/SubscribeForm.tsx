@@ -64,8 +64,8 @@ const SubscribeForm = ({
     console.log("SALVAR LEAD", lead);
 
     // let message = component.data.extras?.filter(
-    //   (extra) => extra.key_extra === "email"
-    // )[0].value_extra;
+    //   (extra) => extra.keyExtra === "email"
+    // )[0].valueExtra;
     // //Replacing {name} and {email}
     // message = message?.replace("{name}", values.name);
     // message = message?.replace("{email}", values.email);
@@ -73,15 +73,15 @@ const SubscribeForm = ({
 
     // let emailmessage: Emailmessage = {
     //   title: component.data.extras?.filter(
-    //     (extra) => extra.key_extra === "title_email"
-    //   )[0].value_extra,
+    //     (extra) => extra.keyExtra === "title_email"
+    //   )[0].valueExtra,
     //   message,
     // };
 
     // //Email 2 (D+1)
     // let messageTwo = component.data.extras?.filter(
-    //   (extra) => extra.key_extra === "email_d2"
-    // )[0].value_extra;
+    //   (extra) => extra.keyExtra === "email_d2"
+    // )[0].valueExtra;
     // //Replacing {name} and {email}
     // messageTwo = messageTwo?.replace("{name}", values.name);
     // messageTwo = messageTwo?.replace("{email}", values.email);
@@ -89,8 +89,8 @@ const SubscribeForm = ({
 
     // let emailmessageTwo: Emailmessage = {
     //   title: component.data.extras?.filter(
-    //     (extra) => extra.key_extra === "title_email_d2"
-    //   )[0].value_extra,
+    //     (extra) => extra.keyExtra === "title_email_d2"
+    //   )[0].valueExtra,
     //   message: messageTwo,
     // };
 
