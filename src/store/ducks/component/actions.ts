@@ -7,5 +7,5 @@ export const loadComponentByDescriptionRequest = (id: string) =>
   action(ComponentTypes.LOAD_COMPONENT_BY_DESC_REQUEST, id)
 export const loadComponentByDescriptionSuccess = (data: Component) =>
   action(ComponentTypes.LOAD_COMPONENT_BY_DESC_SUCCESS, data)
-export const loadComponentByDescriptionFailure = () =>
-  action(ComponentTypes.LOAD_COMPONENT_BY_DESC_FAILURE)
+export const loadComponentByDescriptionFailure = (err: any[]) =>
+  action(ComponentTypes.LOAD_COMPONENT_BY_DESC_FAILURE, err)

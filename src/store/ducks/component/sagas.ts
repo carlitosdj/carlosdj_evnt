@@ -21,7 +21,7 @@ export function* loadComponentByDescription(
     );
     //console.log("response", response);
     yield put(loadComponentByDescriptionSuccess(response));
-  } catch (error) {
-    yield put(loadComponentByDescriptionFailure());
+  } catch (error: any) {
+    yield put(loadComponentByDescriptionFailure(error.reponse.data));
   }
 }

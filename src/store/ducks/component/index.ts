@@ -23,7 +23,7 @@ const reducer: Reducer<ComponentState> = (state = INITIAL_STATE, action) => {
         data: action.payload.data,
       };
     case ComponentTypes.LOAD_COMPONENT_BY_DESC_FAILURE:
-      return { ...state, loading: false, error: true, data: {} };
+      return { ...state, loading: false, error: action.payload, data: {} };
 
     default:
       return state;

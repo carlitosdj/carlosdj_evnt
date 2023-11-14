@@ -15,7 +15,7 @@ export function* loadState(payload: ReturnType<typeof loadStateRequest>) {
     put(loadStateRequest())
     const response: State[] = yield call(api.get, 'state/')
     yield put(loadStateSuccess(response))
-  } catch (error) {
-    yield put(loadStateFailure())
+  } catch (error: any) {
+    yield put(loadStateFailure(error.reponse.data))
   }
 }

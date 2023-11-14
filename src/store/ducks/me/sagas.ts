@@ -45,8 +45,8 @@ export function* loginUser(payload: ReturnType<typeof loginUserRequest>) {
   try {
     const response: User = yield call(api.post, 'login', payload.payload) //Payload.payload está ok
     yield put(loginUserSuccess(response))
-  } catch (error) {
-    yield put(loginUserFailure())
+  } catch (error: any) {
+    yield put(loginUserFailure(error.response.data))
   }
 }
 
@@ -55,8 +55,8 @@ export function* recoveryUser(payload: ReturnType<typeof recoveryUserRequest>) {
   try {
     const response: string = yield call(api.post, 'recovery', {email: payload.payload}) //Payload.payload está ok
     yield put(recoveryUserSuccess(response))
-  } catch (error) {
-    yield put(recoveryUserFailure())
+  } catch (error: any) {
+    yield put(recoveryUserFailure(error.response.data))
   }
 }
 
@@ -65,8 +65,8 @@ export function* loadMe(payload: ReturnType<typeof loadMeRequest>) {
   try {
     const response: User = yield call(api.post, 'userrecovery', payload.payload)
     yield put(loadMeSuccess(response))
-  } catch (error) {
-    yield put(loadMeFailure())
+  } catch (error: any) {
+    yield put(loadMeFailure(error.response.data))
   }
 }
 
@@ -77,7 +77,7 @@ export function* loadUserByEmail(payload: ReturnType<typeof loadUserByEmailReque
     put(loadUserByEmailRequest(payload.payload))
     const response: User = yield call(api.get, 'user/email/'+ payload.payload)
     yield put(loadUserByEmailSuccess(response))
-  } catch (error:any) {
+  } catch (error: any) {
     yield put(loadUserByEmailFailure(error.response.data))
   }
 }
@@ -110,7 +110,7 @@ export function* deleteMe(payload: ReturnType<typeof deleteMeRequest>) {
   try {
     const response: User = yield call(api.delete, 'users/' + payload.payload)
     yield put(deleteMeSuccess(response))
-  } catch (error) {
-    yield put(deleteMeFailure())
+  } catch (error: any) {
+    yield put(deleteMeFailure(error.response.data))
   }
 }
