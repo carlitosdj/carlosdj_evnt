@@ -21,16 +21,16 @@ const loadOrFailClass = ({ component }: loadOrFailClassProps) => {
   if (!component.data.id) return "loading";
 
   //Checa se está no prazo de acesso:
-  var data_inicio = getValueFromExtras({ extras: component.data.extras!, key: "data_inicio" });
+  var eventStartDate = getValueFromExtras({ extras: component.data.extras!, key: "eventStartDate" });
   //inscricao_inicio = "26/07/2023";
 
-  var data_fim = getValueFromExtras({ extras: component.data.extras!, key: "data_fim" });
+  var eventEndDate = getValueFromExtras({ extras: component.data.extras!, key: "eventEndDate" });
   //inscricao_fim = "27/07/2023";
 
-  if (checkDateRange({ initialDate: data_inicio!, finalDate: data_fim! }) === "Invalid Date")
+  if (checkDateRange({ initialDate: eventStartDate!, finalDate: eventEndDate! }) === "Invalid Date")
     return "loading"
 
-  if (checkDateRange({ initialDate: data_inicio!, finalDate: data_fim! }) === false)
+  if (checkDateRange({ initialDate: eventStartDate!, finalDate: eventEndDate! }) === false)
     return "out of time";
 
   return "pass";

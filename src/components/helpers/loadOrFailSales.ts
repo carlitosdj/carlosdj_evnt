@@ -21,10 +21,10 @@ const loadOrFailSales = ({ component, me }: loadOrFailSalesProps) => {
   if (!component.data.id) return "loading";
 
   //Checa se está no prazo de acesso:
-  var inscricao_inicio = getValueFromExtras({ extras: component.data.extras!, key: "data_inicio" });
+  var inscricao_inicio = getValueFromExtras({ extras: component.data.extras!, key: "cartOpenDate" });
   //inscricao_inicio = "26/07/2023";
 
-  var inscricao_fim = getValueFromExtras({ extras: component.data.extras!, key: "data_fim" });
+  var inscricao_fim = getValueFromExtras({ extras: component.data.extras!, key: "cartCloseDate" });
   //inscricao_fim = "27/07/2023";
 
   if (checkDateRange({ initialDate: inscricao_inicio!, finalDate: inscricao_fim! }) === "Invalid Date")

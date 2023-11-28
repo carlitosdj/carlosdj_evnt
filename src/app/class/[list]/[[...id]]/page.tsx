@@ -58,11 +58,11 @@ const Class = ({}: Props) => {
 
   let datainicio = getValueFromExtras({
     extras: component.data.extras!,
-    key: "data_inicio",
+    key: "eventStartDate",
   });
   let datafim = getValueFromExtras({
     extras: component.data.extras!,
-    key: "data_fim",
+    key: "eventEndDate",
   });
 
   let cpl1 = getValueFromExtras({
@@ -71,7 +71,7 @@ const Class = ({}: Props) => {
   });
   let data_cpl1 = getValueFromExtras({
     extras: component.data.extras!,
-    key: "data_cpl1",
+    key: "dateCpl1",
   });
   let activecpl1 = true;
 
@@ -81,7 +81,7 @@ const Class = ({}: Props) => {
   });
   let data_cpl2 = getValueFromExtras({
     extras: component.data.extras!,
-    key: "data_cpl2",
+    key: "dateCpl2",
   });
   let activecpl2 = true;
 
@@ -91,7 +91,7 @@ const Class = ({}: Props) => {
   });
   let data_cpl3 = getValueFromExtras({
     extras: component.data.extras!,
-    key: "data_cpl3",
+    key: "dateCpl3",
   });
   let activecpl3 = true;
 
@@ -101,7 +101,7 @@ const Class = ({}: Props) => {
   });
   let data_cpl4 = getValueFromExtras({
     extras: component.data.extras!,
-    key: "data_cpl4",
+    key: "dateCpl4",
   });
   let activecpl4 = true;
 
@@ -216,7 +216,7 @@ const Class = ({}: Props) => {
                     src={`https://violaofeeling.com.br/files/${getValueFromExtras(
                       {
                         extras: component.data.extras!,
-                        key: "img",
+                        key: "eventImg",
                       }
                     )!}`}
                     alt="img"

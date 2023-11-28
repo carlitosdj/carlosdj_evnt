@@ -57,20 +57,20 @@ const Subscribe = () => {
         badge={
           getValueFromExtras({
             extras: component.data.extras!,
-            key: "name",
+            key: "eventName",
           })!
         }
         title={
           getValueFromExtras({
             extras: component.data.extras!,
-            key: "headline",
+            key: "eventHeadline",
           })!
         }
         //title={"Como criar landing pages"}
         subtitle={
           getValueFromExtras({
             extras: component.data.extras!,
-            key: "description",
+            key: "eventDescription",
           })!
         }
       >

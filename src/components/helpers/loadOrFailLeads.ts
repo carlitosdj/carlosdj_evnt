@@ -24,19 +24,19 @@ const loadOrFailLeads = ({ component, lead }: loadOrFailLeadsProps) => {
   if (!component.data.id) return "loading";
 
   //Checa se está no prazo de acesso:
-  var inscricao_inicio = getValueFromExtras({ extras: component.data.extras!, key: "inscricao_inicio" });
-  console.log('inscricao_inicio', component.data.extras);
-  console.log('inscricao_inicio', inscricao_inicio);
+  var leadSignUpStartDate = getValueFromExtras({ extras: component.data.extras!, key: "leadSignUpStartDate" });
+  // console.log('leadSignUpStartDate', component.data.extras);
+  // console.log('leadSignUpStartDate', leadSignUpStartDate);
   //inscricao_inicio = "26/07/2023";
 
-  var inscricao_fim = getValueFromExtras({ extras: component.data.extras!, key: "inscricao_fim" });
-  console.log('inscricao_fim', inscricao_fim);
+  var leadSignUpEndDate = getValueFromExtras({ extras: component.data.extras!, key: "leadSignUpEndDate" });
+  // console.log('inscricao_fim', leadSignUpEndDate);
   //inscricao_fim = "27/07/2023";
 
-  if (checkDateRange({ initialDate: inscricao_inicio!, finalDate: inscricao_fim! }) === "Invalid Date")
+  if (checkDateRange({ initialDate: leadSignUpStartDate!, finalDate: leadSignUpEndDate! }) === "Invalid Date")
     return "loading"
 
-  if (checkDateRange({ initialDate: inscricao_inicio!, finalDate: inscricao_fim! }) === false)
+  if (checkDateRange({ initialDate: leadSignUpStartDate!, finalDate: leadSignUpEndDate! }) === false)
     return "out of time";
 
   return "pass";

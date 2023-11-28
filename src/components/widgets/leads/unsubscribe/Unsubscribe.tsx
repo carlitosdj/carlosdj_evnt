@@ -63,7 +63,7 @@ const Unsubscribe = ({ lead, component }: UnsubscribeProps) => {
             {
               getValueFromExtras({
                 extras: component.data.extras!,
-                key: "name",
+                key: "eventName",
               })!
             }
           </div>

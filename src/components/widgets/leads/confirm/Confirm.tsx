@@ -35,7 +35,7 @@ const Confirm = ({ lead, component }: ThankyouProps) => {
             {
               getValueFromExtras({
                 extras: component.data.extras!,
-                key: "name",
+                key: "eventName",
               })!
             }
           </div>
@@ -56,19 +56,19 @@ const Confirm = ({ lead, component }: ThankyouProps) => {
             {" " +
               getValueFromExtras({
                 extras: component.data.extras!,
-                key: "name",
+                key: "eventName",
               })!}{" "}
             {
               getValueFromExtras({
                 extras: component.data.extras!,
-                key: "data_inicio",
+                key: "eventStartDate",
               })!
             }
             {" a "}
             {
               getValueFromExtras({
                 extras: component.data.extras!,
-                key: "data_fim",
+                key: "eventEndDate",
               })!
             }
           </p>
@@ -78,7 +78,7 @@ const Confirm = ({ lead, component }: ThankyouProps) => {
               href={
                 getValueFromExtras({
                   extras: component.data.extras!,
-                  key: "link_grupo",
+                  key: "eventGroupLink",
                 })!
               }
             >

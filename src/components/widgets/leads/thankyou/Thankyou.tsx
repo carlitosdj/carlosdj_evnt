@@ -36,7 +36,7 @@ const Thankyou = ({ lead, component }: ThankyouProps) => {
             {
               getValueFromExtras({
                 extras: component.data.extras!,
-                key: "name",
+                key: "eventName",
               })!
             }
           </div>
@@ -62,7 +62,7 @@ const Thankyou = ({ lead, component }: ThankyouProps) => {
               href={
                 getValueFromExtras({
                   extras: component.data.extras!,
-                  key: "group_link",
+                  key: "eventGroupLink",
                 })!
               }
             >

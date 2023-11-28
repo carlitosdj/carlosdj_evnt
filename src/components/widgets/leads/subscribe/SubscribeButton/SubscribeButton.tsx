@@ -44,7 +44,7 @@ const SubscribeButton = ({
           className="group text-primary-500 border border-primary-500 hover:bg-primary-800 hover:text-white active:bg-primary-600 neon-primary font-bold uppercase px-8 py-3 rounded-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-100 text-sm"
           id={"btn"}
         >
-          {getValueFromExtras({ extras: component.data.extras!, key: "btn" })!}
+          {getValueFromExtras({ extras: component.data.extras!, key: "eventBtn" })!}
           <span className="group-hover:pl-1 text-primary-300 group-hover:text-white transition-all font-thin">
             {" ->"}
           </span>
@@ -90,7 +90,7 @@ const SubscribeButton = ({
                 href={
                   getValueFromExtras({
                     extras: component.data.extras!,
-                    key: "group_link",
+                    key: "eventGroupLink",
                   })!
                 }
               >

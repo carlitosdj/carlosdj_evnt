@@ -58,15 +58,25 @@ const Subscribe = () => {
   return (
     <div className="">
       <Hero
-        title={"Da primeira venda aos 10 mil por mês no digital."}
-        // title={
-        //   getValueFromExtras({
-        //     extras: component.data.extras!,
-        //     key: "descricao",
-        //   })!
-        // }
-        subtitle="Você vai entender o passo a passo para a proteção dos honorários de sucumbência e não deixar nenhum centava para trás."
-        badge="Treinamento para Advogados"
+        //title={"Da primeira venda aos 10 mil por mês no digital."}
+        title={
+          getValueFromExtras({
+            extras: component.data.extras!,
+            key: "productHeadline",
+          })!
+        }
+        subtitle={
+          getValueFromExtras({
+            extras: component.data.extras!,
+            key: "productDescription",
+          })!
+        }
+        badge={
+          getValueFromExtras({
+            extras: component.data.extras!,
+            key: "productName",
+          })!
+        }
         video="https://player.vimeo.com/video/786710754"
       >
         <SubscribeButton
