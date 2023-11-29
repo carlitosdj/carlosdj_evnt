@@ -21,15 +21,15 @@ const Home = () => {
       <br />
 
       <div className="font-medium text-xl">MARKETING</div>
-      <Link href="/lead/subscribe/captacao" target="_blank">
+      <Link href="/lead/subscribe/lead-out23/site" target="_blank">
         Cadastro de Leads
       </Link>
       <br />
-      <Link href="/class/imersao-carlitos/aula01" target="_blank">
+      <Link href="/class/event-out23/aula01" target="_blank">
         Semana Imersão
       </Link>
       <br />
-      <Link href="/sale/subscribe/vendas-carlitos" target="_blank">
+      <Link href="/sale/subscribe/sales-out23" target="_blank">
         Página de vendas
       </Link>
       <br />
