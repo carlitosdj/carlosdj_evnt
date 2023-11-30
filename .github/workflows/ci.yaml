@@ -25,12 +25,12 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rltgoDzvO --delete"
-          SOURCE: "out/"
+          SOURCE: "/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           #TARGET: ${{ secrets.REMOTE_TARGET }}
-          TARGET: /home/wwinst/evnt.institutodefelicibus.com.br/build/
+          TARGET: /home/wwinst/evnt.institutodefelicibus.com.br/files/
 
       # - name: Post Deploy
       #   uses: appleboy/ssh-action@master
