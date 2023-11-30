@@ -15,10 +15,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-      - run: npm install --global yarn
-      - run: CI=false
-      - run: yarn install
-      - run: yarn build
+      #- run: npm install --global yarn
+      #- run: CI=false
+      #- run: yarn install
+     # - run: yarn build
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
@@ -30,7 +30,7 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           #TARGET: ${{ secrets.REMOTE_TARGET }}
-          TARGET: /home/wwinst/evento.institutodefelicibus.com.br/build/
+          TARGET: /home/wwinst/evento.institutodefelicibus.com.br/
 
       # - name: Post Deploy
       #   uses: appleboy/ssh-action@master
