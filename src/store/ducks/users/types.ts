@@ -50,7 +50,7 @@ export interface User {
   flag?: number;
   last_login_at?: number;
   origin?: string;
-  num_turma?: number;
+  numTurma?: number;
   name?: string;
   bio?: string;
   whatsapp?: string;
@@ -60,8 +60,8 @@ export interface User {
   addressNumber?: string;
   addressDistrict?: string;
   image?: string;
-  city_id?: number;
-  state_id?: number;
+  cityId?: number;
+  stateId?: number;
   roles?: string;
   cityParent?: City;
   stateParent?: State;

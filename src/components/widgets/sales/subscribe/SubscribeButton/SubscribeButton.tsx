@@ -1,18 +1,25 @@
 "use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import getValueFromExtras from '@/components/helpers/getValueFromExtras';
-import { Button } from '@/components/ui/button';
+import getValueFromExtras from "@/components/helpers/getValueFromExtras";
+import { Button } from "@/components/ui/button";
 import {
-    Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger
-} from '@/components/ui/dialog';
-import { ComponentState } from '@/store/ducks/component/types';
-import { LeadState } from '@/store/ducks/lead/types';
-import { MeState } from '@/store/ducks/me/types';
-import { DialogClose } from '@radix-ui/react-dialog';
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { ComponentState } from "@/store/ducks/component/types";
+import { LeadState } from "@/store/ducks/lead/types";
+import { MeState } from "@/store/ducks/me/types";
+import { DialogClose } from "@radix-ui/react-dialog";
 
-import SubscribeForm from '../SubscribeForm/SubscribeForm';
+import SubscribeForm from "../SubscribeForm/SubscribeForm";
+import { Loader2 } from "lucide-react";
 
 interface SubscribeButtonProps {
   component: ComponentState;
@@ -25,7 +32,7 @@ const SubscribeButton = ({ component, me, ad, list }: SubscribeButtonProps) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div>
+    <>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger
           className="
@@ -46,18 +53,29 @@ const SubscribeButton = ({ component, me, ad, list }: SubscribeButtonProps) => {
           mb-1 
           ease-linear
           transition-all
-          duration-100"
+          duration-100
+          w-full"
           id={"btn"}
         >
-          Quero entrar
+          {
+            getValueFromExtras({
+              extras: component.data.extras!,
+              key: "eventBtn",
+            })!
+          }
           <span className="group-hover:pl-1 text-primary-300 group-hover:text-white transition-all font-thin">
             {" ->"}
           </span>
+          {me.loading && (
+            <div className="flex justify-center items-center">
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            </div>
+          )}
         </DialogTrigger>
         <DialogContent className="dark:bg-secondary-900 ">
           <DialogHeader>
             <DialogTitle className="text-start dark:text-primary-600 text-2xl">
-              Entre com seus dados (SALES)
+              Entre com seus dados
             </DialogTitle>
             <DialogDescription className="text-start dark:text-white pb-4">
               Realize sua inscrição gratuita
@@ -72,7 +90,6 @@ const SubscribeButton = ({ component, me, ad, list }: SubscribeButtonProps) => {
           </DialogHeader>
         </DialogContent>
       </Dialog>
-      {me.loading && "Carregando..."}
       {me.error && !me.loading && (
         <div className="flex items-center justify-center">
           <div className="neon-rose p-4 rounded-lg my-6 w-full">
@@ -82,7 +99,7 @@ const SubscribeButton = ({ component, me, ad, list }: SubscribeButtonProps) => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 export default SubscribeButton;

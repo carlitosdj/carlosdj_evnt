@@ -43,7 +43,7 @@ const reducer: Reducer<MeState> = (state = INITIAL_STATE, action) => {
 
     //Create
     case MeTypes.CREATE_USER_REQUEST:
-      return {...state}
+      return {...state, loading: true}
     case MeTypes.CREATE_USER_SUCCESS:
       return {...state, loading: false, error: false, me: action.payload.data}
     case MeTypes.CREATE_USER_FAILURE:

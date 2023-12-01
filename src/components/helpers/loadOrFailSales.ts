@@ -13,7 +13,7 @@ const loadOrFailSales = ({ component, me }: loadOrFailSalesProps) => {
   if (me) {
     if (me.error) return "loading";
     if (me.loading) return "loading";
-    if (!me.me.id) return "loading";
+    //if (!me.me.id) return "loading";
   }
 
   if (component.error) return "not found";

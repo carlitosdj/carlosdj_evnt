@@ -86,6 +86,14 @@ const Data = ({}: Props) => {
     }
   }, [me.me]);
 
+  useEffect(() => {
+    if (me.error || component.error) router.push(`/sale/subscribe/${list}`);
+  }, [me, component]);
+
+  useEffect(() => {
+    if (nextStep) router.push(`/sale/checkout/payment/${list}/${me.me.email}`);
+  }, [nextStep]);
+
   const carregaCEP = (cep: string) => {
     if (cep.replace(/\D/g, "").length === 8) {
       const api =
@@ -149,7 +157,7 @@ const Data = ({}: Props) => {
     const userupdate: User = {
       id: me.me.id,
       newPassword: values.password,
-      num_turma: 1,
+      numTurma: 1,
       flag: 10,
       cpf: values.cpf.replace(/\D/g, ""),
       address: values.address,
@@ -157,8 +165,8 @@ const Data = ({}: Props) => {
       addressDistrict: values.bairro,
       //addressCountry: "BR",
       postalCode: values.cep?.replace(/\D/g, ""),
-      city_id: selectedCity.id!,
-      state_id: selectedState.id!,
+      cityId: selectedCity.id!,
+      stateId: selectedState.id!,
       roles: "consumer",
     };
     console.log("User to update", userupdate);
@@ -174,9 +182,6 @@ const Data = ({}: Props) => {
   if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;
-
-  if (me.error || component.error) router.push(`/sale/subscribe/${list}`);
-  if (nextStep) router.push(`/sale/checkout/payment/${list}/${me.me.email}`);
 
   return (
     <div className="bg-secondary-600">

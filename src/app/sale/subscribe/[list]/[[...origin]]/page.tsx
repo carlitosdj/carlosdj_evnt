@@ -1,38 +1,43 @@
 "use client";
 
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 
-import AOS from 'aos';
-import { notFound, useParams, useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import AOS from "aos";
+import { notFound, useParams, useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import Loading from '@/app/sale/loading';
-import loadOrFailSales from '@/components/helpers/loadOrFailSales';
+import Loading from "@/app/sale/loading";
+import loadOrFailSales from "@/components/helpers/loadOrFailSales";
 import {
-    Accordion, AccordionContent, AccordionItem, AccordionTrigger
-} from '@/components/ui/accordion';
-import Footer from '@/components/widgets/footer/Footer';
-import Hero from '@/components/widgets/hero/Hero';
-import SubscribeButton from '@/components/widgets/sales/subscribe/SubscribeButton/SubscribeButton';
-import { Session } from '@/components/widgets/session';
-import { ApplicationState } from '@/store';
-import { loadComponentByDescriptionRequest } from '@/store/ducks/component/actions';
-import getValueFromExtras from '@/components/helpers/getValueFromExtras';
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import Footer from "@/components/widgets/footer/Footer";
+import Hero from "@/components/widgets/hero/Hero";
+import SubscribeButton from "@/components/widgets/sales/subscribe/SubscribeButton/SubscribeButton";
+import { Session } from "@/components/widgets/session";
+import { ApplicationState } from "@/store";
+import { loadComponentByDescriptionRequest } from "@/store/ducks/component/actions";
+import getValueFromExtras from "@/components/helpers/getValueFromExtras";
 
 const Subscribe = () => {
   const me = useSelector((state: ApplicationState) => state.me);
   const component = useSelector((state: ApplicationState) => state.component);
+
   const dispatch = useDispatch();
   const params = useParams();
   const router = useRouter();
+
   let { list, ad } = params;
   if (!ad) ad = "default";
 
-  console.log("me", me)
+  console.log("me", me);
+  console.log("component", component);
 
   useEffect(() => {
-    //document.title = "Participe";
     dispatch(loadComponentByDescriptionRequest(list.toString()));
     AOS.init({
       easing: "ease-out-cubic",
@@ -41,19 +46,17 @@ const Subscribe = () => {
     });
   }, [list, dispatch]);
 
-  // console.log("component", component);
-  // console.log("me", me);
+  useEffect(() => {
+    if (me.me.id && me.me.email && me.me.whatsapp) {
+      router.push(`/sale/checkout/data/${list}/${me.me.email}`);
+    }
+  }, [me]);
 
   //console.log("loadOrFail", loadOrFailSales({ component }))
   let loadOrFailTest = loadOrFailSales({ component });
   if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;
-
-  if (me.me.id && me.me.email && me.me.whatsapp) {
-    router.push(`/sale/checkout/data/${list}/${me.me.email}`);
-    //window.location.href = page_checkout!
-  }
 
   return (
     <div className="">
@@ -112,7 +115,7 @@ const Subscribe = () => {
           delay="300"
         />
       </Session.Root>
-      <div className="flex justify-center items-center p-10">
+      <div className="flex justify-center items-center pb-10 container">
         <SubscribeButton
           ad={ad.toString()}
           me={me}
@@ -145,7 +148,14 @@ const Subscribe = () => {
           delay="300"
         />
       </Session.Root>
-
+      <div className="flex justify-center items-center pb-10 container">
+        <SubscribeButton
+          ad={ad.toString()}
+          me={me}
+          component={component}
+          list={list.toString()}
+        />
+      </div>
       <Session.Root
         title="Além do treinamento"
         subtitle="Bônus"
@@ -165,7 +175,7 @@ const Subscribe = () => {
           delay="200"
         />
       </Session.Root>
-      <div className="flex justify-center items-center p-10">
+      <div className="flex justify-center items-center pb-10 container">
         <SubscribeButton
           ad={ad.toString()}
           me={me}
@@ -214,7 +224,14 @@ const Subscribe = () => {
           <Session.Item title="oi" description="oi" />
         </Session.Content>
       </Session.Root>
-
+      <div className="flex justify-center items-center pb-10 container">
+        <SubscribeButton
+          ad={ad.toString()}
+          me={me}
+          component={component}
+          list={list.toString()}
+        />
+      </div>
       <Session.Root
         title="Ouça da boca dos meus alunos"
         subtitle="Todos os módulos"

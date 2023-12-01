@@ -78,6 +78,21 @@ const Payment = ({}: Props) => {
     }
   }, [me.me]);
 
+  useEffect(() => {
+    if (me.error || component.error) router.push(`/sale/subscribe/${list}`);
+  }, [me.error, component.error]);
+
+  useEffect(() => {
+    if (nextStep && payment.data.status === "paid") {
+      //Vai para o upsell
+      // navigate('/aproveite/' + me.me.profile?.name)
+      router.push(`/sale/thankyou/${list}/${me.me.email}`);
+    }
+    if (nextStep && payment.data.status === "pending") {
+      router.push(`/sale/checkout/pending/${list}/${me.me.email}`);
+    }
+  }, [nextStep, payment]);
+
   //console.log("cartRedux", cart);
   console.log("paymentRedux", payment);
 
@@ -187,7 +202,6 @@ const Payment = ({}: Props) => {
       //payment_method: values.paymentWay,
     };
 
-
     console.log("PaymentWAY", values.paymentWay);
     console.log("Payment", user);
     console.log("Cart", cart);
@@ -197,26 +211,10 @@ const Payment = ({}: Props) => {
     setNextStep(true);
   };
 
-  //if (component.loading || me.loading) return <div>Loading...</div>;
-
-  //if (component.loading || me.loading) return <div>Loading...</div>;
   let loadOrFailTest = loadOrFailSales({ component, me });
   if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;
-
-  if (me.error || component.error) router.push(`/sale/subscribe/${list}`);
-
-  if (nextStep && payment.data.status === "paid") {
-    //Vai para o upsell
-    // navigate('/aproveite/' + me.me.profile?.name)
-    //De baixo:
-    router.push(`/sale/thankyou/${list}/${me.me.email}`);
-  }
-  if (nextStep && payment.data.status === "pending") {
-    router.push(`/sale/checkout/pending/${list}/${me.me.email}`);
-  }
-  //if (nextStep) router.push(`/sale/thankyou/${list}/${me.me.email}`);
 
   return (
     <div className="bg-secondary-600">
