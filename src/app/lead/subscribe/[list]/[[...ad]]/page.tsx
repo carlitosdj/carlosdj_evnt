@@ -19,8 +19,10 @@ import { ApplicationState } from "@/store";
 import { loadComponentByDescriptionRequest } from "@/store/ducks/component/actions";
 
 const Subscribe = () => {
+  
   const lead = useSelector((state: ApplicationState) => state.lead);
   const component = useSelector((state: ApplicationState) => state.component);
+
   const router = useRouter();
   const dispatch = useDispatch();
   const params = useParams();
@@ -30,18 +32,18 @@ const Subscribe = () => {
 
   useEffect(() => {
     dispatch(loadComponentByDescriptionRequest(list.toString()));
-
     AOS.init({
       easing: "ease-out-cubic",
       once: true,
       offset: 50,
     });
+  }, [list]);
 
+  useEffect(() => {
     if (lead.data.id) {
       router.push(`/lead/thankyou/${list}/${lead.data.email}`);
     }
-
-  }, [list, lead]);
+  }, [lead]);
 
   let loadOrFailTest = loadOrFailLeads({ component });
   // console.log("component", component);
