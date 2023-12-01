@@ -41,6 +41,7 @@ jobs:
             port: ${{ secrets.REMOTE_PORT }}
             script: | 
               cd /home/wwinst/evnt.institutodefelicibus.com.br/files/
+              yarn 
               yarn build
               yarn pm2:restart
       
