@@ -205,9 +205,8 @@ const Payment = ({}: Props) => {
     console.log("PaymentWAY", values.paymentWay);
     console.log("Payment", user);
     console.log("Cart", cart);
-
+    
     dispatch(createPagarMeOrderRequest(values.paymentWay, user, cart));
-
     setNextStep(true);
   };
 

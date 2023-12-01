@@ -60,7 +60,7 @@ const SubscribeButton = ({ component, me, ad, list }: SubscribeButtonProps) => {
           {
             getValueFromExtras({
               extras: component.data.extras!,
-              key: "eventBtn",
+              key: "productBtn",
             })!
           }
           <span className="group-hover:pl-1 text-primary-300 group-hover:text-white transition-all font-thin">
