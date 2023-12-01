@@ -19,7 +19,6 @@ import { LeadState } from "@/store/ducks/lead/types";
 import SubscribeForm from "../SubscribeForm/SubscribeForm";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
-import Loading from "@/app/lead/loading";
 
 interface SubscribeButtonProps {
   component: ComponentState;
@@ -36,7 +35,6 @@ const SubscribeButton = ({
 }: SubscribeButtonProps) => {
   const [open, setOpen] = useState(false);
 
-  console.log("leadZZ", lead);
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
@@ -65,8 +63,6 @@ const SubscribeButton = ({
               Realize sua inscrição gratuita
             </DialogDescription>
             <SubscribeForm
-              component={component}
-              lead={lead}
               list={list}
               ad={ad}
               setOpen={setOpen}

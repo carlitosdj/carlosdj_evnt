@@ -28,7 +28,7 @@ const reducer: Reducer<WppgroupState> = (state = INITIAL_STATE, action) => {
     case WppgroupTypes.UPDATE_WPPGROUP_REQUEST:
       return {...state}
     case WppgroupTypes.UPDATE_WPPGROUP_SUCCESS:
-      console.log('ACTION PAYLOAD VER', action.payload)
+      //console.log('ACTION PAYLOAD VER', action.payload)
       return {
         ...state,
         loading: false,

@@ -44,12 +44,12 @@ const ConfirmPage = () => {
 
   const lead = useSelector((state: ApplicationState) => state.lead);
   const component = useSelector((state: ApplicationState) => state.component);
-  console.log("leadXX", lead);
-  console.log("component", component);
+  // console.log("leadXX", lead);
+  // console.log("component", component);
 
   let loadOrFailTest = loadOrFailLeads({ component, lead });
 
-  console.log("loadOrFailTest", loadOrFailTest);
+  // console.log("loadOrFailTest", loadOrFailTest);
   if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;

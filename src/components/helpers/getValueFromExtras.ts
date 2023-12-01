@@ -6,9 +6,9 @@ interface getValueFromExtrasProps {
 }
 
 const getValueFromExtras = ({ extras, key }: getValueFromExtrasProps) => {
-  console.log("extras----",extras)
+  // console.log("extras----",extras)
   let search = extras?.filter((extra) => extra.keyExtra === key)[0]
-  console.log("search", search)
+  // console.log("search", search)
   if (search)
     return search.valueExtra
   else 

@@ -15,10 +15,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-      - run: npm install --global yarn
-      - run: CI=false
-      - run: yarn install
-      - run: yarn build
+      #- run: npm install --global yarn
+      #- run: CI=false
+      #- run: yarn install
+      #- run: yarn build
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
@@ -32,15 +32,16 @@ jobs:
           #TARGET: ${{ secrets.REMOTE_TARGET }}
           TARGET: /home/wwinst/evnt.institutodefelicibus.com.br/files/
 
-      # - name: Post Deploy
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #       host: ${{ secrets.REMOTE_HOST }}
-      #       username: ${{ secrets.REMOTE_USER }}
-      #       key: ${{ secrets.SSH_PRIVATE_KEY }}
-      #       port: ${{ secrets.REMOTE_PORT }}
-      #       # script: | 
-      #       #   cd /home/wwinst/nodeapp_test
-      #       #   yarn restart
+      - name: Post Deploy
+        uses: appleboy/ssh-action@master
+        with:
+            host: ${{ secrets.REMOTE_HOST }}
+            username: ${{ secrets.REMOTE_USER }}
+            key: ${{ secrets.SSH_PRIVATE_KEY }}
+            port: ${{ secrets.REMOTE_PORT }}
+            script: | 
+              cd /home/wwinst/evnt.institutodefelicibus.com.br/files/
+              yarn build
+              yarn pm2:restart
       
     

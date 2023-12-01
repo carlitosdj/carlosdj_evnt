@@ -13,7 +13,7 @@ import {City} from './types'
 export function* loadCity(payload: ReturnType<typeof loadCityRequest>) {
   try {
     put(loadCityRequest(payload.payload))
-    console.log("payload ver aqui ###", payload.payload)
+    //console.log("payload ver aqui ###", payload.payload)
     const response: City[] = yield call(api.get, 'city/state/' + payload.payload)
     yield put(loadCitySuccess(response))
   } catch (error: any) {

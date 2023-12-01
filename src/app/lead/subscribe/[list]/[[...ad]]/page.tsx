@@ -21,9 +21,10 @@ import { loadComponentByDescriptionRequest } from "@/store/ducks/component/actio
 const Subscribe = () => {
   const lead = useSelector((state: ApplicationState) => state.lead);
   const component = useSelector((state: ApplicationState) => state.component);
+  const router = useRouter();
   const dispatch = useDispatch();
   const params = useParams();
-  const router = useRouter();
+
   let { list, ad } = params;
   if (!ad) ad = "default";
 
@@ -35,21 +36,21 @@ const Subscribe = () => {
       once: true,
       offset: 50,
     });
-  }, [list]);
+
+    if (lead.data.id) {
+      router.push(`/lead/thankyou/${list}/${lead.data.email}`);
+    }
+
+  }, [list, lead]);
 
   let loadOrFailTest = loadOrFailLeads({ component });
-  console.log("component", component);
-  console.log("lead", lead);
-
-  console.log('loadOrFailTest', loadOrFailTest)
+  // console.log("component", component);
+  // console.log("lead", lead);
+  // console.log('loadOrFailTest', loadOrFailTest)
 
   if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;
-
-  if (lead.data.id) {
-    router.push(`/lead/thankyou/${list}/${lead.data.email}`);
-  }
 
   return (
     <div className="h-full">

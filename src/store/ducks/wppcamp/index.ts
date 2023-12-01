@@ -38,7 +38,7 @@ const reducer: Reducer<WppcampState> = (state = INITIAL_STATE, action) => {
     case WppcampTypes.UPDATE_CAMP_REQUEST:
       return {...state}
     case WppcampTypes.UPDATE_CAMP_SUCCESS:
-      console.log('ACTION PAYLOAD VER', action.payload)
+      //console.log('ACTION PAYLOAD VER', action.payload)
       return {
         ...state,
         loading: false,

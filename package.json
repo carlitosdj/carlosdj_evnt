@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start -p 9001",
     "lint": "next lint",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "pm2:start": "pm2 start yarn --name \"nextjs\" --interpreter bash -- start",
+    "pm2:restart": "pm2 restart nextjs --update-env"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",

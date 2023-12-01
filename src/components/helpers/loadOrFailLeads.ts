@@ -11,12 +11,12 @@ interface loadOrFailLeadsProps {
 const loadOrFailLeads = ({ component, lead }: loadOrFailLeadsProps) => {
 
   if (lead) {
-    console.log("entrei aqui")
+    // console.log("entrei aqui")
     if (lead.error?.error) return "not found";
     if (lead.loading) return "loading";
     if (!lead.data.id) return "loading";
   }else{
-    console.log("nao entrei")
+    // console.log("nao entrei")
   }
 
   if (component.error) return "not found";
