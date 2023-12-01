@@ -17,7 +17,7 @@ const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
       <div className="bg-[url('/imgs/hero-illustration.svg')] bg-no-repeat bg-[center_top] bg-cover">
         <div className="container">
           <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4 ">
-            <div className="sm:py-24 lg:py-32 py-20">
+            <div className="sm:py-24 lg:py-32 py-8">
               {badge && (
                 <Badge
                   className="bg-primary-800 text-white hover:text-white hover:bg-primary-800 px-2 py-1"
@@ -45,24 +45,26 @@ const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
                 {children}
               </div>
             </div>
-            {/* {video && (
-            <div
-              className="flex justify-center items-center pb-10"
-              data-aos="zoom-out"
-              data-aos-delay="100"
-            >
-              <iframe
-                className="rounded-lg overflow-hidden w-full h-96"
-                title="2"
-                // width='100%'
-                // height='300px'
-                src={video}
-                frameBorder={0}
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          )} */}
+            {video && (
+              <div
+                className="flex justify-center items-center pb-10"
+                // data-aos="zoom-out"
+                // data-aos-delay="100"
+              >
+                <iframe
+                  className="rounded-lg overflow-hidden w-full h-48 md:h-80"
+                  //style={{  }}
+                  title="2"
+                  allowTransparency={true}
+                  // width='100%'
+                  // height='300px'
+                  src={video}
+                  frameBorder={0}
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            )}
           </div>
         </div>
 
