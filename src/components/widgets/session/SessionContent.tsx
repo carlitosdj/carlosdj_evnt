@@ -42,7 +42,7 @@ export const SessionContent = ({
             </div>
           </picture>
         )}
-        <h1 className="text-slate-100 font-extrabold text-4xl sm:text-2xl lg:text-2xl tracking-tight dark:text-white pt-10">
+        <h1 className="font-extrabold text-3xl sm:text-1xl lg:text-2xl tracking-tight text-primary dark:text-primary-50 pt-10">
           {title}
         </h1>
         <p className="mt-2 text-md text-slate-100  max-w-3xl mx-auto dark:text-slate-400">
