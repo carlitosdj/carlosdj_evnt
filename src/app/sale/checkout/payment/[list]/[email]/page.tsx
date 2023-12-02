@@ -187,13 +187,17 @@ const Payment = ({}: Props) => {
     let user: any = {
       name: me.me.name, //"name": "Carlos Defelicibus Junior",
       email: me.me.email, //"email": "carlitosceo@gmail.com"
-      //mobilePhone: me.me.whatsapp!.replace(/\D/g, ""),
-      //cpfCnpj: me.me.cpf!.replace(/\D/g, ""),
+      number: me.me.whatsapp!.split(")")[1].replace(/\D/g, ""),
+      area_code: me.me.whatsapp!.split(")")[0].replace(/\D/g, ""),
+      country_code: '55',
+      document: me.me.cpf!.replace(/\D/g, ""),
+      document_type: "CPF",
       postalCode: me.me.postalCode!.replace(/\D/g, ""), //"postalCode": "38400308",
-      address: me.me.address, // "address": "Av Brigadeiro Sampaio 46",
+      address: me.me.address + ', ' + me.me.addressNumber + ', ' + me.me.addressDistrict + '.', // "address": "Av Brigadeiro Sampaio 46",
       city: me.me.city?.name, //"city": "Uberlândia",
       state: me.me.state?.state, // "state": "MG",
       country: "BR", //"country": "BR",
+      type: "individual",
       // "phone": me.me.profile?.whatsapp,
       //addressNumber: number,
       //"complement": request.body.complement,
@@ -203,9 +207,9 @@ const Payment = ({}: Props) => {
     };
 
     console.log("PaymentWAY", values.paymentWay);
-    console.log("Payment", user);
+    console.log("User", user);
     console.log("Cart", cart);
-    
+
     dispatch(createPagarMeOrderRequest(values.paymentWay, user, cart));
     setNextStep(true);
   };
@@ -257,9 +261,7 @@ const Payment = ({}: Props) => {
                       disabled={true}
                       className="col-span-12"
                     />
-
-                    {/* {paymentWay}
-                    x{form.getValues("paymentWay")}x */}
+                    
                     <FormField
                       control={form.control}
                       name="paymentWay"

@@ -1,20 +1,27 @@
-import { Dispatch, SetStateAction, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import * as z from 'zod';
+import { Dispatch, SetStateAction, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import * as z from "zod";
 
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
-    Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { ComponentState } from '@/store/ducks/component/types';
-import { createLeadRequest } from '@/store/ducks/lead/actions';
-import { Emailmessage, Lead, LeadState } from '@/store/ducks/lead/types';
-import { createMeRequest } from '@/store/ducks/me/actions';
-import { MeState } from '@/store/ducks/me/types';
-import { User } from '@/store/ducks/users/types';
-import { zodResolver } from '@hookform/resolvers/zod';
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { ComponentState } from "@/store/ducks/component/types";
+import { createLeadRequest } from "@/store/ducks/lead/actions";
+import { Emailmessage, Lead, LeadState } from "@/store/ducks/lead/types";
+import { createMeRequest } from "@/store/ducks/me/actions";
+import { MeState } from "@/store/ducks/me/types";
+import { User } from "@/store/ducks/users/types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import ModelField from "@/components/helpers/ModelField";
 
 interface SubscribeFormProps {
   component: ComponentState;
@@ -31,9 +38,7 @@ const SubscribeForm = ({
   ad,
   setOpen,
 }: SubscribeFormProps) => {
-  // const [name, setName] = useState<string>("");
-  // const [email, setEmail] = useState<string>("");
-  // const [email, setEmail] = useState<string>("");
+  
   const dispatch = useDispatch();
 
   const formSchema = z.object({
@@ -119,24 +124,35 @@ const SubscribeForm = ({
               </FormItem>
             )}
           />
-          <FormField
+          {/* <FormField
             control={form.control}
             name="whatsapp"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-start">Whatsapp</FormLabel>
+                <FormLabel className="text-start">OLD WHATS</FormLabel>
                 <FormControl className="border-0">
-                  <Input
-                    placeholder="Digite seu número de Whatsapp"
-                    {...field}
-                  />
+                  <Input placeholder="Digite seu nome" {...field} />
                 </FormControl>
                 {/* <FormDescription>
                 This is your public display name.
-              </FormDescription> */}
+              </FormDescription> *x/}
                 <FormMessage />
               </FormItem>
             )}
+          /> */}
+          
+          <FormLabel className="text-start">WhatsApp</FormLabel>
+          <ModelField
+            name="whatsapp"
+            formControl={form.control}
+            placeholder="Digite seu Whatsapp"
+            className="col-span-12"
+            mask="(11)11111-1111"
+            onChange={(e) => {
+              //form.setValue("whatsapp", e.target.value.replace(/\D/g, ""));
+              form.setValue("whatsapp", e.target.value);
+            }}
+            
           />
           <br />
           <Button

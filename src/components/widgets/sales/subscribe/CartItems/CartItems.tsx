@@ -18,7 +18,7 @@ const CartItems = ({}: Props) => {
             </div>
             <div className="text-sm line-through text-zinc-500">R$ 1997,90</div>
           </div>
-          <div className="flex justify-between py-2">
+          {/* <div className="flex justify-between py-2">
             <div>
               <div className="text-md text-zinc-300">
                 Item 2
@@ -26,7 +26,7 @@ const CartItems = ({}: Props) => {
               <div className="text-xs text-zinc-500">Descrição item 2</div>
             </div>
             <div className="text-sm line-through text-zinc-500">R$ 498,90</div>
-          </div>
+          </div> */}
         </CardContent>
         <CardFooter className="flex justify-between">
         
