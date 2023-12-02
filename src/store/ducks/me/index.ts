@@ -59,7 +59,7 @@ const reducer: Reducer<MeState> = (state = INITIAL_STATE, action) => {
 
     //Update user
     case MeTypes.UPDATE_USER_REQUEST:
-      return {...state}
+      return {...state, loading: true,}
     case MeTypes.UPDATE_USER_SUCCESS:
       return {...state, message: 'changed', loading: false, error: false, me: { ...action.payload.data.data, newPassword:action.payload.newPassword }}
     case MeTypes.UPDATE_USER_FAILURE:

@@ -74,12 +74,12 @@ const Subscribe = () => {
             key: "productDescription",
           })!
         }
-        badge={
-          getValueFromExtras({
-            extras: component.data.extras!,
-            key: "productName",
-          })!
-        }
+        // badge={
+        //   getValueFromExtras({
+        //     extras: component.data.extras!,
+        //     key: "productName",
+        //   })!
+        // }
         video={
           getValueFromExtras({
             extras: component.data.extras!,
@@ -97,7 +97,7 @@ const Subscribe = () => {
       <Session.Root
         id="features"
         title="Como funciona"
-        subtitle="AGENDA FULL"
+        subtitle="Agenda Full: A forma mais rápida de colocar o pé no digital."
         className="bg-secondary-50 dark:bg-secondary-950 text-center"
         columns="md:grid-cols-3"
       >
@@ -105,21 +105,21 @@ const Subscribe = () => {
           title="12 aulas ao vivo"
           description="Em 3 meses você terá acesso a todo treinamento. Ele será entregue ao vivo, em aulas de 2h semanais."
           //description="Plataforma exclusiva com aulas em sequência, divididas em fases para você acessar de qualquer lugar com internet."
-          image="https://labiopalatina.com.br/files/puzzle.jpg"
-          delay="100"
+          image="https://institutodefelicibus.com.br/files/aulas-ao-vivo.jpg"
+          //delay="100"
         />
         <Session.Content
           title="Mentorias em grupo"
           //description="Mentorias ao vivo duas vezes por semana: Terça Musical e Quinta Teórica. Você será 100% acompanhado."
           description="Além das aulas, em 12 sábados acontecerão as mentorias de Tira Dúvidas. Você será 100% acompanhado."
-          image="https://labiopalatina.com.br/files/puzzle.jpg"
-          delay="200"
+          image="https://institutodefelicibus.com.br/files/mentoria.jpg"
+          //delay="200"
         />
         <Session.Content
           title="Acesso à comunidade"
           description="A melhor maneira para evoluir é dentro de uma comunidade onde todos falam a mesma língua e ajudam uns aos outros."
-          image="https://labiopalatina.com.br/files/puzzle.jpg"
-          delay="300"
+          image="https://institutodefelicibus.com.br/files/comunidade.jpg"
+          //delay="300"
         />
       </Session.Root>
       <div className="flex justify-center items-center pb-10 container">
@@ -139,19 +139,19 @@ const Subscribe = () => {
         <Session.Content
           title="Aspirantes ao empreendedorismo"
           description="Se você já começou a estudar sozinho mas está com dificuldade em evoluir no estudo do violão."
-          image="https://labiopalatina.com.br/files/puzzle.jpg"
+          image="https://institutodefelicibus.com.br/files/aspirante.jpg"
           delay="100"
         />
         <Session.Content
           title="Vendedores de serviço iniciantes"
           description="Se você nunca tocou violão e tem o sonho de aprender a tocar com metodologia simples."
-          image="https://labiopalatina.com.br/files/puzzle.jpg"
+          image="https://institutodefelicibus.com.br/files/iniciante.jpg"
           delay="200"
         />
         <Session.Content
           title="Quem vai montar equipe de Marketing interna"
           description="O passo a passo desenhado para você aprender a tocar violão com 30 minutos por dia, sem stress."
-          image="https://labiopalatina.com.br/files/puzzle.jpg"
+          image="https://institutodefelicibus.com.br/files/equipe.jpg"
           delay="300"
         />
       </Session.Root>

@@ -16,8 +16,8 @@ const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
     <div className="bg-gradient-to-b from-secondary-800 to-secondary-950">
       <div className="bg-[url('/imgs/hero-illustration.svg')] bg-no-repeat bg-[center_top] bg-cover">
         <div className="container">
-          <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4 ">
-            <div className="sm:py-24 lg:py-32 py-8">
+          <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-8">
+            <div className="sm:py-24 lg:py-32 pt-6">
               {badge && (
                 <Badge
                   className="bg-primary-800 text-white hover:text-white hover:bg-primary-800 px-2 py-1"
@@ -28,42 +28,62 @@ const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
               )}
 
               <h1
-                className="font-extrabold text-4xl md:text-5xl lg:text-6xl tracking-tight pt-5 text-primary-50 "
+                className="font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-primary-50 "
                 data-aos="zoom-out"
               >
                 {title}
               </h1>
               <p
-                className="mt-6 mb-10 text-1xl max-w-3xl mx-auto text-primary-50/70 "
+                className="my-4 text-1xl max-w-3xl mx-auto text-primary-50/70 "
                 data-aos="zoom-out"
                 data-aos-delay="100"
               >
                 {subtitle}
               </p>
 
-              <div className="mt-6" data-aos="zoom-out" data-aos-delay="300">
+              <div className="mt-8" data-aos="zoom-out" data-aos-delay="300">
                 {children}
               </div>
             </div>
             {video && (
-              <div
-                className="flex justify-center items-center pb-10"
-                // data-aos="zoom-out"
-                // data-aos-delay="100"
-              >
-                <iframe
-                  className="rounded-lg overflow-hidden w-full h-48 md:h-80"
-                  //style={{  }}
-                  title="2"
-                  allowTransparency={true}
-                  // width='100%'
-                  // height='300px'
-                  src={video}
-                  frameBorder={0}
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
+              <>
+                <div
+                  className="flex justify-center items-center pb-8"
+                  // data-aos="zoom-out"
+                  // data-aos-delay="100"
+                >
+                  <div className="embed-responsive embed-responsive-16by9 rounded-lg overflow-hidden">
+                  <div>
+                    <iframe
+                      title="video"
+                      className="embed-responsive-item rounded"
+                      //src={'https://www.youtube.com/embed/VNBfCMYkd6k?si=1NCdqc6HpuMrfV2e'}
+                      src={video}
+                      width={640}
+                      height={564}
+                      frameBorder={0}
+                      allow="autoplay; fullscreen"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
+
+                  {/* <iframe
+                    className="rounded-lg overflow-hidden w-full h-48 md:h-80"
+                    //style={{  }}
+                    title="2"
+                    allowTransparency={true}
+                    // width='100%'
+                    // height='300px'
+                    src={video}
+                    frameBorder={0}
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  /> */}
+                </div>
+
+                
+              </>
             )}
           </div>
         </div>

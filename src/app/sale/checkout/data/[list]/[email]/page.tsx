@@ -152,7 +152,7 @@ const Data = ({}: Props) => {
       (item) => item.id === parseInt(values.estado)
     )[0];
 
-    var data = new Date();
+    //var data = new Date();
     //var data = new Date()
     const userupdate: User = {
       id: me.me.id,
@@ -182,7 +182,8 @@ const Data = ({}: Props) => {
   if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;
-
+  if (me.loading || component.loading) return <Loading />;
+  
   return (
     <div className="bg-secondary-600">
       <div className="bg-gradient-to-b from-secondary-800 to-secondary-950">

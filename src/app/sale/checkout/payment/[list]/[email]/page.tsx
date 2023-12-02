@@ -198,12 +198,6 @@ const Payment = ({}: Props) => {
       state: me.me.state?.state, // "state": "MG",
       country: "BR", //"country": "BR",
       type: "individual",
-      // "phone": me.me.profile?.whatsapp,
-      //addressNumber: number,
-      //"complement": request.body.complement,
-      // province: city,
-
-      //payment_method: values.paymentWay,
     };
 
     console.log("PaymentWAY", values.paymentWay);
@@ -218,7 +212,7 @@ const Payment = ({}: Props) => {
   if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;
-
+  if (payment.loading) return <Loading/>
   return (
     <div className="bg-secondary-600">
       <div className="bg-gradient-to-b from-secondary-800 to-secondary-950">
@@ -234,7 +228,8 @@ const Payment = ({}: Props) => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="col-span-2 order-2 md:order-1 pb-20">
-                <div className="pb-4">Seus dados</div>
+                <div className="pb-4">Seus dados {payment.loading && <Loading/>}xx</div>
+                
                 <Form {...form}>
                   <form
                     onSubmit={form.handleSubmit(onSubmit)}
@@ -413,6 +408,7 @@ const Payment = ({}: Props) => {
                     <Button type="submit" className="w-full col-span-6 mt-4">
                       Próximo
                     </Button>
+                    {payment.loading && <Loading/>}
                   </form>
                 </Form>
               </div>
