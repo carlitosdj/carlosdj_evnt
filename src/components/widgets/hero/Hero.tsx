@@ -17,7 +17,7 @@ const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
       <div className="bg-[url('/imgs/hero-illustration.svg')] bg-no-repeat bg-[center_top] bg-cover">
         <div className="container">
           <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-8">
-            <div className="sm:py-24 lg:py-32 pt-6">
+            <div className="sm:py-24 lg:py-32 pt-12">
               {badge && (
                 <Badge
                   className="bg-primary-800 text-white hover:text-white hover:bg-primary-800 px-2 py-1"
