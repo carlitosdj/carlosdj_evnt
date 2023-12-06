@@ -85,8 +85,9 @@ const Thankyou = ({ lead, component }: ThankyouProps) => {
             data-aos="zoom-out"
             data-aos-delay="400"
           >
-            Acabei de te enviar um e-mail na sua caixa de entrada, nela possui
-            uma pesquisa..
+            Acabei de te enviar um e-mail com uma pesquisa rápida, que leva
+            menos de 2 minutos para responder. Ah, por gentileza, responda com
+            honestidade.
           </p>
           <p
             className="mt-2 text-1xl max-w-3xl mx-auto text-slate-400"

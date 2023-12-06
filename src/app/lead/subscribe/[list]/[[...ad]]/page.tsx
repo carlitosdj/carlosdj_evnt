@@ -134,24 +134,20 @@ const Subscribe = () => {
         <Session.Content>
           <div className="flex flex-col justify-center text-start text-primary-900 dark:text-primary-50 md:pr-8 pb-8 md:pb-0">
             <div className="font-bold text-2xl tracking-tight">
-              Onde estava todo esse tempo?
+              Formação
             </div>
             <div className="text-1xl text-slate-900 dark:text-primary-50/75">
-              Mais conhecido como Carlitos, formado em Engenharia de Software
-              pela Universidade Federal de Uberlândia, apaixonado por viagens e
-              desenvolvedor de Softwares.
+              Carlos é formado em Engenharia de Software
+              pela Universidade Federal de Uberlândia (UFU). 
+              MBA em Gestão de Projetos pela ESAMC.
             </div>
             <div className="font-bold text-2xl tracking-tight  pt-10">
-              Experiência com Empreendedorismo e Softwares
+              Experiência
             </div>
             <div className="text-1xl text-slate-900 dark:text-primary-50/75">
-              Abriu sua própria empresa logo após formar.
-            </div>
-            <div className="font-bold text-2xl tracking-tight  pt-10">
-              No mercado
-            </div>
-            <div className="text-1xl text-slate-900 dark:text-primary-50/75">
-              Construiu soluções como Salve Mais Um e Plataforma Esportiva.
+              Criador da plataforma SalveMaisUm, a primeira rede social de doação de sangue. 
+              Criador da Plataforma Esportiva, aplicativo esportivo.
+              Criador da Plataforma EAD..
             </div>
             <div className="font-bold text-2xl tracking-tight  pt-10">
               Por que decidiu ensinar?

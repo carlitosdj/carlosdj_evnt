@@ -5,12 +5,10 @@
 html {
   overflow-x: hidden !important;
   scroll-behavior: smooth !important;
-  width: 100vw !important;
 }
 body {
   overflow-x: hidden !important;
-  width: 100vw !important;
-  overflow-y: scroll !important;
+  /* overflow-y: scroll !important; */
 }
 
 .embed-responsive {

@@ -74,12 +74,12 @@ const Subscribe = () => {
             key: "productDescription",
           })!
         }
-        // badge={
-        //   getValueFromExtras({
-        //     extras: component.data.extras!,
-        //     key: "productName",
-        //   })!
-        // }
+        badge={
+          getValueFromExtras({
+            extras: component.data.extras!,
+            key: "productName",
+          })!
+        }
         video={
           getValueFromExtras({
             extras: component.data.extras!,
@@ -188,48 +188,74 @@ const Subscribe = () => {
             description="Como expor Landing Pages na web."
           />
           <Session.Item
-            title="Módulo 4 - Criando a primeira Landing Page"
+            title="Módulo 5 - Criando a primeira Landing Page"
             description="Mão na massa, vamos criar a primeira Landing Page."
           />
           <Session.Item
-            title="Módulo 5 - Múltiplas Landing Pages"
+            title="Módulo 6 - Múltiplas Landing Pages"
             description="Como replicar landing pages."
           />
           <Session.Item
-            title="Módulo 5 - Integração com Google Ads e Facebook Ads"
+            title="Módulo 7 - Integração com Google Ads e Facebook Ads"
             description="Criando a estrutura de conexão Página-Anúncios."
           />
         </Session.Content>
         <Session.Content title="Anúncios online" delay="200">
-          <Session.Item title="oi" description="oi" />
-          <Session.Item title="oi" description="oi" />
-          <Session.Item title="oi" description="oi" />
+          <Session.Item
+            title="Módulo 1 - Configuração da conta"
+            description="Como criar e fazer as configurações iniciais (Facebook e Google Ads)."
+          />
+          <Session.Item
+            title="Módulo 2 - Públicos"
+            description="Como definir corretamente seus públicos e palavras chave."
+          />
+          <Session.Item
+            title="Módulo 3 - Criativos"
+            description="Como criar peças publicitárias simples que comunicam com o público."
+          />
+          <Session.Item
+            title="Módulo 4 - Campanhas"
+            description="Como criar as campanhas e quanto gastar no Google Ads e Facebook Ads."
+          />
+          <Session.Item
+            title="Módulo 5 - Conexão com a Landing Page"
+            description="Como usar a Landing Page para gerar as métricas."
+          />
+          <Session.Item
+            title="Módulo 6 - Otimização de Campanhas"
+            description="Estratégias para otimização e análise de campanhas."
+          />
+          <Session.Item
+            title="Módulo 7 - Relatórios mensais"
+            description="Como analisar visualmente seu avanço."
+          />
         </Session.Content>
         <Session.Content title="Conversão" delay="300">
-          <Session.Item title="oi" description="oi" />
-          <Session.Item title="oi" description="oi" />
-          <Session.Item title="oi" description="oi" />
+          <Session.Item
+            title="Módulo 1 - Fundamentos de vendas"
+            description="Os princípios de vendas e métricas."
+          />
+          <Session.Item
+            title="Módulo 2 - Objeções"
+            description="Quais são as grandes objeções e como contorná-las."
+          />
+          <Session.Item
+            title="Módulo 3 - Problema/Oportunidade/Solução"
+            description="Em qual momento.."
+          />
+          <Session.Item
+            title="Módulo 4 - Vendas Simples x Complexas"
+            description="Quais são as grandes objeções e como contorná-las."
+          />
+          <Session.Item
+            title="Módulo 5 - Estratégia de venda via WhatsApp"
+            description="Como criar uma sequencia de vendas para Leads com SPIN Selling."
+          />
+          <Session.Item
+            title="Módulo 6 - Funil de vendas na prática"
+            description="Resumo geral na prática."
+          />
         </Session.Content>
-      </Session.Root>
-
-      <Session.Root
-        title="Além do treinamento"
-        subtitle="Bônus"
-        className="bg-secondary-100 dark:bg-secondary-950"
-        columns="md:grid-cols-2"
-      >
-        <Session.Content
-          title="Bônus 1"
-          description="xx"
-          image="https://labiopalatina.com.br/files/puzzle.jpg"
-          delay="100"
-        />
-        <Session.Content
-          title="Bônus 2"
-          description="xx"
-          image="https://labiopalatina.com.br/files/puzzle.jpg"
-          delay="200"
-        />
       </Session.Root>
       <div className="flex justify-center items-center pb-10 container">
         <SubscribeButton
@@ -240,19 +266,38 @@ const Subscribe = () => {
         />
       </div>
       <Session.Root
-        title="Mentoria"
-        subtitle="1 aula ao vivo por semana"
+        title="Além do treinamento"
+        subtitle="Ao entrar no Agenda Full, você terá acesso:"
         className="bg-secondary-50 dark:bg-secondary-900"
+        columns="md:grid-cols-2"
+      >
+        <Session.Content
+          title="Criação de Vídeo de Vendas de Valor"
+          description="Copywriting para o Vídeo de Vendas de Valor, Iluminação, Microfone, Cenário, Câmeras, Edição e como incluir na Landing Page."
+          image="https://institutodefelicibus.com.br/files/gravacao.jpg"
+          delay="100"
+        />
+        <Session.Content
+          title="Crescimento Empresarial"
+          description="Como organizar sua empresa, divisão de times e equipes, contabilidade, faturamento, reinvestimentos. Tudo para o crescimento empresarial."
+          image="https://institutodefelicibus.com.br/files/empresarial.jpg"
+          delay="200"
+        />
+      </Session.Root>
+      
+      <Session.Root
+        title="Mentoria"
+        subtitle="O grande diferencial do treinamento. 1 aula ao vivo por semana."
+        className="bg-secondary-100 dark:bg-secondary-950"
         columns="grid-cols-1"
       >
         <Session.Content
           title="Mentoria"
-          description="xx"
+          description="Todas os sábados você vai ter acesso à mentoria em grupo, com Tira-Dúvidas."
           image="https://labiopalatina.com.br/files/puzzle.jpg"
           delay="100"
         />
       </Session.Root>
-
       <div className="flex justify-center items-center pb-10 container">
         <SubscribeButton
           ad={ad.toString()}
@@ -261,63 +306,72 @@ const Subscribe = () => {
           list={list.toString()}
         />
       </div>
-      <Session.Root
+      {/* <Session.Root
         title="Ouça da boca dos meus alunos"
         subtitle="Todos os módulos"
         className="bg-secondary-50 dark:bg-secondary-900"
         columns="grid-cols-1"
       >
         <Session.Content>Item 1</Session.Content>
-      </Session.Root>
+      </Session.Root> */}
 
       <Session.Root
         title="Investimento"
         subtitle="Preço"
-        className="bg-secondary-100 dark:bg-secondary-950"
-        columns="grid-cols-1"
-      >
-        <Session.Content>Item 1</Session.Content>
-      </Session.Root>
-
-      <Session.Root
-        title="Garantia"
-        subtitle="Sua satisfação ou seu dinheiro de volta"
         className="bg-secondary-50 dark:bg-secondary-900"
         columns="grid-cols-1"
       >
-        <Session.Content>Item 1</Session.Content>
+        <Session.Content>De R$ 5099,00 por 12x R$ 49,90.</Session.Content>
       </Session.Root>
-
+      
+      <Session.Root
+        title="Garantia"
+        subtitle="Sua satisfação ou seu dinheiro de volta"
+        className="bg-secondary-100 dark:bg-secondary-950"
+        columns="grid-cols-1"
+      >
+        <Session.Content>
+          Garantia Incondicional: Em 15 dias, por qualquer motivo, você pode
+          pedir seu dinheiro de volta. Sem letras míúdas.
+          <br/>
+          Garantia Condicional: Aplicou e não fechou... Dinheiro de volta + 500.
+        </Session.Content>
+      </Session.Root>
+      <div className="flex justify-center items-center pb-10 container">
+        <SubscribeButton
+          ad={ad.toString()}
+          me={me}
+          component={component}
+          list={list.toString()}
+        />
+      </div>
       <Session.Root
         title="Perguntas frequentes"
         subtitle="FAQ"
         className="bg-secondary-100 dark:bg-secondary-950"
+        //bg-secondary-50 dark:bg-secondary-900
         columns="grid-cols-1"
       >
         <Session.Content>
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
               <AccordionTrigger>O treinamento é vitalício?</AccordionTrigger>
-              <AccordionContent className="text-start">
-                Yes. It adheres to the WAI-ARIA design pattern.
-              </AccordionContent>
+              <AccordionContent className="text-start">Não.</AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
               <AccordionTrigger>O treinamento é 100% online?</AccordionTrigger>
-              <AccordionContent className="text-start">
-                Yes. It adheres to the WAI-ARIA design pattern.
-              </AccordionContent>
+              <AccordionContent className="text-start">Sim.</AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
               <AccordionTrigger>Como funciona o reembolso?</AccordionTrigger>
               <AccordionContent className="text-start">
-                Yes. It adheres to the WAI-ARIA design pattern.
+                Mande um e-mail para: sdasd.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-4">
               <AccordionTrigger>Será que é pra mim?</AccordionTrigger>
               <AccordionContent className="text-start">
-                Yes. It adheres to the WAI-ARIA design pattern.
+                Se você quer aproveitar o boom da internet, sim.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-5">
@@ -325,23 +379,31 @@ const Subscribe = () => {
                 Não sei nada de tecnologia, é pra mim?
               </AccordionTrigger>
               <AccordionContent className="text-start">
-                Yes. It adheres to the WAI-ARIA design pattern.
+                Sim, você não vai precisar digitar quase nenhum código, quando
+                tiver código você vai usar CTRL C + CTRL V
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-6">
+            {/* <AccordionItem value="item-6">
               <AccordionTrigger>blablabla</AccordionTrigger>
               <AccordionContent className="text-start">
                 Yes. It adheres to the WAI-ARIA design pattern.
               </AccordionContent>
-            </AccordionItem>
+            </AccordionItem> */}
           </Accordion>
         </Session.Content>
       </Session.Root>
-
+      <div className="flex justify-center items-center pb-10 container">
+        <SubscribeButton
+          ad={ad.toString()}
+          me={me}
+          component={component}
+          list={list.toString()}
+        />
+      </div>
       <Session.Root
         title="Quem é Carlos Defelícibus Junior?"
         subtitle="Conheça mais sobre o professor"
-        className="bg-secondary-50 dark:bg-secondary-900"
+        className="bg-secondary-100 dark:bg-secondary-950"
         columns="md:grid-cols-2"
       >
         <Session.Content>
@@ -380,6 +442,14 @@ const Subscribe = () => {
           </div>
         </Session.Content>
       </Session.Root>
+      <div className="flex justify-center items-center pb-10 container">
+        <SubscribeButton
+          ad={ad.toString()}
+          me={me}
+          component={component}
+          list={list.toString()}
+        />
+      </div>
       <Footer
         copyright="Todos os direitos reservados."
         owner="Defelicibus Soluções | 2023 | CNPJ: xxxxx"

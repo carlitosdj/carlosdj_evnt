@@ -7,7 +7,7 @@ interface SessionContentProps {
   title?: string;
   video?: string;
   children?: ReactNode;
-  delay?: string
+  delay?: string;
 }
 export const SessionContent = ({
   description,
@@ -15,7 +15,7 @@ export const SessionContent = ({
   title,
   video,
   children,
-  delay
+  delay,
 }: SessionContentProps) => {
   // return (
   //   <div style={{ backgroundColor: "red" }} className="text-center">
@@ -24,10 +24,8 @@ export const SessionContent = ({
   // );
   return (
     // <div className="p-10 rounded bg-gradient-to-r from-slate-900 to-slate-800 mb-20">
-    <div 
-      data-aos="zoom-out"
-      data-aos-delay={delay||0}>
-      <div className="relative mx-auto text-center justify-center	">
+    <div data-aos="zoom-out" data-aos-delay={delay || 0}>
+      <div className="relative mx-auto justify-center">
         {image && (
           <picture>
             <div className="flex justify-center items-center">
@@ -45,7 +43,7 @@ export const SessionContent = ({
         <h1 className="font-extrabold text-3xl sm:text-1xl lg:text-2xl tracking-tight text-primary dark:text-primary-50 pt-10">
           {title}
         </h1>
-        <p className="mt-2 text-md text-slate-100  max-w-3xl mx-auto dark:text-slate-400">
+        <p className="mt-2 text-md text-slate-100  max-w-3xl mx-auto dark:text-slate-400 text-center">
           {description}
         </p>
       </div>

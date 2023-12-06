@@ -36,7 +36,7 @@ const SubscribeButton = ({
   const [open, setOpen] = useState(false);
 
   return (
-    <div>
+    <div className="">
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger
           className="group text-primary-500 border border-primary-500 hover:bg-primary-800 hover:text-white active:bg-primary-600 neon-primary font-bold uppercase px-8 py-3 rounded-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-100 text-sm"
@@ -54,7 +54,7 @@ const SubscribeButton = ({
           )}
         </DialogTrigger>
 
-        <DialogContent className="dark:bg-secondary-900 ">
+        <DialogContent className="dark:bg-secondary-900">
           <DialogHeader>
             <DialogTitle className="text-start dark:text-primary-600 text-2xl">
               Entre com seus dados
