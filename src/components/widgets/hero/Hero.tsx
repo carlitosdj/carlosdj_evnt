@@ -13,11 +13,11 @@ interface HeroProps {
 
 const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
   return (
-    <div className="bg-gradient-to-b from-secondary-800 to-secondary-950">
-      <div className="bg-[url('/imgs/hero-illustration.svg')] bg-no-repeat bg-[center_top] bg-cover">
+    <div className="bg-transparent">
+      <div className="bg-transparent">
         <div className="container">
-          <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-8">
-            <div className="sm:py-24 lg:py-32 py-20 pt-12">
+          <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-8 pt-12 pb-6">
+            <div className="">
               {badge && (
                 <Badge
                   className="bg-primary-800 text-white hover:text-white hover:bg-primary-800 px-2 py-1 mb-4"
@@ -48,7 +48,7 @@ const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
             {video && (
               <>
                 <div
-                  className="flex justify-center items-center pb-8"
+                  className="flex justify-center items-center "
                   // data-aos="zoom-out"
                   // data-aos-delay="100"
                 >
@@ -89,7 +89,7 @@ const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
         </div>
 
         <div
-          className="flex justify-center mt-12"
+          className="flex justify-center mt-8"
           data-aos="zoom-out"
           data-aos-delay="400"
         >

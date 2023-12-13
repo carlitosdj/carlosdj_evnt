@@ -19,7 +19,6 @@ import { ApplicationState } from "@/store";
 import { loadComponentByDescriptionRequest } from "@/store/ducks/component/actions";
 
 const Subscribe = () => {
-  
   const lead = useSelector((state: ApplicationState) => state.lead);
   const component = useSelector((state: ApplicationState) => state.component);
 
@@ -56,66 +55,71 @@ const Subscribe = () => {
 
   return (
     <div className="h-full">
-      <Hero
-        badge={
-          getValueFromExtras({
-            extras: component.data.extras!,
-            key: "eventName",
-          })!
-        }
-        title={
-          getValueFromExtras({
-            extras: component.data.extras!,
-            key: "eventHeadline",
-          })!
-        }
-        //title={"Como criar landing pages"}
-        subtitle={
-          getValueFromExtras({
-            extras: component.data.extras!,
-            key: "eventDescription",
-          })!
-        }
-      >
-        <SubscribeButton
-          ad={ad.toString()}
-          lead={lead}
-          component={component}
-          list={list.toString()}
-        />
-      </Hero>
+      <div className="bg-gradient-to-b from-secondary-800 to-secondary-950 ">
+        <div className="bg-[url('/imgs/hero-illustration.svg')] bg-no-repeat bg-[center_right_-110rem] md:bg-[center_right_-70rem] lg:bg-[center_right_-50rem] bg-opacity-50 bg-cover">
+          <Hero
+            badge={
+              getValueFromExtras({
+                extras: component.data.extras!,
+                key: "eventName",
+              })!
+            }
+            title={
+              getValueFromExtras({
+                extras: component.data.extras!,
+                key: "eventHeadline",
+              })!
+            }
+            //title={"Como criar landing pages"}
+            subtitle={
+              getValueFromExtras({
+                extras: component.data.extras!,
+                key: "eventDescription",
+              })!
+            }
+          >
+            <SubscribeButton
+              ad={ad.toString()}
+              lead={lead}
+              component={component}
+              list={list.toString()}
+            />
+          </Hero>
 
-      <FeatureSection
-        title="O que você vai aprender?"
-        subtitle="Uma aula gratuita e exclusiva para Gestores de Tráfego, Programadores e Donos de Negócios"
-        className="bg-secondary-200 dark:bg-secondary-950"
-      >
-        <div className="pt-28 grid grid-cols-1 md:grid-cols-3 gap-4 text-primary dark:text-primary-50 ">
-          <ItemTitleSubtitle
-            title="Captação de Potenciais Clientes"
-            description="Como utilizar o potencial da Internet para captação de clientes para sua advocacia."
-            delay="100"
-          />
-          <ItemTitleSubtitle
-            title="Como anunciar online"
-            description="Como utilizar o Google para direcionar seus anúncios e convocar uma legião de clientes."
-            delay="200"
-          />
-          <ItemTitleSubtitle
-            title="Como fechar negócios"
-            description="Como transformar Potenciais Clientes em vendas para sua Advocacia."
-            delay="300"
-          />
-        </div>
-      </FeatureSection>
-      <div className="container">
-        <div className="flex justify-center items-center py-20">
-          <SubscribeButton
-            ad={ad.toString()}
-            lead={lead}
-            component={component}
-            list={list.toString()}
-          />
+          <FeatureSection
+            title="O que você vai aprender?"
+            subtitle="Uma aula gratuita e exclusiva para Gestores de Tráfego, Programadores e Donos de Negócios"
+            className="bg-transparent"
+          >
+            <div className="pt-28 grid grid-cols-1 md:grid-cols-3 gap-4 text-primary dark:text-primary-50 ">
+              <ItemTitleSubtitle
+                title="Captação de Potenciais Clientes"
+                description="Como utilizar o potencial da Internet para captação de clientes para sua advocacia."
+                delay="100"
+              />
+              <ItemTitleSubtitle
+                title="Como anunciar online"
+                description="Como utilizar o Google para direcionar seus anúncios e convocar uma legião de clientes."
+                delay="200"
+              />
+              <ItemTitleSubtitle
+                title="Como fechar negócios"
+                description="Como transformar Potenciais Clientes em vendas para sua Advocacia."
+                delay="300"
+              />
+            </div>
+          </FeatureSection>
+
+          <div className="container">
+            <div className="flex justify-center items-center py-20">
+              <SubscribeButton
+                ad={ad.toString()}
+                lead={lead}
+                component={component}
+                list={list.toString()}
+              />
+            </div>
+          </div>
         </div>
       </div>
       {/*  */}
@@ -133,21 +137,18 @@ const Subscribe = () => {
         </Session.Content>
         <Session.Content>
           <div className="flex flex-col justify-center text-start text-primary-900 dark:text-primary-50 md:pr-8 pb-8 md:pb-0">
-            <div className="font-bold text-2xl tracking-tight">
-              Formação
-            </div>
+            <div className="font-bold text-2xl tracking-tight">Formação</div>
             <div className="text-1xl text-slate-900 dark:text-primary-50/75">
-              Carlos é formado em Engenharia de Software
-              pela Universidade Federal de Uberlândia (UFU). 
-              MBA em Gestão de Projetos pela ESAMC.
+              Carlos é formado em Engenharia de Software pela Universidade
+              Federal de Uberlândia (UFU). MBA em Gestão de Projetos pela ESAMC.
             </div>
             <div className="font-bold text-2xl tracking-tight  pt-10">
               Experiência
             </div>
             <div className="text-1xl text-slate-900 dark:text-primary-50/75">
-              Criador da plataforma SalveMaisUm, a primeira rede social de doação de sangue. 
-              Criador da Plataforma Esportiva, aplicativo esportivo.
-              Criador da Plataforma EAD..
+              Criador da plataforma SalveMaisUm, a primeira rede social de
+              doação de sangue. Criador da Plataforma Esportiva, aplicativo
+              esportivo. Criador da Plataforma EAD..
             </div>
             <div className="font-bold text-2xl tracking-tight  pt-10">
               Por que decidiu ensinar?

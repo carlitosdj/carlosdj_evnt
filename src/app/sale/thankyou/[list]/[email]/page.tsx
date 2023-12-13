@@ -26,11 +26,6 @@ const Thankyou = ({}: Props) => {
 
   const component = useSelector((state: ApplicationState) => state.component);
   const me = useSelector((state: ApplicationState) => state.me);
-  // const cart = useSelector((state: ApplicationState) => state.carts);
-  // const payment = useSelector((state: ApplicationState) => state.payment);
-
-  // const [nextStep, setNextStep] = useState<boolean>(false);
-  // const [paymentWay, setPaymentWay] = useState("credit_card");
 
   useEffect(() => {
     dispatch(loadStateRequest());
@@ -46,48 +41,12 @@ const Thankyou = ({}: Props) => {
     }
   }, [me.me]);
 
-  // console.log("cartRedux", cart);
-  // console.log("paymentRedux", payment);
-
-  //////////
-  // const formSchema = z.object({
-  //   name: z.string().min(1, {
-  //     message: "Nome precisa ter pelo menos 1 caracter.",
-  //   }),
-  //   email: z.string().email({ message: "Endereço de e-mail inválido" }),
-  //   whatsapp: z.string().min(2, {
-  //     message: "Whatsapp precisa ter pelo menos 2 caracteres.",
-  //   }),
-  // });
-
-  // const form = useForm<z.infer<typeof formSchema>>({
-  //   //resolver: zodResolver(formSchema),
-  //   resolver: async (data, context, options) => {
-  //     // THIS IS NOT GETTING CALLED EVER => error is NOT getting populated
-  //     console.log("formData", data);
-  //     console.log(
-  //       "validation result",
-  //       await zodResolver(formSchema)(data, context, options)
-  //     );
-  //     return zodResolver(formSchema)(data, context, options);
-  //   },
-  //   defaultValues: {
-  //     name: "",
-  //     email: "",
-  //     whatsapp: "",
-  //   },
-  // });
-
-  //if (component.loading || me.loading) return <div>Loading...</div>;
-  //if (component.loading || me.loading) return <div>Loading...</div>;
   let loadOrFailTest = loadOrFailSales({ component, me });
   if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;
 
   if (me.error || component.error) router.push(`/sales/subscribe/${list}`);
-
-  //if (nextStep) router.push(`/sales/checkout/payment/${list}/${me.me.email}`);
 
   return (
     <div className="bg-secondary-600">
@@ -115,51 +74,55 @@ const Thankyou = ({}: Props) => {
                     Desejamos que este treinamento represente um marco
                     significativo em sua jornada.
                   </p>
-                  <br/>
+                  <br />
                   <p>Agora, vamos seguir com algumas instruções iniciais:</p>
-                  <br/>
+                  <br />
                   <p>
                     1. Em breve, você receberá uma cópia deste documento em seu
                     e-mail.
                   </p>
-                  <br/>
+                  <br />
                   <p>
-                  2. Lembre-se de que é possível alterar sua senha na página
-                  inicial, quando estiver conectado ou contatando o suporte.
+                    2. Lembre-se de que é possível alterar sua senha na página
+                    inicial, quando estiver conectado ou contatando o suporte.
                   </p>
-                  <br/>
-                  <p>3. Por
-                  favor, zele pela confidencialidade de sua senha e evite
-                  compartilhá-la com terceiros, uma vez que logins simultâneos
-                  serão automaticamente bloqueados.
-                  </p><br/>
-                  <p>4. Mantenha as discussões na
-                  comunidade estritamente relacionadas ao tema do treinamento.
-                  Qualquer post que fuja do assunto será sujeito a censura. 
-                  
-                  Este
-                  é um espaço destinado à reflexão sobre o conteúdo do
-                  treinamento. 
+                  <br />
+                  <p>
+                    3. Por favor, zele pela confidencialidade de sua senha e
+                    evite compartilhá-la com terceiros, uma vez que logins
+                    simultâneos serão automaticamente bloqueados.
                   </p>
-                  <br/>
-                  
-                  <p>5. Não promova a si mesmo ou seus interesses
-                  pessoais na comunidade, pois essas postagens também estarão
-                  sujeitas a censura. 
+                  <br />
+                  <p>
+                    4. Mantenha as discussões na comunidade estritamente
+                    relacionadas ao tema do treinamento. Qualquer post que fuja
+                    do assunto será sujeito a censura. Este é um espaço
+                    destinado à reflexão sobre o conteúdo do treinamento.
                   </p>
-                  <br/>
-                  <p>6. Encorajamos você a fazer perguntas sempre
-                  que necessário. Lembre-se de que não existem perguntas sem
-                  valor. O verdadeiro erro está em não questionar. </p>
-                  <br/>
-                  <p>7. Por fim,
-                  empenhe-se ao máximo durante o treinamento e tenha em mente
-                  que o sucesso depende igualmente de seu esforço e do auxílio
-                  do instrutor. Não existe uma fórmula mágica ou atalhos fáceis,
-                  mas é crucial contar com um time de apoio para seguir adiante.</p>
-                  <br/>
+                  <br />
+                  <p>
+                    5. Não promova a si mesmo ou seus interesses pessoais na
+                    comunidade, pois essas postagens também estarão sujeitas a
+                    censura.
+                  </p>
+                  <br />
+                  <p>
+                    6. Encorajamos você a fazer perguntas sempre que necessário.
+                    Lembre-se de que não existem perguntas sem valor. O
+                    verdadeiro erro está em não questionar.{" "}
+                  </p>
+                  <br />
+                  <p>
+                    7. Por fim, empenhe-se ao máximo durante o treinamento e
+                    tenha em mente que o sucesso depende igualmente de seu
+                    esforço e do auxílio do instrutor. Não existe uma fórmula
+                    mágica ou atalhos fáceis, mas é crucial contar com um time
+                    de apoio para seguir adiante.
+                  </p>
+                  <br />
                   Atenciosamente, A Equipe Defelicibus Soluções.
-                  <br/><br/>
+                  <br />
+                  <br />
                 </div>
               </div>
             </div>

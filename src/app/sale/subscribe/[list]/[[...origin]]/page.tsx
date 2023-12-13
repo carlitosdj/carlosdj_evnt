@@ -60,68 +60,73 @@ const Subscribe = () => {
 
   return (
     <div className="">
-      <Hero
-        //title={"Da primeira venda aos 10 mil por mês no digital."}
-        title={
-          getValueFromExtras({
-            extras: component.data.extras!,
-            key: "productHeadline",
-          })!
-        }
-        subtitle={
-          getValueFromExtras({
-            extras: component.data.extras!,
-            key: "productDescription",
-          })!
-        }
-        badge={
-          getValueFromExtras({
-            extras: component.data.extras!,
-            key: "productName",
-          })!
-        }
-        video={
-          getValueFromExtras({
-            extras: component.data.extras!,
-            key: "productVideo",
-          })!
-        }
-      >
-        <SubscribeButton
-          ad={ad.toString()}
-          me={me}
-          component={component}
-          list={list.toString()}
-        />
-      </Hero>
-      <Session.Root
-        id="features"
-        title="Como funciona"
-        subtitle="Agenda Full: A forma mais rápida de colocar o pé no digital."
-        className="bg-secondary-50 dark:bg-secondary-950 text-center"
-        columns="md:grid-cols-3"
-      >
-        <Session.Content
-          title="12 aulas ao vivo"
-          description="Em 3 meses você terá acesso a todo treinamento. Ele será entregue ao vivo, em aulas de 2h semanais."
-          //description="Plataforma exclusiva com aulas em sequência, divididas em fases para você acessar de qualquer lugar com internet."
-          image="https://institutodefelicibus.com.br/files/aulas-ao-vivo.jpg"
-          //delay="100"
-        />
-        <Session.Content
-          title="Mentorias em grupo"
-          //description="Mentorias ao vivo duas vezes por semana: Terça Musical e Quinta Teórica. Você será 100% acompanhado."
-          description="Além das aulas, em 12 sábados acontecerão as mentorias de Tira Dúvidas. Você será 100% acompanhado."
-          image="https://institutodefelicibus.com.br/files/mentoria.jpg"
-          //delay="200"
-        />
-        <Session.Content
-          title="Acesso à comunidade"
-          description="A melhor maneira para evoluir é dentro de uma comunidade onde todos falam a mesma língua e ajudam uns aos outros."
-          image="https://institutodefelicibus.com.br/files/comunidade.jpg"
-          //delay="300"
-        />
-      </Session.Root>
+      <div className="bg-gradient-to-b from-secondary-800 to-secondary-950">
+        <div className="bg-[url('/imgs/hero-illustration.svg')] bg-no-repeat bg-[center_top] bg-cover">
+          <Hero
+            //title={"Da primeira venda aos 10 mil por mês no digital."}
+            title={
+              getValueFromExtras({
+                extras: component.data.extras!,
+                key: "productHeadline",
+              })!
+            }
+            subtitle={
+              getValueFromExtras({
+                extras: component.data.extras!,
+                key: "productDescription",
+              })!
+            }
+            badge={
+              getValueFromExtras({
+                extras: component.data.extras!,
+                key: "productName",
+              })!
+            }
+            video={
+              getValueFromExtras({
+                extras: component.data.extras!,
+                key: "productVideo",
+              })!
+            }
+          >
+            <SubscribeButton
+              ad={ad.toString()}
+              me={me}
+              component={component}
+              list={list.toString()}
+            />
+          </Hero>
+
+          <Session.Root
+            id="features"
+            title="Como funciona"
+            subtitle="Agenda Full: A forma mais rápida de colocar o pé no digital."
+            className="bg-transparent text-center"
+            columns="md:grid-cols-3"
+          >
+            <Session.Content
+              title="12 aulas ao vivo"
+              description="Em 3 meses você terá acesso a todo treinamento. Ele será entregue ao vivo, em aulas de 2h semanais."
+              //description="Plataforma exclusiva com aulas em sequência, divididas em fases para você acessar de qualquer lugar com internet."
+              image="https://institutodefelicibus.com.br/files/aulas-ao-vivo.jpg"
+              //delay="100"
+            />
+            <Session.Content
+              title="Mentorias em grupo"
+              //description="Mentorias ao vivo duas vezes por semana: Terça Musical e Quinta Teórica. Você será 100% acompanhado."
+              description="Além das aulas, em 12 sábados acontecerão as mentorias de Tira Dúvidas. Você será 100% acompanhado."
+              image="https://institutodefelicibus.com.br/files/mentoria.jpg"
+              //delay="200"
+            />
+            <Session.Content
+              title="Acesso à comunidade"
+              description="A melhor maneira para evoluir é dentro de uma comunidade onde todos falam a mesma língua e ajudam uns aos outros."
+              image="https://institutodefelicibus.com.br/files/comunidade.jpg"
+              //delay="300"
+            />
+          </Session.Root>
+        </div>
+      </div>
       <div className="flex justify-center items-center pb-10 container">
         <SubscribeButton
           ad={ad.toString()}
@@ -284,7 +289,7 @@ const Subscribe = () => {
           delay="200"
         />
       </Session.Root>
-      
+
       <Session.Root
         title="Mentoria"
         subtitle="O grande diferencial do treinamento. 1 aula ao vivo por semana."
@@ -323,7 +328,7 @@ const Subscribe = () => {
       >
         <Session.Content>De R$ 5099,00 por 12x R$ 49,90.</Session.Content>
       </Session.Root>
-      
+
       <Session.Root
         title="Garantia"
         subtitle="Sua satisfação ou seu dinheiro de volta"
@@ -333,7 +338,7 @@ const Subscribe = () => {
         <Session.Content>
           Garantia Incondicional: Em 15 dias, por qualquer motivo, você pode
           pedir seu dinheiro de volta. Sem letras míúdas.
-          <br/>
+          <br />
           Garantia Condicional: Aplicou e não fechou... Dinheiro de volta + 500.
         </Session.Content>
       </Session.Root>

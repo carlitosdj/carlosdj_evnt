@@ -20,7 +20,7 @@ export const SessionRoot = ({
 }: SessionRootProps) => {
   return (
     <div
-      className={twMerge("bg-secondary-300 dark:bg-secondary-950 pb-20", className)}
+      className={twMerge("pb-20", className)}
       id={id || randomBytes(1).toString()}
     >
       <div className="container text-center">
