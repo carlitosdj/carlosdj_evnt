@@ -100,13 +100,13 @@ const Subscribe = () => {
           <Session.Root
             id="features"
             title="Como funciona"
-            subtitle="Agenda Full: A forma mais rápida de colocar o pé no digital."
+            subtitle="Agenda Full: A forma mais rápida de colocar o pé no digital, começar a fazer as primeiras vendas e montar um negócio sólido."
             className="bg-transparent text-center"
             columns="md:grid-cols-3"
           >
             <Session.Content
-              title="12 aulas ao vivo"
-              description="Em 3 meses você terá acesso a todo treinamento. Ele será entregue ao vivo, em aulas de 2h semanais."
+              title="24 aulas ao vivo"
+              description="Em 6 meses você terá acesso a todo treinamento. Ele será entregue ao vivo, em aulas de 2h semanais."
               //description="Plataforma exclusiva com aulas em sequência, divididas em fases para você acessar de qualquer lugar com internet."
               image="https://institutodefelicibus.com.br/files/aulas-ao-vivo.jpg"
               //delay="100"
@@ -231,13 +231,13 @@ const Subscribe = () => {
             description="Estratégias para otimização e análise de campanhas."
           />
           <Session.Item
-            title="Módulo 7 - Relatórios mensais"
+            title="Módulo 7 - Geração de relatórios"
             description="Como analisar visualmente seu avanço."
           />
         </Session.Content>
         <Session.Content title="Conversão" delay="300">
           <Session.Item
-            title="Módulo 1 - Fundamentos de vendas"
+            title="Módulo 1 - Fundamentos e Funil de vendas"
             description="Os princípios de vendas e métricas."
           />
           <Session.Item
@@ -253,7 +253,7 @@ const Subscribe = () => {
             description="Quais são as grandes objeções e como contorná-las."
           />
           <Session.Item
-            title="Módulo 5 - Estratégia de venda via WhatsApp"
+            title="Módulo 5 - Como vender pelo WhatsApp"
             description="Como criar uma sequencia de vendas para Leads com SPIN Selling."
           />
           <Session.Item
@@ -284,7 +284,7 @@ const Subscribe = () => {
         />
         <Session.Content
           title="Crescimento Empresarial"
-          description="Como organizar sua empresa, divisão de times e equipes, contabilidade, faturamento, reinvestimentos. Tudo para o crescimento empresarial."
+          description="Como organizar sua empresa, divisão de times e equipes, contabilidade, faturamento e reinvestimento."
           image="https://institutodefelicibus.com.br/files/empresarial.jpg"
           delay="200"
         />
@@ -322,11 +322,11 @@ const Subscribe = () => {
 
       <Session.Root
         title="Investimento"
-        subtitle="Preço"
+        subtitle="É a primeira e última vez que você verá esse preço."
         className="bg-secondary-50 dark:bg-secondary-900"
         columns="grid-cols-1"
       >
-        <Session.Content>De R$ 5099,00 por 12x R$ 49,90.</Session.Content>
+        <Session.Content><div className="text-6xl">De R$ 5099,00 <br/>por 12x R$ 49,90.</div></Session.Content>
       </Session.Root>
 
       <Session.Root
@@ -361,31 +361,36 @@ const Subscribe = () => {
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
               <AccordionTrigger>O treinamento é vitalício?</AccordionTrigger>
-              <AccordionContent className="text-start">Não.</AccordionContent>
+              <AccordionContent className="text-start">Não. O treinamento tem duração de 6 meses mas você terá o acesso por 1 ano, você poderá ver e rever todo o conteúdo durante esse tempo. Aqui a lógica é a seguinte, você vai aprender na prática e não precisará mais voltar nessas aulas. Ou seja, se você quer construir seu negócio decolar em 6 meses você é bem vindo, se você é dessas pessoas que vão ficar procrastinando para colocar em prática o treinamento, então agora não é sua hora.</AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
               <AccordionTrigger>O treinamento é 100% online?</AccordionTrigger>
-              <AccordionContent className="text-start">Sim.</AccordionContent>
+              <AccordionContent className="text-start">Sim. 100% online, o que significa que você não vai precisar deslocar para assistir as aulas e ter custo com isso. É importante que você tenha uma boa conexão com a Internet e tenha uma Computador (ou Notebook) disponíveis para fazer o treinamento.</AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
-              <AccordionTrigger>Como funciona o reembolso?</AccordionTrigger>
+              <AccordionTrigger>Consigo fazer o treinamento só usando o celular?</AccordionTrigger>
               <AccordionContent className="text-start">
-                Mande um e-mail para: sdasd.
+                Infelizmente não. Você vai precisar de um computador. Eu não quero ser hipócrita dizendo que você pode fazer o treinamento pelo celular, porque assistir as aulas pelo celular é sim possível. Mas eu quero que você pratique, e a prática só é possível pelo computador ou notebook.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-4">
-              <AccordionTrigger>Será que é pra mim?</AccordionTrigger>
+              <AccordionTrigger>Como funciona o reembolso?</AccordionTrigger>
               <AccordionContent className="text-start">
-                Se você quer aproveitar o boom da internet, sim.
+                Você tem X dias para testar o produto. Ou seja, quando você entra para o treinamento temos registrado sua data e hora de entrada na Plataforma. Durante esses X dias você pode, por qualquer motivo, inclusive você não vai precisar revelar o motivo para minha equipe, de pedir seu dinheiro de volta e está tudo bem. Depois desse período você vai entrar na garantia condicional, que signfica que se você fizer tudo que eu estou te propondo durante 6 meses e não conseguir recuperar o dinheiro investido nesse treinamento de volta, eu vou abrir uma recuperação por mais 90 dias, exclusivo com a turma que não gerou seus primeiros resultados, e ao passar dessa data e você não tiver recuperado seu dinheiro de volta, eu vou te devolver todo seu dinheiro e mais 500 reais do meu bolso.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-5">
+              <AccordionTrigger>Será que é pra mim?</AccordionTrigger>
+              <AccordionContent className="text-start">
+                Se você se acha merecedor dessa oportunidade, de construir suas próprias landing pages, de gerenciar seus próprios anúncios e conseguir acompanhar todas as vendas da sua empresa, então sim, esse treinamento é para você. Se você acha que tudo isso aqui é mágica, e que os resultados vem sem esforço, então não, não é para você.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-6">
               <AccordionTrigger>
                 Não sei nada de tecnologia, é pra mim?
               </AccordionTrigger>
               <AccordionContent className="text-start">
-                Sim, você não vai precisar digitar quase nenhum código, quando
-                tiver código você vai usar CTRL C + CTRL V
+                Sim, você não vai precisar digitar quase nenhum código, quando isso acontecer, você vai usar o CTRL C + CTRL V (copia e cola). Você vai acompanhar todos os cliques durante todas as aulas, além de participar das mentorias para tirar dúvidas. A tecnologia não será um problema para você, mas um potencializador de resultados.
               </AccordionContent>
             </AccordionItem>
             {/* <AccordionItem value="item-6">

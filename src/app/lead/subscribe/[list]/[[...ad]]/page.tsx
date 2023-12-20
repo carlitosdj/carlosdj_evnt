@@ -88,23 +88,23 @@ const Subscribe = () => {
 
           <FeatureSection
             title="O que você vai aprender?"
-            subtitle="Uma aula gratuita e exclusiva para Gestores de Tráfego, Programadores e Donos de Negócios"
+            subtitle="Uma aula gratuita para Empreendedores que querem utilizar a Internet para vender mais."
             className="bg-transparent"
           >
             <div className="pt-28 grid grid-cols-1 md:grid-cols-3 gap-4 text-primary dark:text-primary-50 ">
               <ItemTitleSubtitle
-                title="Captação de Potenciais Clientes"
-                description="Como utilizar o potencial da Internet para captação de clientes para sua advocacia."
+                title="Atração de Potenciais Clientes"
+                description="Como utilizar o potencial da Internet para criar Landing Pages atrativas."
                 delay="100"
               />
               <ItemTitleSubtitle
                 title="Como anunciar online"
-                description="Como utilizar o Google para direcionar seus anúncios e convocar uma legião de clientes."
+                description="Como utilizar o Google para atrair o público certo para o seu negócio."
                 delay="200"
               />
               <ItemTitleSubtitle
                 title="Como fechar negócios"
-                description="Como transformar Potenciais Clientes em vendas para sua Advocacia."
+                description="Como transformar seu público alvo em clientes da sua marca, lotando sua agenda."
                 delay="300"
               />
             </div>
@@ -140,7 +140,7 @@ const Subscribe = () => {
             <div className="font-bold text-2xl tracking-tight">Formação</div>
             <div className="text-1xl text-slate-900 dark:text-primary-50/75">
               Carlos é formado em Engenharia de Software pela Universidade
-              Federal de Uberlândia (UFU). MBA em Gestão de Projetos pela ESAMC.
+              Federal de Uberlândia (UFU). MBA em Gestão de Projetos pela ESAMC - Uberlândia/MG.
             </div>
             <div className="font-bold text-2xl tracking-tight  pt-10">
               Experiência
@@ -154,7 +154,7 @@ const Subscribe = () => {
               Por que decidiu ensinar?
             </div>
             <div className="text-1xl text-slate-900 dark:text-primary-50/75">
-              Multiplicação de talentos.
+              O objetivo sempre foi ajudar pessoas a empreender. Empreender não é fácil mas é libertador.
             </div>
           </div>
         </Session.Content>
