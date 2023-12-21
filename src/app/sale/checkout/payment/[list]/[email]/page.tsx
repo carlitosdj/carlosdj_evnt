@@ -172,7 +172,7 @@ const Payment = ({}: Props) => {
     var data = new Date();
 
     let cart: Cart = {
-      amount: "548800",
+      amount: "49380",
       codcartao: values.cardcvv,
       code: "CDE123",
       description: "Lp Abc",

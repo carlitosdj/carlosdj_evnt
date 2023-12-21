@@ -1,27 +1,27 @@
 "use client";
-import { AlertCircle } from 'lucide-react';
-import { notFound, useParams, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import * as z from 'zod';
+import { AlertCircle } from "lucide-react";
+import { notFound, useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import * as z from "zod";
 
-import Loading from '@/app/sale/loading';
-import loadOrFailSales from '@/components/helpers/loadOrFailSales';
-import ModelField from '@/components/helpers/ModelField';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
-import { Form } from '@/components/ui/form';
-import CartItems from '@/components/widgets/sales/subscribe/CartItems/CartItems';
-import Stepper from '@/components/widgets/stepper/Stepper';
-import { ApplicationState } from '@/store';
+import Loading from "@/app/sale/loading";
+import loadOrFailSales from "@/components/helpers/loadOrFailSales";
+import ModelField from "@/components/helpers/ModelField";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { Form } from "@/components/ui/form";
+import CartItems from "@/components/widgets/sales/subscribe/CartItems/CartItems";
+import Stepper from "@/components/widgets/stepper/Stepper";
+import { ApplicationState } from "@/store";
 // import { createCartRequest } from '@/store/ducks/carts/actions';
 // import { Cart } from '@/store/ducks/carts/types';
-import { loadComponentByDescriptionRequest } from '@/store/ducks/component/actions';
-import { loadUserByEmailRequest } from '@/store/ducks/me/actions';
-import { createPagarMeOrderRequest } from '@/store/ducks/payment/actions';
-import { loadStateRequest } from '@/store/ducks/state/actions';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { loadComponentByDescriptionRequest } from "@/store/ducks/component/actions";
+import { loadUserByEmailRequest } from "@/store/ducks/me/actions";
+import { createPagarMeOrderRequest } from "@/store/ducks/payment/actions";
+import { loadStateRequest } from "@/store/ducks/state/actions";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 interface Props {
   //children: ReactNode;
@@ -40,6 +40,7 @@ const Pending = ({}: Props) => {
   // const state = useSelector((state: ApplicationState) => state.state);
   // const city = useSelector((state: ApplicationState) => state.city);
   const [nextStep, setNextStep] = useState<boolean>(false);
+  const [ssePayment, setSsePayment] = useState({ data: { status: '0' } })
   //const [paymentWay, setPaymentWay] = useState("credit_card");
 
   useEffect(() => {
@@ -55,6 +56,39 @@ const Pending = ({}: Props) => {
       form.setValue("whatsapp", me.me.whatsapp!);
     }
   }, [me.me]);
+
+  useEffect(() => {
+    const eventSource = new EventSource(
+      `https://institutodefelicibus.com.br/apimodelo/payment/sse`,
+      {
+        withCredentials: true,
+      }
+    );
+    eventSource.onopen = () => {
+      console.log('open');
+    };
+    eventSource.onmessage = (e) => {
+      console.log('---MESSAGE SSE---');
+      console.log(JSON.parse(e.data));
+      setSsePayment(JSON.parse(e.data));
+    };
+    eventSource.onerror = (e) => {
+      console.log(e);
+    };
+    return () => {
+      console.log("close")
+      eventSource.close();
+    };
+    // console.log("event...");
+    // eventSource.onmessage = (e) => {
+    //   console.log("OIII");
+    //   console.log("CHEGOU", e);
+    // };
+    // return () => {
+    //   console.log("Closing...");
+    //   eventSource.close();
+    // };
+  }, []);
 
   //console.log("cartRedux", cart);
   console.log("paymentRedux", payment);
@@ -174,6 +208,12 @@ const Pending = ({}: Props) => {
   if (loadOrFailTest === "out of time") return <div>Prazo fora</div>;
 
   if (me.error || component.error) router.push(`/sales/subscribe/${list}`);
+  if (payment.data.status === "paid" || ssePayment.data.status === "paid" ) {
+    //Vai para o upsell
+    // navigate('/aproveite/' + me.me.profile?.name)
+    console.log("REDIRECIONA")
+    router.push(`/sale/thankyou/${list}/${me.me.email}`);
+  }
   //   if (cart.data.id && payment.data.status === "paid") {
   //     //Vai para o upsell
   //     // navigate('/aproveite/' + me.me.profile?.name)
@@ -230,10 +270,37 @@ const Pending = ({}: Props) => {
                     />
 
                     <div className="col-span-12">
+                      ID: {payment.data.charges[0].id}
+                      <br />
+                      <br />
                       Dados do {payment.data.charges[0].payment_method}: <br />
                       {/* boleto */}
                       {payment.data.charges[0].payment_method === "boleto" && (
                         <div>
+                          <div>
+                            <iframe
+                              title="qr_code"
+                              src={
+                                payment.data.charges[0].last_transaction.qr_code
+                              }
+                              height={250}
+                              width={"100%"}
+                            />
+                          </div>
+                          <div>
+                            <iframe
+                              title="qr_code"
+                              src={
+                                payment.data.charges[0].last_transaction.barcode
+                              }
+                              height={70}
+                              width={"100%"}
+                            />
+                          </div>
+                          <div>
+                            {payment.data.charges[0].last_transaction.line}
+                          </div>
+
                           <Alert>
                             Instruções do{" "}
                             {payment.data.charges[0].payment_method}:{" "}
@@ -251,27 +318,6 @@ const Pending = ({}: Props) => {
                             apenas na quinta-feira. Lembrando que são 3 dias
                             úteis.
                           </Alert>
-                          <div>
-                            <iframe
-                              title="qr_code"
-                              src={
-                                payment.data.charges[0].last_transaction.qr_code
-                              }
-                              height={250}
-                            />
-                          </div>
-                          <div>
-                            <iframe
-                              title="qr_code"
-                              src={
-                                payment.data.charges[0].last_transaction.barcode
-                              }
-                              height={70}
-                            />
-                          </div>
-                          <div>
-                            {payment.data.charges[0].last_transaction.line}
-                          </div>
                         </div>
                       )}
                       {/* pix */}
@@ -311,10 +357,10 @@ const Pending = ({}: Props) => {
                     )}
 
                     <Button
-                      className="w-full col-span-6 mt-4"
+                      className="w-full col-span-12 mt-4"
                       onClick={() =>
                         router.push(
-                          `/sales/checkout/payment/${list}/${me.me.email}`
+                          `/sale/checkout/payment/${list}/${me.me.email}`
                         )
                       }
                     >

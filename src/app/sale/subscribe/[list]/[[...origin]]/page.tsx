@@ -143,19 +143,19 @@ const Subscribe = () => {
       >
         <Session.Content
           title="Aspirantes ao empreendedorismo"
-          description="Se você já começou a estudar sozinho mas está com dificuldade em evoluir no estudo do violão."
+          description="Se você tem vontade de empreender, entende o potencial da Internet, mas ainda está só no mundo das ideias."
           image="https://institutodefelicibus.com.br/files/aspirante.jpg"
           delay="100"
         />
         <Session.Content
           title="Vendedores de serviço iniciantes"
-          description="Se você nunca tocou violão e tem o sonho de aprender a tocar com metodologia simples."
+          description="Se você já começou a empreender mas tem dificuldades em utilizar o mundo digital para alavancar sua empresa."
           image="https://institutodefelicibus.com.br/files/iniciante.jpg"
           delay="200"
         />
         <Session.Content
           title="Quem vai montar equipe de Marketing interna"
-          description="O passo a passo desenhado para você aprender a tocar violão com 30 minutos por dia, sem stress."
+          description="Se você já tem um negócio e quer montar uma equipe interna para evoluir seus números utilizando a Internet."
           image="https://institutodefelicibus.com.br/files/equipe.jpg"
           delay="300"
         />
@@ -338,8 +338,6 @@ const Subscribe = () => {
         <Session.Content>
           Garantia Incondicional: Em 15 dias, por qualquer motivo, você pode
           pedir seu dinheiro de volta. Sem letras míúdas.
-          <br />
-          Garantia Condicional: Aplicou e não fechou... Dinheiro de volta + 500.
         </Session.Content>
       </Session.Root>
       <div className="flex justify-center items-center pb-10 container">
@@ -413,7 +411,7 @@ const Subscribe = () => {
       <Session.Root
         title="Quem é Carlos Defelícibus Junior?"
         subtitle="Conheça mais sobre o professor"
-        className="bg-secondary-100 dark:bg-secondary-950"
+        className="bg-secondary-50 dark:bg-secondary-900"
         columns="md:grid-cols-2"
       >
         <Session.Content>
@@ -423,43 +421,36 @@ const Subscribe = () => {
         </Session.Content>
         <Session.Content>
           <div className="flex flex-col justify-center text-start text-primary-900 dark:text-primary-50 md:pr-8 pb-8 md:pb-0">
-            <div className="font-bold text-2xl tracking-tight">
-              Onde estava todo esse tempo?
-            </div>
+            <div className="font-bold text-2xl tracking-tight">Formação</div>
             <div className="text-1xl text-slate-900 dark:text-primary-50/75">
-              Mais conhecido como Carlitos, formado em Engenharia de Software
-              pela Universidade Federal de Uberlândia, apaixonado por viagens e
-              desenvolvedor de Softwares.
+              Carlos é formado em Engenharia de Software pela Universidade
+              Federal de Uberlândia (UFU). MBA em Gestão de Projetos pela ESAMC - Uberlândia/MG.
             </div>
             <div className="font-bold text-2xl tracking-tight  pt-10">
-              Experiência com Empreendedorismo e Softwares
+              Experiência
             </div>
             <div className="text-1xl text-slate-900 dark:text-primary-50/75">
-              Abriu sua própria empresa logo após formar.
-            </div>
-            <div className="font-bold text-2xl tracking-tight  pt-10">
-              No mercado
-            </div>
-            <div className="text-1xl text-slate-900 dark:text-primary-50/75">
-              Construiu soluções como Salve Mais Um, Oficioso.
+              Criador da plataforma SalveMaisUm, a primeira rede social de
+              doação de sangue. Criador da Plataforma Esportiva, aplicativo
+              esportivo. Criador da Plataforma EAD..
             </div>
             <div className="font-bold text-2xl tracking-tight  pt-10">
               Por que decidiu ensinar?
             </div>
             <div className="text-1xl text-slate-900 dark:text-primary-50/75">
-              Multiplicação de talentos.
+              O objetivo sempre foi ajudar pessoas a empreender. Empreender não é fácil mas é libertador.
             </div>
           </div>
         </Session.Content>
       </Session.Root>
-      <div className="flex justify-center items-center pb-10 container">
+      {/* <div className="flex justify-center items-center pb-10 container">
         <SubscribeButton
           ad={ad.toString()}
           me={me}
           component={component}
           list={list.toString()}
         />
-      </div>
+      </div> */}
       <Footer
         copyright="Todos os direitos reservados."
         owner="Defelicibus Soluções | 2023 | CNPJ: xxxxx"
