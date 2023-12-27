@@ -93,18 +93,18 @@ const Subscribe = () => {
           >
             <div className="pt-28 grid grid-cols-1 md:grid-cols-3 gap-4 text-primary dark:text-primary-50 ">
               <ItemTitleSubtitle
-                title="Atração de Potenciais Clientes"
-                description="Como utilizar o potencial da Internet para criar Landing Pages atrativas."
+                title="Como criar Landing Pages"
+                description="Como utilizar as 7 seções principais para criar uma landing page."
                 delay="100"
               />
               <ItemTitleSubtitle
-                title="Como anunciar online"
+                title="Como anunciar no Google"
                 description="Como utilizar o Google para atrair o público certo para o seu negócio."
                 delay="200"
               />
               <ItemTitleSubtitle
                 title="Como fechar negócios"
-                description="Como transformar seu público alvo em clientes da sua marca, lotando sua agenda."
+                description="Como entender o Funil de Vendas para aumentar sua probabilidade de conversão."
                 delay="300"
               />
             </div>
@@ -147,8 +147,8 @@ const Subscribe = () => {
             </div>
             <div className="text-1xl text-slate-900 dark:text-primary-50/75">
               Criador da plataforma SalveMaisUm, a primeira rede social de
-              doação de sangue. Criador da Plataforma Esportiva, aplicativo
-              esportivo. Criador da Plataforma EAD..
+              doação de sangue. <br/> Criador da Plataforma Esportiva, aplicativo
+              esportivo. <br/>
             </div>
             <div className="font-bold text-2xl tracking-tight  pt-10">
               Por que decidiu ensinar?
