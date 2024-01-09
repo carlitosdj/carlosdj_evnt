@@ -30,7 +30,7 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           #TARGET: ${{ secrets.REMOTE_TARGET }}
-          TARGET: /home/wwinst/evnt.institutodefelicibus.com.br/files/
+          TARGET: /home/carlos/evnt.carlosdj.com.br/files/
 
       - name: Post Deploy
         uses: appleboy/ssh-action@master
@@ -40,7 +40,7 @@ jobs:
             key: ${{ secrets.SSH_PRIVATE_KEY }}
             port: ${{ secrets.REMOTE_PORT }}
             script: | 
-              cd /home/wwinst/evnt.institutodefelicibus.com.br/files/
+              cd /home/carlosdj/evnt.carlosdj.com.br/files/
               yarn 
               yarn build
               yarn pm2:restart

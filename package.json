@@ -5,11 +5,11 @@
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start -p 9001",
+    "start": "next start -p 9002",
     "lint": "next lint",
     "cypress": "cypress open",
-    "pm2:start": "pm2 start yarn --name \"nextjs\" --interpreter bash -- start",
-    "pm2:restart": "pm2 restart nextjs --update-env"
+    "pm2:start": "pm2 start yarn --name \"evnt_carlosdj\" --interpreter bash -- start",
+    "pm2:restart": "pm2 restart evnt_carlosdj --update-env"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
