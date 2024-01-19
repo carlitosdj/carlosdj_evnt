@@ -40,7 +40,7 @@ jobs:
             key: ${{ secrets.SSH_PRIVATE_KEY }}
             port: ${{ secrets.REMOTE_PORT }}
             script: | 
-              cd /home/carlosdj/evnt.carlosdj.com.br/files/
+              cd /home/carlos/evnt.carlosdj.com.br/files/
               yarn 
               yarn build
               yarn pm2:restart
