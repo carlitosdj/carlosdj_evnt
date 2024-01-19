@@ -100,21 +100,23 @@ const Subscribe = () => {
           <Session.Root
             id="features"
             title="Como funciona"
-            subtitle="Agenda Full: A forma mais rápida de colocar o pé no digital, começar a fazer as primeiras vendas e montar um negócio sólido."
+            //subtitle="LPP: A forma mais rápida de colocar o pé no digital, começar a fazer as primeiras vendas e montar um negócio sólido."
+            subtitle="Landing Pages Profissionais: A forma mais rápida para expor seu serviço no mundo digital."
             className="bg-transparent text-center"
             columns="md:grid-cols-3"
           >
             <Session.Content
-              title="24 aulas ao vivo"
-              description="Em 6 meses você terá acesso a todo treinamento. Ele será entregue ao vivo, em aulas de 2h semanais."
+              title="Aulas em sequência"
+              description="O treinamento é direto ao ponto. Você vai ter aulas em sequência, passo a passo, para criar suas Landing Pages e colocá-las no ar."
+              //description="Em 6 meses você terá acesso a todo treinamento. Ele será entregue ao vivo, em aulas de 2h semanais."
               //description="Plataforma exclusiva com aulas em sequência, divididas em fases para você acessar de qualquer lugar com internet."
               image="https://institutodefelicibus.com.br/files/aulas-ao-vivo.jpg"
               //delay="100"
             />
             <Session.Content
-              title="Mentorias em grupo"
+              title="Mentorias ao vivo"
               //description="Mentorias ao vivo duas vezes por semana: Terça Musical e Quinta Teórica. Você será 100% acompanhado."
-              description="Além das aulas, em 12 sábados acontecerão as mentorias de Tira Dúvidas. Você será 100% acompanhado."
+              description="Além das aulas, toda terça e quinta, temos aulas ao vivo. Na terça-feira eu analiso uma Landing Page ao vivo, na quinta você tira dúvidas sobre o método."
               image="https://institutodefelicibus.com.br/files/mentoria.jpg"
               //delay="200"
             />
@@ -148,7 +150,7 @@ const Subscribe = () => {
           delay="100"
         />
         <Session.Content
-          title="Vendedores de serviço iniciantes"
+          title="Iniciantes no empreendedorismo"
           description="Se você já começou a empreender mas tem dificuldades em utilizar o mundo digital para alavancar sua empresa."
           image="https://institutodefelicibus.com.br/files/iniciante.jpg"
           delay="200"
@@ -173,11 +175,11 @@ const Subscribe = () => {
         title="Conteúdo programático"
         subtitle="O que você vai aprender, no detalhe."
         className="bg-secondary-100 dark:bg-secondary-950"
-        columns="md:grid-cols-3"
+        columns="md:grid-cols-1"
       >
         <Session.Content title="Landing Pages" delay="100">
           <Session.Item
-            title="Módulo 1 - Fundamentos"
+            title="Módulo 1 - Fundamentos dos negócios online"
             description="Todas as regras e conceitos iniciais."
           />
           <Session.Item
@@ -201,11 +203,15 @@ const Subscribe = () => {
             description="Como replicar landing pages."
           />
           <Session.Item
-            title="Módulo 7 - Integração com Google Ads e Facebook Ads"
+            title="Módulo 7 - Otimização da página"
             description="Criando a estrutura de conexão Página-Anúncios."
           />
+          {/* <Session.Item
+            title="Módulo 7 - Integração com Google Ads e Facebook Ads"
+            description="Criando a estrutura de conexão Página-Anúncios."
+          /> */}
         </Session.Content>
-        <Session.Content title="Anúncios online" delay="200">
+        {/* <Session.Content title="Anúncios online" delay="200">
           <Session.Item
             title="Módulo 1 - Configuração da conta"
             description="Como criar e fazer as configurações iniciais (Facebook e Google Ads)."
@@ -234,8 +240,8 @@ const Subscribe = () => {
             title="Módulo 7 - Geração de relatórios"
             description="Como analisar visualmente seu avanço."
           />
-        </Session.Content>
-        <Session.Content title="Conversão" delay="300">
+        </Session.Content> */}
+        {/* <Session.Content title="Conversão" delay="300">
           <Session.Item
             title="Módulo 1 - Fundamentos e Funil de vendas"
             description="Os princípios de vendas e métricas."
@@ -260,7 +266,7 @@ const Subscribe = () => {
             title="Módulo 6 - Funil de vendas na prática"
             description="Resumo geral na prática."
           />
-        </Session.Content>
+        </Session.Content> */}
       </Session.Root>
       <div className="flex justify-center items-center pb-10 container">
         <SubscribeButton
@@ -274,7 +280,7 @@ const Subscribe = () => {
         title="Além do treinamento"
         subtitle="Ao entrar no Agenda Full, você terá acesso:"
         className="bg-secondary-50 dark:bg-secondary-900"
-        columns="md:grid-cols-2"
+        columns="md:grid-cols-3"
       >
         <Session.Content
           title="Criação de Vídeo de Vendas de Valor"
@@ -283,8 +289,14 @@ const Subscribe = () => {
           delay="100"
         />
         <Session.Content
-          title="Crescimento Empresarial"
-          description="Como organizar sua empresa, divisão de times e equipes, contabilidade, faturamento e reinvestimento."
+          title="Inteligência Artificial"
+          description="Como ter a ajuda da Inteligência Artificial para te ajudar na criação do roteiro da sua Landing Page."
+          image="https://institutodefelicibus.com.br/files/empresarial.jpg"
+          delay="200"
+        />
+        <Session.Content
+          title="Introdução ao Google Ads"
+          description="Os primeiros passos para começar a anunciar no Google Ads. Um treinamento introdutório para você começar a visualizar sua Landing Page de outra forma."
           image="https://institutodefelicibus.com.br/files/empresarial.jpg"
           delay="200"
         />
@@ -294,11 +306,17 @@ const Subscribe = () => {
         title="Mentoria"
         subtitle="O grande diferencial do treinamento. 1 aula ao vivo por semana."
         className="bg-secondary-100 dark:bg-secondary-950"
-        columns="grid-cols-1"
+        columns="grid-cols-2"
       >
         <Session.Content
-          title="Mentoria"
-          description="Todas os sábados você vai ter acesso à mentoria em grupo, com Tira-Dúvidas."
+          title="Terça Analítica"
+          description="Todas as terças-feiras eu analiso uma Landing Page de um aluno."
+          image="https://labiopalatina.com.br/files/puzzle.jpg"
+          delay="100"
+        />
+        <Session.Content
+          title="Quinta Teórica"
+          description="Todas as quintas-feiras você pode tirar suas dúvidas sobre o método."
           image="https://labiopalatina.com.br/files/puzzle.jpg"
           delay="100"
         />
