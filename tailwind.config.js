@@ -28,8 +28,8 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          ...colors.amber,
-          DEFAULT: colors.amber[800],
+          ...colors.cyan,
+          DEFAULT: colors.cyan[800],
         },
         secondary: {
           ...colors.zinc,

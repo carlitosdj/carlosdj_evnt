@@ -60,7 +60,7 @@ const SubscribeButton = ({
               Entre com seus dados
             </DialogTitle>
             <DialogDescription className="text-start dark:text-white pb-4">
-              Realize sua inscrição gratuita
+              Realize sua inscrição gratuita para a aula ao vivo e online.
             </DialogDescription>
             <SubscribeForm
               list={list}

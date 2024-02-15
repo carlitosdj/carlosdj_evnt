@@ -28,7 +28,7 @@ const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
               )}
 
               <h1
-                className="font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-primary-50 "
+                className="font-extrabold text-3xl md:text-3xl lg:text-4xl tracking-tight text-primary-50 "
                 data-aos="zoom-out"
               >
                 {title}
@@ -53,20 +53,20 @@ const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
                   // data-aos-delay="100"
                 >
                   <div className="embed-responsive embed-responsive-16by9 rounded-lg overflow-hidden">
-                  <div>
-                    <iframe
-                      title="video"
-                      className="embed-responsive-item rounded"
-                      //src={'https://www.youtube.com/embed/VNBfCMYkd6k?si=1NCdqc6HpuMrfV2e'}
-                      src={video}
-                      width={640}
-                      height={564}
-                      frameBorder={0}
-                      allow="autoplay; fullscreen"
-                      allowFullScreen
-                    />
+                    <div>
+                      <iframe
+                        title="video"
+                        className="embed-responsive-item rounded"
+                        //src={'https://www.youtube.com/embed/VNBfCMYkd6k?si=1NCdqc6HpuMrfV2e'}
+                        src={video}
+                        width={640}
+                        height={564}
+                        frameBorder={0}
+                        allow="autoplay; fullscreen"
+                        allowFullScreen
+                      />
+                    </div>
                   </div>
-                </div>
 
                   {/* <iframe
                     className="rounded-lg overflow-hidden w-full h-48 md:h-80"
@@ -81,8 +81,6 @@ const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
                     allowFullScreen
                   /> */}
                 </div>
-
-                
               </>
             )}
           </div>

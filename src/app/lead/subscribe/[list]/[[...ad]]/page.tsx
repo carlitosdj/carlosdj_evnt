@@ -55,8 +55,8 @@ const Subscribe = () => {
 
   return (
     <div className="h-full">
-      <div className="bg-gradient-to-b from-secondary-800 to-secondary-950 ">
-        <div className="bg-[url('/imgs/hero-illustration.svg')] bg-no-repeat bg-[center_right_-110rem] md:bg-[center_right_-70rem] lg:bg-[center_right_-50rem] bg-opacity-50 bg-cover">
+      <div className="bg-gradient-to-b from-secondary-800 to-secondary-950">
+        <div className="bg-[url('/imgs/hero-illustration.svg')] bg-no-repeat bg-[center_right_-132rem] md:bg-[center_right_-148rem] lg:bg-[center_right_-50rem] bg-cover bg-opacity-20">
           <Hero
             badge={
               getValueFromExtras({
@@ -93,18 +93,18 @@ const Subscribe = () => {
           >
             <div className="pt-28 grid grid-cols-1 md:grid-cols-3 gap-4 text-primary dark:text-primary-50 ">
               <ItemTitleSubtitle
-                title="Como criar Landing Pages"
-                description="Como utilizar as 7 seções principais para criar uma landing page."
+                title="Funil de vendas"
+                description="Como utilizar as 7 etapas do Funil de Vendas para aumentar sua probabilidade de conversão."
                 delay="100"
               />
               <ItemTitleSubtitle
-                title="Como anunciar no Google"
-                description="Como utilizar o Google para atrair o público certo para o seu negócio."
+                title="Alavancagem de vendas"
+                description="Como utilizar o Marketing Digital para atrair as pessoas que tem caracteristicas de compra."
                 delay="200"
               />
               <ItemTitleSubtitle
-                title="Como fechar negócios"
-                description="Como entender o Funil de Vendas para aumentar sua probabilidade de conversão."
+                title="O mapa da jornada"
+                description="O passo a passo para você sair do Zero e alavancar suas vendas utilizando a Internet."
                 delay="300"
               />
             </div>
@@ -139,22 +139,54 @@ const Subscribe = () => {
           <div className="flex flex-col justify-center text-start text-primary-900 dark:text-primary-50 md:pr-8 pb-8 md:pb-0">
             <div className="font-bold text-2xl tracking-tight">Formação</div>
             <div className="text-1xl text-slate-900 dark:text-primary-50/75">
-              Carlos é formado em Engenharia de Software pela Universidade
-              Federal de Uberlândia (UFU). MBA em Gestão de Projetos pela ESAMC - Uberlândia/MG.
+              Carlos Defelícibus Junior, um empreendedor e visionário
+              brasileiro, é reconhecido por seu compromisso em utilizar a
+              tecnologia para causar impacto positivo na sociedade.
+            </div>
+            <div className="text-1xl text-slate-900 dark:text-primary-50/75 pt-5">
+              Nasceu em uma família de mente aberta e empreendedora, o que
+              moldou sua visão desde cedo.
+            </div>
+            <div className="text-1xl text-slate-900 dark:text-primary-50/75 pt-5">
+              Após concluir sua formação em Engenharia de Software pela
+              Universidade Federal de Uberlândia (UFU), Carlos decidiu aprimorar
+              suas habilidades de gestão, obtendo um MBA em Gestão de Projetos
+              pela ESAMC, em Uberlândia, Minas Gerais.
+            </div>
+            <div className="text-1xl text-slate-900 dark:text-primary-50/75 pt-5">
+              Essa combinação de conhecimento técnico e habilidades de gestão o
+              preparou para enfrentar desafios complexos no mundo dos negócios.
+            </div>
+            <div className="text-1xl text-slate-900 dark:text-primary-50/75 pt-5">
+              Carlos é mais conhecido como o criador da plataforma SalveMaisUm,
+              uma iniciativa pioneira que revolucionou a forma como as doações
+              de sangue são feitas no Brasil.
+            </div>
+            <div className="text-1xl text-slate-900 dark:text-primary-50/75 pt-5">
+              Essa plataforma, que funciona como uma rede social dedicada à
+              doação de sangue, conecta doadores a bancos de sangue e hospitais
+              de maneira eficiente e transparente, contribuindo para salvar
+              vidas em todo o país.
             </div>
             <div className="font-bold text-2xl tracking-tight  pt-10">
               Experiência
             </div>
             <div className="text-1xl text-slate-900 dark:text-primary-50/75">
-              Criador da plataforma SalveMaisUm, a primeira rede social de
-              doação de sangue. <br/> Criador da Plataforma Esportiva, aplicativo
-              esportivo. <br/>
+              Sua paixão por empreendedorismo e seu desejo de fazer a diferença
+              na vida das pessoas o levaram a dedicar-se ao ensino. Carlos
+              acredita que empreender não é apenas uma atividade comercial, mas
+              também uma oportunidade de causar impacto positivo na comunidade.
             </div>
-            <div className="font-bold text-2xl tracking-tight  pt-10">
-              Por que decidiu ensinar?
+            <div className="text-1xl text-slate-900 dark:text-primary-50/75 pt-5">
+              Ele está empenhado em compartilhar seu conhecimento e experiência
+              para capacitar outros aspirantes a empreendedores, ajudando-os a
+              superar desafios e alcançar seus objetivos.
             </div>
-            <div className="text-1xl text-slate-900 dark:text-primary-50/75">
-              O objetivo sempre foi ajudar pessoas a empreender. Empreender não é fácil mas é libertador.
+            <div className="text-1xl text-slate-900 dark:text-primary-50/75 pt-5">
+              Com uma mente inovadora e uma visão voltada para o bem comum,
+              Carlos Defelícibus Junior continua a inspirar e motivar aqueles ao
+              seu redor, deixando um legado duradouro de empreendedorismo e
+              humanidade.
             </div>
           </div>
         </Session.Content>
