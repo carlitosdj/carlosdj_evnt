@@ -46,11 +46,13 @@ export function* loadLead(payload: ReturnType<typeof loadLeadRequest>) {
 
 //Create
 export function* createLead(payload: ReturnType<typeof createLeadRequest>) {
+  console.log("Trying to create lead...")
   try {
     put(createLeadRequest(payload.payload));
     const response: Lead = yield call(api.post, "lead", payload.payload);
     yield put(createLeadSuccess(response));
   } catch (error: any) {
+    console.log("Error", error)
     yield put(createLeadFailure(error.response.data));
   }
 }
