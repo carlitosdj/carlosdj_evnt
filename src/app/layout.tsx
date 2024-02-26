@@ -7,6 +7,7 @@ import ReduxProvider from "@/store/provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import ModeToggle from "@/components/theme-toggle";
 import Head from "next/head";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "Comece aqui",
@@ -24,8 +25,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <div id="fb-root"></div>
         <Head>
-          <div id="fb-root"></div>
+          <div id="fb-root" key={1}></div>
           <script
+            key={2}
             async
             defer
             crossOrigin="anonymous"
