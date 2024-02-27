@@ -95,17 +95,17 @@ const Subscribe = () => {
               <ItemTitleSubtitle
                 title="Funil de vendas"
                 description="Como utilizar as 7 etapas do Funil de Vendas para aumentar sua probabilidade de conversão."
-                delay="100"
+                //delay="100"
               />
               <ItemTitleSubtitle
                 title="Alavancagem de vendas"
                 description="Como utilizar o Marketing Digital para atrair as pessoas que tem caracteristicas de compra."
-                delay="200"
+                //delay="200"
               />
               <ItemTitleSubtitle
                 title="O mapa da jornada"
                 description="O passo a passo para você sair do Zero e alavancar suas vendas utilizando a Internet."
-                delay="300"
+                //delay="300"
               />
             </div>
           </FeatureSection>

@@ -21,7 +21,7 @@ const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
               {badge && (
                 <Badge
                   className="bg-primary-800 text-white hover:text-white hover:bg-primary-800 px-2 py-1 mb-4"
-                  data-aos="zoom-out"
+                  //data-aos="zoom-out"
                 >
                   {badge}
                 </Badge>
@@ -29,19 +29,23 @@ const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
 
               <h1
                 className="font-extrabold text-3xl md:text-3xl lg:text-4xl tracking-tight text-primary-50 "
-                data-aos="zoom-out"
+                //data-aos="zoom-out"
               >
                 {title}
               </h1>
               <p
                 className="my-4 text-1xl max-w-3xl mx-auto text-primary-50/70 "
-                data-aos="zoom-out"
-                data-aos-delay="100"
+                //data-aos="zoom-out"
+                //data-aos-delay="100"
               >
                 {subtitle}
               </p>
 
-              <div className="pt-2" data-aos="zoom-out" data-aos-delay="300">
+              <div
+                className="pt-2"
+                //data-aos="zoom-out"
+                //data-aos-delay="300"
+              >
                 {children}
               </div>
             </div>
@@ -88,8 +92,8 @@ const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
 
         <div
           className="flex justify-center mt-8"
-          data-aos="zoom-out"
-          data-aos-delay="400"
+          // data-aos="zoom-out"
+          // data-aos-delay="400"
         >
           <Link href={"#features"}>
             <div className="animate-bounce bg-primary-950 p-2 w-10 h-10 ring-2 ring-primary-100/50 shadow-lg rounded-full flex items-center justify-center">
