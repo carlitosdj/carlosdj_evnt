@@ -21,11 +21,11 @@ jobs:
       #- run: yarn build
 
       - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@main
+        uses: easingthemes/ssh-deploy@v2
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          #ARGS: "-rltgoDzvO --delete"
-          ARGS: "-rltDzvO --delete"
+          ARGS: "-rltgoDzvO --delete"
+          #ARGS: "-rltDzvO --delete"
           #ARGS: "-rlgoDzvc --delete"
           #ARGS: "-rlgoDzvc -i"
           #ARGS: "-avzr --delete"
