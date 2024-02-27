@@ -24,10 +24,10 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          #ARGS: "-rltgoDzvO --delete"
+          ARGS: "-rltgoDzvO --delete"
           #ARGS: "-rlgoDzvc --delete"
           #ARGS: "-rlgoDzvc -i"
-          ARGS: "-avzr --delete"
+          #ARGS: "-avzr --delete"
           SOURCE: "/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
