@@ -8,8 +8,8 @@
     "start": "next start -p 9002",
     "lint": "next lint",
     "cypress": "cypress open",
-    "pm2:start": "pm2 start yarn --name \"evnt_carlosdj\" --interpreter bash -- start",
-    "pm2:restart": "pm2 restart evnt_carlosdj --update-env"
+    "pm2:start": "npx pm2 start yarn --name \"evnt_carlosdj\" --interpreter bash -- start",
+    "pm2:restart": "npx pm2 restart evnt_carlosdj --update-env"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
