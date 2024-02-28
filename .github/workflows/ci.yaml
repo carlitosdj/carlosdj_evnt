@@ -68,6 +68,6 @@ jobs:
               cd /www/wwwroot/evnt.carlosdj.com.br/
               yarn 
               yarn build
-              yarn pm2:restart
+              
       
     
