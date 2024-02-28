@@ -12,6 +12,7 @@ const nextConfig = {
 
   // Optional: Change the output directory `out` -> `dist`
   // distDir: 'dist',
+  assetPrefix: '/',
   reactStrictMode: true,
   swcMinify: true,
   webpack: (config, context) => {
