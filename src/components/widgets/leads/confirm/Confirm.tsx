@@ -27,7 +27,7 @@ const Confirm = ({ lead, component }: ThankyouProps) => {
           <Progress value={progress} className="neon-primary transition-all" />
           <h1
             className="font-extrabold text-4xl sm:text-5xl lg:text-5xl tracking-tight pt-5 dark:text-white"
-            data-aos="zoom-out"
+            //data-aos="zoom-out"
           >
             Inscrição confirmada
           </h1>
@@ -41,15 +41,15 @@ const Confirm = ({ lead, component }: ThankyouProps) => {
           </div>
           <h2
             className="font-extrabold text-2xl sm:text-2xl lg:text-2xl tracking-tight pt-5 dark:text-white"
-            data-aos="zoom-out"
-            data-aos-delay="100"
+            // data-aos="zoom-out"
+            // data-aos-delay="100"
           >
             Informações adicionais
           </h2>
           <p
             className="mt-2 text-1xl max-w-3xl mx-auto text-slate-400"
-            data-aos="zoom-out"
-            data-aos-delay="200"
+            // data-aos="zoom-out"
+            // data-aos-delay="200"
           >
             Olá, {lead.data.name}. Sua inscrição está realizada com sucesso.
             Aguardo você no evento:
@@ -91,8 +91,8 @@ const Confirm = ({ lead, component }: ThankyouProps) => {
               
           <p
             className="mt-2 text-1xl max-w-3xl mx-auto text-slate-400"
-            data-aos="zoom-out"
-            data-aos-delay="500"
+            // data-aos="zoom-out"
+            // data-aos-delay="500"
           >
             O nosso objetivo é fazer com que você aproveite ao máximo esse
             evento! Queremos ouvir de você quais são as suas principais

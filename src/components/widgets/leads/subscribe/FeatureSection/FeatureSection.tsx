@@ -21,7 +21,10 @@ const FeatureSection = ({
       <div className="container text-center">
         <TitleSubtitle title={title} subtitle={subtitle} />
 
-        <picture data-aos="zoom-out" data-aos-delay="200">
+        <picture 
+          //data-aos="zoom-out" 
+          //data-aos-delay="200"
+          >
           <img src={"/imgs/features.svg"} alt="img" />
         </picture>
 

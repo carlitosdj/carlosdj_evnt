@@ -10,8 +10,8 @@ const ItemTitleSubtitle = ({ title, description, delay }: Props) => {
   return (
     <div
       className="w-full"
-      data-aos="zoom-out"
-      data-aos-delay={delay ? delay : "0"}
+      //data-aos="zoom-out"
+      //data-aos-delay={delay ? delay : "0"}
     >
       <div className="flex justify-center">
         <SvgIconTest />

@@ -44,8 +44,8 @@ jobs:
         #uses: actions/deploy-pages@v4
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rltgoDzvO --delete"
-          #ARGS: "-rlgoDzvc -i"
+          #ARGS: "-rltgoDzvO --delete"
+          ARGS: "-rlgoDzvc -i --delete"
           #ARGS: "-rltDzvO --delete"
           #ARGS: "-rlgoDzvc --delete"
           #ARGS: "-rlgoDzvc -i --delete"

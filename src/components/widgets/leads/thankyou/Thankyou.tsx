@@ -28,7 +28,7 @@ const Thankyou = ({ lead, component }: ThankyouProps) => {
           <Progress value={progress} className="neon-primary transition-all" />
           <h1
             className="font-extrabold text-4xl md:text-5xl lg:text-6xl tracking-tight pt-5 text-primary-50 "
-            data-aos="zoom-out"
+            //data-aos="zoom-out"
           >
             Faltam 2 passos
           </h1>
@@ -42,15 +42,15 @@ const Thankyou = ({ lead, component }: ThankyouProps) => {
           </div>
           <h2
             className="font-extrabold text-2xl sm:text-2xl lg:text-2xl tracking-tight pt-5 dark:text-white"
-            data-aos="zoom-out"
-            data-aos-delay="100"
+            // data-aos="zoom-out"
+            // data-aos-delay="100"
           >
             Passo 1
           </h2>
           <p
             className="mt-2 text-1xl max-w-3xl mx-auto text-slate-400"
-            data-aos="zoom-out"
-            data-aos-delay="200"
+            // data-aos="zoom-out"
+            // data-aos-delay="200"
           >
             Olá, {lead.data.name}. Clique no botão abaixo e participe do grupo
             de whatsapp para receber todas as informações de acesso e os
@@ -75,15 +75,15 @@ const Thankyou = ({ lead, component }: ThankyouProps) => {
 
           <h2
             className="font-extrabold text-2xl sm:text-2xl lg:text-2xl tracking-tight pt-5 dark:text-white"
-            data-aos="zoom-out"
-            data-aos-delay="300"
+            // data-aos="zoom-out"
+            // data-aos-delay="300"
           >
             Passo 2
           </h2>
           <p
             className="mt-2 text-1xl max-w-3xl mx-auto text-slate-400"
-            data-aos="zoom-out"
-            data-aos-delay="400"
+            // data-aos="zoom-out"
+            // data-aos-delay="400"
           >
             Acabei de te enviar um e-mail com uma pesquisa rápida, que leva
             menos de 2 minutos para responder. Ah, por gentileza, responda com
