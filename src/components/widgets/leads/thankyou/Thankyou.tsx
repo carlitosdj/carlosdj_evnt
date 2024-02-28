@@ -91,8 +91,8 @@ const Thankyou = ({ lead, component }: ThankyouProps) => {
           </p>
           <p
             className="mt-2 text-1xl max-w-3xl mx-auto text-slate-400"
-            data-aos="zoom-out"
-            data-aos-delay="500"
+            // data-aos="zoom-out"
+            // data-aos-delay="500"
           >
             O nosso objetivo é fazer com que você aproveite ao máximo esse
             evento! Queremos ouvir de você quais são as suas principais

@@ -20,7 +20,7 @@ const Unsubscribed = ({ lead, component }: UnsubscribeProps) => {
 
           <h1
             className="font-extrabold text-5xl sm:text-5xl lg:text-5xl tracking-tight pt-5 dark:text-white"
-            data-aos="zoom-out"
+            // data-aos="zoom-out"
           >
             Você foi removido da nossa lista de comunicação
           </h1>
@@ -34,8 +34,8 @@ const Unsubscribed = ({ lead, component }: UnsubscribeProps) => {
           </div>
           <p
             className="mt-2 text-1xl max-w-3xl mx-auto text-slate-400"
-            data-aos="zoom-out"
-            data-aos-delay="200"
+            // data-aos="zoom-out"
+            // data-aos-delay="200"
           >
             Olá, {lead.data.name}. Você não receberá mais comunicações de{" "}
             {

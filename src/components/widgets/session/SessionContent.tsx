@@ -24,7 +24,9 @@ export const SessionContent = ({
   // );
   return (
     // <div className="p-10 rounded bg-gradient-to-r from-slate-900 to-slate-800 mb-20">
-    <div data-aos="zoom-out" data-aos-delay={delay || 0}>
+    <div 
+      //data-aos="zoom-out" data-aos-delay={delay || 0}
+      >
       <div className="relative mx-auto justify-center">
         {image && (
           <picture>
