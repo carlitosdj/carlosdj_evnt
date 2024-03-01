@@ -28,13 +28,10 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           #ARGS: "-rltgoDzvO --delete"
           
-          ARGS: "-rlgoDzvc -i --delete"
+          #ARGS: "-rlgoDzvc -i --delete"
           #ARGS: "-rlgoDzvc -i"
 
-          #ARGS: "-rltDzvO --delete"
-          #ARGS: "-rlgoDzvc --delete"
-          #ARGS: "-rlgoDzvc -i --delete"
-          #ARGS: "-avzr --delete"
+          ARGS: "-avzr --delete"
           SOURCE: "/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
