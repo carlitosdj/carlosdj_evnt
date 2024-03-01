@@ -45,9 +45,9 @@ const Subscribe = () => {
   }, [lead]);
 
   let loadOrFailTest = loadOrFailLeads({ component });
-  // console.log("component", component);
-  // console.log("lead", lead);
-  // console.log('loadOrFailTest', loadOrFailTest)
+  console.log("component", component);
+  console.log("lead", lead);
+  console.log('loadOrFailTest', loadOrFailTest)
 
   if (loadOrFailTest === "loading") return <Loading />;
   if (loadOrFailTest === "not found") return notFound();
