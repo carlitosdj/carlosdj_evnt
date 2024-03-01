@@ -27,7 +27,10 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           #ARGS: "-rltgoDzvO --delete"
-          ARGS: "-rlgoDzvc -i"
+          
+          ARGS: "-rlgoDzvc -i --delete"
+          #ARGS: "-rlgoDzvc -i"
+
           #ARGS: "-rltDzvO --delete"
           #ARGS: "-rlgoDzvc --delete"
           #ARGS: "-rlgoDzvc -i --delete"
