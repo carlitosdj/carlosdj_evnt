@@ -9,14 +9,60 @@ interface HeroProps {
   children: React.ReactNode;
   badge?: string;
   video?: string;
+  eventStartDate?: string;
+  eventEndDate?: string;
 }
 
-const Hero = ({ title, subtitle, badge, children, video }: HeroProps) => {
+const Hero = ({
+  title,
+  subtitle,
+  badge,
+  children,
+  video,
+  eventStartDate,
+  eventEndDate,
+}: HeroProps) => {
+  const transformDate = (stringDate: string) => {
+    const [day, month, year] = stringDate.split("/");
+    let date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+    return date;
+  };
+
   return (
     <div className="bg-transparent">
       <div className="bg-transparent">
         <div className="container">
-          <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-8 pt-12 pb-6">
+          {eventStartDate && eventEndDate && (
+            <div
+              className="text-primary-950 right-0 left-0 bg-primary-200 p-3 font-extrabold text-center rounded-md shadow-lg m-4 md:container text-md"
+              style={{ position: "absolute", zIndex: "99" }}
+            >
+              DATA DO EVENTO <br/>
+              {new Date(transformDate(eventStartDate)).toLocaleDateString(
+                "pt-BR",
+                {
+                  timeZone: "UTC",
+                  day: "numeric",
+                  month: "numeric",
+                  // year: "numeric",
+                }
+              )}
+              {" A "}
+              {new Date(transformDate(eventEndDate)).toLocaleDateString(
+                "pt-BR",
+                {
+                  timeZone: "UTC",
+                  day: "numeric",
+                  month: "numeric",
+                  // year: "numeric",
+                }
+              )}
+              <br/>
+              ONLINE E GRATUITO
+            </div>
+          )}
+
+          <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-8 pt-32 pb-6">
             <div className="">
               {badge && (
                 <Badge

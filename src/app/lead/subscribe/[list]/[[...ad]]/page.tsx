@@ -77,6 +77,19 @@ const Subscribe = () => {
                 key: "eventDescription",
               })!
             }
+            eventStartDate={
+              getValueFromExtras({
+                extras: component.data.extras!,
+                key: "eventStartDate",
+              })!
+            }
+            eventEndDate={
+              getValueFromExtras({
+                extras: component.data.extras!,
+                key: "eventEndDate",
+              })!
+            }
+
           >
             <SubscribeButton
               ad={ad.toString()}
