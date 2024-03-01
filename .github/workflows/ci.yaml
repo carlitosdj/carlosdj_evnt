@@ -11,34 +11,16 @@ jobs:
       - name: Checkout do Repositorio
         uses: actions/checkout@v4
 
-      # - name: Detect package manager
-      #   id: detect-package-manager
-      #   run: |
-      #     if [ -f "${{ github.workspace }}/yarn.lock" ]; then
-      #       echo "manager=yarn" >> $GITHUB_OUTPUT
-      #       echo "command=install" >> $GITHUB_OUTPUT
-      #       echo "runner=yarn" >> $GITHUB_OUTPUT
-      #       exit 0
-      #     elif [ -f "${{ github.workspace }}/package.json" ]; then
-      #       echo "manager=npm" >> $GITHUB_OUTPUT
-      #       echo "command=ci" >> $GITHUB_OUTPUT
-      #       echo "runner=npx --no-install" >> $GITHUB_OUTPUT
-      #       exit 0
-      #     else
-      #       echo "Unable to determine package manager"
-      #       exit 1
-      #     fi
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
           #cache: ${{ steps.detect-package-manager.outputs.manager }}
-      #- run: npm install --global yarn
+      - run: npm install -g yarn
       #- run: CI=false
-      #- run: yarn install
-      #- run: yarn build
-
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
         #uses: actions/deploy-pages@v4
@@ -66,11 +48,6 @@ jobs:
             port: ${{ secrets.REMOTE_PORT }}
             script: | 
               cd /www/wwwroot/evnt.carlosdj.com.br/
-              rm -rf node_modules
-              rm -rf yarn.lock
-              rm -rf package-lock.json
-              yarn 
-              yarn build
               yarn pm2:restart
               
       
