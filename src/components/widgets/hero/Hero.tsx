@@ -37,7 +37,7 @@ const Hero = ({
               className="text-primary-950 right-0 left-0 bg-primary-200 p-3 font-extrabold text-center rounded-md shadow-lg m-4 md:container text-md"
               style={{ position: "absolute", zIndex: "99" }}
             >
-              DATA DO EVENTO <br/>
+            
               {new Date(transformDate(eventStartDate)).toLocaleDateString(
                 "pt-BR",
                 {
